@@ -1,0 +1,170 @@
+.publicar-curso{
+    padding: 3em;
+    font-size: 80%;
+   }
+   .publicar-curso h1{
+       font-weight: 600;
+   }
+   
+   .mensaje-publicar{
+     background-color: #E6F2F5;
+     padding: 1em;
+     margin: 2em 0em
+   }
+   .descripcion-publicarCurso{
+       margin-bottom: 5em;
+   }
+   
+   .publicar-seccion{
+     background-color:#F2F3F5 ;
+     padding: 0.7em;
+     margin-bottom: 2em;
+   }
+   .titulo-seccion{
+       display: flex;
+       margin-bottom: 2em;
+       padding: 0.5em 0em;
+       align-items: center;
+       
+   }
+   .publicar-seccion-contenido{
+       display: flex;
+       justify-content: space-between;
+       padding: 0.3em 1em;
+       background-color: #fff;
+       border:1px solid #CACBCC;
+       align-items: center; 
+   }
+   .publicar-seccion-contenido-item{
+       display: flex;
+       align-items: center;
+   }
+   
+   .mas-contenido{
+       border: 1px solid #007791;
+       padding: 0.7em;
+       margin-right: 2em;
+       background-color: #FFFFFF;
+       color:#007791;
+       font-weight: 800;
+   }
+   .publicar-seccion-contenido-item i,.publicar-seccion-contenido-item p ,.titulo-seccion i , .titulo-seccion p {
+       margin-right: 0.5em;
+   }
+   
+   .tipos-contenido{
+       border-right: 1px solid #CACBCC;
+       border-left: 1px solid #CACBCC;
+       border-bottom: 1px solid #CACBCC;
+       font-size: 75%;
+       text-align: center;
+       background-color: #FFFFFF;
+   }
+   
+   .tipos-contenido-botones button{
+       border: 1px solid #007791;
+       padding: 0.7em;
+       margin: 2em 2em 2em 0em;
+       background-color: #FFFFFF;
+       color:#007791;
+       font-weight: 800;
+   }
+   
+   .cargar-video{
+       border:1px solid;
+   }
+   
+   .file-select {          
+       position: relative;
+       display: inline-block;
+     }
+      
+     .file-select::before {
+       background-color: #5678EF;
+       color: white;
+       display: flex;            
+       justify-content: center;
+       align-items: center;
+       border-radius: 3px;
+       content: 'Seleccionar'; /* testo por defecto */
+       position: absolute;
+       left: 0;
+       right: 0;
+       top: 0;
+       bottom: 0;                
+     }
+      
+     .file-select input[type="file"] {
+       opacity: 0;
+       width: 200px;
+       height: 32px;
+       display: inline-block;            
+     }
+      
+     #src-file1::before {
+       content: 'Seleccionar Archivo 1';
+     }
+      
+   
+     .titulo-cargar-video{
+         padding: 0.8em 0.1em;
+         width: 6em;
+         text-align: center;
+         border-bottom: 5px solid #007791;
+         margin-bottom: 1em;
+         margin-left: 1em;
+     }
+   
+     .clase-seccion{
+       width: 90%;
+       margin: auto;
+       margin-bottom: 3em;
+     }
+   
+     .btn-plus{
+         width: 2.4em;
+         height: 1.8em;
+         border:none;
+         border:1px dotted gray;
+         margin-bottom: 2em;
+        background-color: #fff;
+        color:#007791;
+     }
+   
+     .contenedor-preview-video{
+       border: 1px solid;
+       display: flex;
+       justify-content: space-between;
+       padding: 1em;
+       font-size: 80%;
+     }
+   
+     .contenedor-preview-video-item .preview-portada img{
+          width: 7.2em;
+          height: 4em;
+          object-fit: fill;
+          margin-right: 1em;
+     }
+     .contenedor-preview-video-item:nth-child(1){
+         display: flex;
+     }
+   
+     .detalles-del-video >p:nth-child(1){
+         font-weight: 700;
+     }
+     .detalles-del-video >p:nth-child(3){
+       color:#007791;
+   }
+     .detalles-del-video > p{
+         margin-bottom: 0.1em;
+     }
+   
+     .btn-vista-previa{
+      width: 8em;
+       padding: 0.6em;
+       background-color:#007791;
+       color:white;
+       border:none;
+       border-radius:2px;
+       font-weight: 600;
+     }

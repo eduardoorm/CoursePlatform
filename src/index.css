@@ -1,0 +1,50 @@
+*{
+  margin:0px;
+  padding: 0px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  
+
+}
+
+html{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+ font-size: 20px;
+}
+
+/* -----------------------------------*/
+/* HEADER */
+/* -----------------------------------*/
+h1{
+  font-style: normal;
+  font-weight: 700;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+h2{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5em;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+[type="checkbox"]{display:none}
+
+[type="checkbox"]:checked + label:before{
+  color:#3256D5;
+  content:'\f105';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  transform: rotate(90deg) translateX(5px);
+}
+
+
+a{
+    text-decoration: none;
+}
+
+a:visited,a:active{
+  color: rgb(3, 3, 3);
+}

@@ -1,0 +1,133 @@
+.checkout{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.section-checkout{
+    padding: 3em;
+}
+
+.checkout h1,h2{
+ font-size: 1.3em;
+ 
+}
+
+.checkout-left{
+    width: 33em;
+    margin-right: 2em;
+}
+.checkout-left h1{
+    margin-bottom: 0.7em;
+}
+
+.checkout-left h2{
+    margin-top: 2em;
+}
+.input-checkout{
+    width: 1.2em;
+    height: 1em;
+}
+
+.checkout-checkbox{
+    font-size: 75%;
+    line-height: 40px;
+}
+
+.checkout-form{
+    width: 100%;
+    background-color: #F8F8F9;
+    padding: 1em 2em;
+}
+#checkout-form-item{
+    width: 100%;
+    height: 3.3em;
+    margin-bottom: 1em;
+    border-style: none;
+    padding: 1em;
+    font-size: 80%;
+    border: 1px solid #8A92A3;
+}
+#checkout-form-item:nth-child(3),#checkout-form-item:nth-child(4){
+    width: 49.5%;
+}
+
+.checkout-detalle{
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    width: 100%;
+}
+.checkout-detalle-img{
+  width: 2em;
+  margin-right: 1.5em;
+}
+.img-checkout-detalle{
+    width: 100%;
+}
+.checkout-detalle-titulo{
+    font-weight: 700;
+    font-size: 70%;
+    width: 78%;
+    letter-spacing: 0.5px;
+}
+.checkout-detalle-precio{
+ font-size: 75%;
+}
+.checkout-right{
+    margin-top: 3em;
+    width: 22em;
+}
+
+.checkout-right p{
+    font-size: 80%;
+}
+
+.realizar-pago{
+    border-style: none;
+    width: 100%;
+    height: 4em;
+    color:white;
+    background-color: #3256D5;
+    border-radius: 0.2em;
+    font-weight: bold;
+}
+.checkout-right-precio,.checkout-right-total{
+    display: flex;
+    margin: 1em 0em 1em 0em;
+}
+.checkout-right-precio-p1,.checkout-right-precio-p2{
+    width: 72%;
+}
+.checkout-right-precio-total{
+    font-size: 1em;
+    font-weight: bold;
+}
+.checkout-right-precio-dolares{
+    font-weight: bold;
+    font-size: 1.1em;
+}
+#text-checkout-right{
+    font-size: 60%;
+   
+}
+.realizar-pago{
+    margin-top: 1em;
+    font-size: 70%;
+}
+
+.condiciones-uso-link {
+    color:#0a6e85;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+ .fixed-checkout-right{
+    position: fixed;
+    width: 22em;
+    padding: 1em;
+    border:0.1px solid #8a92a36c;
+    
+}  

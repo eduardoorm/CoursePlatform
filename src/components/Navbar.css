@@ -1,0 +1,79 @@
+/* -----------------------------------*/
+/* OFERTA LIMITADA */
+/* -----------------------------------*/
+.oferta-limitada{
+    width: 100%;
+    text-align: center;
+    background-color: #8ED1DC;
+    font-size: 0.8em;
+    padding: 1em;
+   
+}
+.en-cualquier-momento{
+    font-weight:700;
+    letter-spacing: 0.4px;
+    line-height: 2em;
+}
+
+#countdown{
+    font-weight:700;
+    font-size: 1.2em;
+    
+}
+
+/* ------------------------------------*/
+/* Componente reutilizables*/
+/* ------------------------------------*/
+
+.row{
+    padding: 0px 30px;
+}
+
+/* ----------------------------------*/
+
+nav{
+    padding-top: 10px;
+    background-color: #212429;
+    border-bottom: 1.3px solid rgba(0, 0, 0, 0.096);
+    height: 3.6em;
+    box-shadow: 0px 1.5px 12px rgba(0, 0, 0, 0.171);
+  
+}
+
+.main-nav>  a{
+    color:white; 
+}
+
+
+.main-nav{
+   
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    font-size: 80%;
+}
+
+.search{
+    border: 1px solid #989586;
+    border-radius: 130px;
+    height: 50px;
+    height: 50px;
+    min-width: 400px;
+    width: 500px;
+    max-width: 700px;
+    padding: 13px 30px;
+    font-size: 75%;
+    background: #FBFBF8;
+}
+.search p{
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-left:40px;
+    
+}

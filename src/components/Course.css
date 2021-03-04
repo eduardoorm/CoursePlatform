@@ -1,0 +1,141 @@
+
+#hola-usuario{
+    text-align: center;
+    margin:2em 2em 1em 2em;
+   }
+
+   .titulo-seccion{
+      font-size: 1.2em;
+      color:#3c3b37;
+   }
+   #container-flex-cursos{
+       width: 100%;
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+       margin: 2em 0em;
+     
+   }
+
+ 
+   .container-curso{
+       width: 360px;
+       min-width: 300px;
+       background-color: #F5F5F5;
+       margin:1em;
+       border-radius: 3px;
+       
+   }
+   .curso-img{
+       width: 100%;
+       height: 202px;
+   }
+   
+   .curso-img-img{
+       width: 100%;
+       height: 100%;
+       border-radius: 3px;
+   }
+   .curso-titulo{
+       padding: 1.3em;
+       text-align: center;
+       font-family: 'HKGroteskRegular', sans-serif;;
+       font-weight: 400;
+       font-size: 90%;
+       color:#0c1721;
+       line-height: 23px;
+   }
+   .curso-profesor,.curso-acreditado{
+       text-align: center;
+       font-family: 'HKGroteskRegular', sans-serif;;
+       font-size: 60%;
+       font-weight: 700;
+       line-height: 12px;
+       color:black;
+   }
+   .curso-acreditado{
+       font-size: 50%;
+       display: flex;
+       justify-content: center;
+       margin-top: 4px;
+      
+   }
+   .curso-acreditado p{
+       margin-left: 8px;
+   }
+   .curso-valoracion{
+       display: flex;
+       font-size: 60%;
+       font-weight: 600;
+       text-align: center;
+       margin:30px 0px 30px 0px;
+       justify-content: center;
+       align-items: center;
+       color:black;
+   }
+   .curso-valoracion p{
+       margin-left: 10px;
+   }
+   .curso-pie{
+       padding: 1em;
+      font-size: 70%;
+      font-weight: bold;
+      display: flex;
+      border-top: 1px solid rgba(119, 118, 118, 0.178);
+      color:black;
+   }
+
+   .curso-pie p:nth-child(1) {
+     display: flex;
+     align-items: center; 
+    }
+   .Categoria{
+    background-color: #FFF;
+    display: flex;
+    margin: 0px 3px 0px 50px;
+    padding: 6px 5px;
+    border-radius: 30% ;
+   }
+   
+   .img-categoria{
+       width: 25px;
+       height: 20px;
+   }
+
+
+     /**---SECCION CURSOS---*/
+
+     .container-seccion-cursos{
+        width: 85%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+ 
+    .container-curso-page{
+     width: 360px;
+     min-width: 300px;
+     background-color: #F5F5F5;
+     margin: 0em 0.5em;
+     border-radius: 3px;
+     margin-bottom: 1.5em;
+    }
+ 
+    /*---------------------*/
+    .container-page-curso{
+    display:flex;
+    margin: 2em 0em;
+    }
+
+    .item-container-curso{
+    width: 200px;
+    }
+
+    .item-container-curso p{
+     margin-bottom: 0.6em;
+     padding-left: 1.8em;
+     font-size: 85%;
+     color:#3256D5;
+     font-weight: 600;
+    }
+    

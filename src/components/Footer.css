@@ -1,0 +1,52 @@
+
+/*-------------------------------------*/
+/*Footer*/
+/*-------------------------------------*/
+
+footer .fo-container{
+    display: flex;
+    flex-wrap: wrap;
+    
+    font-size: 1em;
+    padding: 0px 20px 15px 20px;
+    background-color: #212429;
+ }
+ footer .fo-container a{
+     color:#727576
+ }
+ 
+ footer .fo-container .fo-item-up{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.6em;
+  justify-content: center;
+ }
+ 
+ footer .fo-container .fo-item-up .fo-item-up-1{
+     width: 230px;
+     min-width: 200px;
+     padding:20px;     
+ }
+ .fo-item-up p{
+    color:#CFD0D1;
+    border-bottom: 1px solid #CFD0D1;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.6em;
+ }
+ .fo-item-up .fo-item-up-1 a{
+     display: block;
+     width: 100%;
+     line-height: 1.1em;
+     margin-bottom: 1em;
+ }
+ 
+ footer .fo-container .fo-item-down{
+     width: 100%;
+     padding: 25px;
+ }
+ 
+ footer .fo-container .fo-item-down p{
+     float: right;
+ }
+ 
