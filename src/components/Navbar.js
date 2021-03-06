@@ -12,7 +12,6 @@ class NavBar extends Component {
         <nav>
         <div className="row">
             <Link to='/'><TitleIntesla>Intesla</TitleIntesla></Link>
-                
                 <ul className="main-nav">
                 <Link to='/collections'><li>Cursos</li> </Link>
                     <li>
