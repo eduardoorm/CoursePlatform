@@ -1,19 +1,14 @@
 import {Titulocenter,TextCenter,ContainerBioProfesor,ImgProfileProfesor,ContTextBio,Text} from '../elementos/Profesor'
 import React , {Component} from 'react'
 
-export default class Profesor extends Component {
+export default function Profesor(props)  {
   
-    constructor(props){
-       super(props)
-   }
-
-   render(){
        return(
            <section className="profesor">
            <Titulocenter>Profesor</Titulocenter>
            <TextCenter>Erick imparte este curso</TextCenter>
            <ContainerBioProfesor>
-               <ImgProfileProfesor src="assets/img/profesorPerfil.png"></ImgProfileProfesor>
+               <ImgProfileProfesor src="/assets/img/profesorPerfil.png"></ImgProfileProfesor>
                <ContTextBio>
                  <h3>Erick Romucho</h3>
                  <Text>Graduado en Diseño y Producción de Videojuegos en la UPF y Desarrollo de Aplicaciones Multiplataforma. 
@@ -30,4 +25,4 @@ export default class Profesor extends Component {
        )
    }
 
-} 
+ 

@@ -1,38 +1,22 @@
-import React , {Component} from 'react'
 import { ContenidoModulo,TxtContenidoModulo } from '../elementos/Resumen-curso'
-
-    
-const ListVideo =(props)=>{
-    const listItems = props.titleVideo;
-    if(!listItems) return (<span>Modulo sin contenido ☹  </span>) 
-    const variable = listItems.map((el)=><p><i className="fas fa-lock"></i> {el}</p>)
+import {Link} from 'react-router-dom'
+const ListVideo =({nombre,duracion})=>{
+    if(!nombre) return (<span>Modulo sin contenido ☹</span>)   
     return(
-        <>
-        {variable}
-        </>
+      <p><i className="fas fa-lock"></i> {nombre}</p>
     )
   }
 
-export default class TituloVideo extends  Component{
- 
-    
-    constructor(props){
-        super(props)  
-    }
-
-
-    render(){
-        return(
-                <>
-                
-                 <ContenidoModulo >
+export default function TituloVideo ({id_video ,nombre,duracion ,id_modulo,id_curso}){ 
+        return(             
+          <Link to={`/course/${id_curso}/${id_video}`}>
+                <ContenidoModulo >
                  <span className="item-contenido-modulo">
-                <TxtContenidoModulo> 
-                     <ListVideo titleVideo={this.props.titleVideo}></ListVideo>
+                    <TxtContenidoModulo> 
+                    <ListVideo nombre={nombre} duracion={duracion}/>
                     </TxtContenidoModulo>
-                </span>
-                 </ContenidoModulo>
-                 </>
+                 </span>
+                </ContenidoModulo>  
+          </Link>             
         )
-    }
 }

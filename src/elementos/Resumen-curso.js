@@ -13,6 +13,7 @@ const ContainerHeaderModulo= styled.div `
     background-color: #F2F2F2;
     border-radius:6px;
     padding: 0px 2em;
+    margin-top:0.4em;
     
 `
 const FlechaModulo = styled.div `
@@ -64,13 +65,14 @@ const TituloModulo = styled.p `
 
 //----- contenido modulo------------
 const ContenidoModulo = styled.div `
-
+ padding:0.7em;
+ padding-left:2em;
 `
 const TxtContenidoModulo = styled.div `
     font-size: 80%;
     font-weight: 600;
-    margin-left: 4em;
-    margin-top: 1.4em;
+    
+   
 `
 
 const ContainerVideos = styled.div `

@@ -1,0 +1,43 @@
+.certificado_titulo{
+    display: block;
+    margin:1em auto;
+    text-align: center;
+}
+
+.container_buscarCertificado{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+    margin:auto;
+}
+.input_buscarDNI{
+    border-radius: 0.2em;
+    width: 30em; 
+}
+
+.btn_buscar{
+    border:none;
+    border-radius: 0.3em;
+    margin-left: 4em;
+    padding: 0.7em;
+    background-color:#3256D5;
+    color:white;
+}
+
+.container-Certificados{
+    width: 50%;
+    padding: 0em 1em 1em 1em;
+    margin: 1em auto;
+
+}
+
+.certificado-iten{
+  line-height: 3em;
+  display: flex;
+  margin:auto;
+ 
+  justify-content: space-between;
+  align-items: center;
+}
+

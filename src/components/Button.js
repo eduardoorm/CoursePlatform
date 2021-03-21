@@ -1,10 +1,10 @@
 import React ,{Component} from 'react';
-import './Button.css'
+import './ComponentStyles/Button.css'
 import styled from 'styled-components';
 
 export const Btn = (props) =>{
      return(
-        <button className={props.style} type={props.type}>{props.value}</button>
+        <button className={props.style} type={props.type} onClick={props.onClick}>{props.value}</button>
      );
 }
 

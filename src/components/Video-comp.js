@@ -1,94 +1,93 @@
-import React , {Component} from 'react'
-import './Video-comp.css'
-import ResumenCurso from './ResumenCurso'
-import { ContainerModulos, ContainerVideos} from '../elementos/Resumen-curso'
-import TituloDelModulo from './TituloModulo'
-
-export default class VideoComp extends Component{
-      
-    constructor(props){
-        super(props);
-    }
-
-    render(){
+import './ComponentStyles/Video-comp.css'
+import { useEffect, useState } from 'react';
+import './Comentario'
+import Comentario from './Comentario'
+import ComentarioEscribir from './ComentarioEscribir'
+import DescripcionVideo from './DescripcionVideo'
+import { useParams } from 'react-router';
+import {useFecthCursoID}from '../hooks/useFecthCursoID'
+import { useFetchComentariosPorVideo } from '../hooks/useFetchComentariosPorVideo';
+import { useFetchModulo } from '../hooks/useFetchModulo';
+import { useFetchVideoID } from '../hooks/useFetchVideoID';
+import TituloDelModulo from './TituloModulo';
+import {Btn} from './Button.js'
+import {Link} from 'react-router-dom';
+import './ComponentStyles/Navbar.css'
+export default function VideoComp() {
+  const {id,id_video}=useParams(); 
+  const {dataComentPorVideo:comentarios}=useFetchComentariosPorVideo(id_video)
+  const {dataCursoID:curso} =useFecthCursoID(id);
+  const {dataModulos:modulos}= useFetchModulo(id);
+  const{nombre} = curso.length>0 && curso[0];
+   const{dataVideo:video}=useFetchVideoID(id_video);
         return(
             <>
-             <div className="navbar-preview"><p>INTESLA EDUCATION</p></div>
+       <div className="navbar-preview">
+         <div className="navbar-preview-titulo">
+         <Link to="/"><i class="fab fa-reddit" id="icon_videoReproductor"></i></Link> 
+           <p>{nombre}</p> 
+         </div>   
+           {/* <div className="container_Calificacion">
+           <i className="fa fa-star review__star" id="starVideo"></i>    
+           <span className="calificacion">Deja una calificación</span>
+           </div>   */}
+         <div className="contain__showPefil">           
+                                  <Btn 
+                                  
+                                  value={
+                                  <>
+                                  <img src="/assets/img/perfil.png" 
+                                  className="img__perfil"
+                                  /> 
+                                  <i className="fas fa-chevron-down" id="buton__perfil"></i>
+                                  </>
+                                  }
+                                  style="btn_mostrarPerfil_Video"/>
+                               </div>
+         </div>
        <div className="container-seccion-video">
-       <div className="reproductor-left">
-  
-
-       </div>
-       <div className="reproductor-right">
-           <div className="reproductor-video">
-            <video
-            controls
-            id="video-Player"
-            className="video-js vjs-big-play-centered"
-            controls
-            
-            preload="auto"
-            controls poster="assets/img/profesor1.jpg"
-            data-setup="{}"
-            >
-             <source  src="assets/videos/video1.mp4" type="video/mp4" ></source>
-            </video>
-           </div>
-           <div className="footer-reproductor">
-               <h3>Profesiones en el mundo de la programación</h3>
-               <div>
-                    <button className="Anterior"> <i className="fas fa-angle-left"></i> Anterior</button>
-                    <button className="Siguiente">Siguiente <i className="fas fa-angle-right"></i></button>
-               </div>
-               
-           </div>
-
-           <div className="descrip-video">
-            <p>Aquí te contaré todas las posibilidades de profesiones alrededor de la programación y sus responsabilidades.</p>
-           </div>
-
-           <div className="comentarios-video">
-               <h3 className="comentario-titulo">Comentarios <span className="cantComentarios">(25)</span></h3>
-               <div className="hacer-comentario">
-                <img src="assets/img/perfil.png" className="perfil-comentario"/>
-                <input type="text" placeholder="Escribe un comentario..." className="inputComentario"/> 
-               </div>
-             
-           </div>
-           <div className="btn-comentarios">
-            <button className="btn cancelar">Cancelar</button>
-           <button className="btn comentar">Comentar</button>
-           </div>
-
-           <div className="">
-               <div className="comentario-realizado">
-                <img src="assets/img/perfil.png" alt="img-perfil"className="perfil-comentario"/>
-                <div>
-                    <p>Jorge Mendieta</p>
-                    <p className="hace-dias">hace 3 días</p>
-                </div>              
-               </div>
-               <div className="comentario-realizado-txt">
-                <p className="text-coment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis temporibus 
-                      praesentium dignissimos illum voluptate nesciunt dolore incidunt,
-                     saepe culpa porro voluptatum nobis aut corporis pariatur facilis reiciendis sit similique enim.saepe 
-                     culpa porro voluptatum nobis aut corporis pariatur facilis reiciendis sit similique enim.
-                     praesentium dignissimos illum voluptate nesciunt dolore incidunt,praesentium dignissimos illum voluptate
-                     nesciunt dolore incidunt,</p>
-                <button className="boton-coment"><i className="fas fa-thumbs-up"></i><small className="cant-btn1">0</small></button>
-                <button className="boton-coment"><i className="fas fa-magic"></i><small  className="cant-btn2"> 0</small></button>
-                <button className="boton-coment"><i className="fas fa-lightbulb"></i><small  className="cant-btn3">0</small></button>
-                <button className="btn-reponder">Responder</button>
-               </div>
-
-           </div>
+          <div className="reproductor-left">
+            <div className="container_txt_ClasesDelCurso">
+            <Link to="/"><i class="fas fa-arrow-left"></i></Link> 
+             <p className="txt_clasesDelCurso">Clases del Curso</p>
+            </div>
          
-       </div>
-       </div>
-     
-            </>
-        )
-    }
-
-
+            {
+            modulos.map(
+              (el,pos)=><TituloDelModulo pos={pos+1} {...el}/>
+              )}
+          </div>
+          
+        <div className="reproductor-right">
+             <div className="reproductor-video">
+                 <video
+                   controls
+                   id="video-Player"
+                   className="video-js vjs-big-play-centered"
+                   controls
+                   preload="auto"
+                   controls poster="/assets/img/profesor1.jpg"
+                   data-setup="{}"
+                 >
+                 <source  src="/assets/videos/video1.mp4" type="video/mp4" ></source>
+                 </video>
+             </div>
+                     
+             <DescripcionVideo {...video[0]}/>
+         
+             {/* COMPONENTE PARA REALIZAR UN COMENTARIO*/}
+             <ComentarioEscribir cantidad={comentarios?.length}/>
+             
+             {comentarios.length === 0
+               ?
+               <h3>No se encontraron Comentarios</h3>
+               :
+               comentarios.map(comentario =>
+                   <Comentario {...comentario}/>
+               )
+             }    
+         </div>
+     </div> 
+   </>
+  )
 }

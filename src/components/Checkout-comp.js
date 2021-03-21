@@ -1,5 +1,5 @@
 import React , {Component} from 'react'
-import './Chekout-comp.css'
+import './ComponentStyles/Chekout-comp.css'
 
 export default class CheckoutComp extends Component {
   

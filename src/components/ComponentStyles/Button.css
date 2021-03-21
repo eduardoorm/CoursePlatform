@@ -1,0 +1,108 @@
+.iniciar-sesion, .registrarse{
+    border: 1px solid  #3256D5;
+    border-radius: 5px;
+    color:#3256D5;  
+    max-width: 120px;
+    min-width: 120px;
+    height: 2.6em;
+    font-weight: bold;
+    font-size: 95%;
+    cursor: pointer;
+    padding: 0px 5px;
+    background-color: #212429;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+} 
+
+li .registrarse { 
+    background-color:#3256D5;
+    color: white;
+}
+
+
+.btnBanner-ya,.btnBanner-mas{
+    border: 1px solid #3F69FF ;
+    background-color: #3F69FF;
+    border-radius: 0.2em;
+    color:white;  
+    max-width: 120px;
+    min-width: 150px;
+    height: 2.1em;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0px 2px;
+    font-size: 80%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    margin: 20px 20px 6px 0px;
+}
+
+.registrarme{
+    background-color: #3256D5 ;
+    padding: 13px;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+.btnBanner-mas{
+    background-color: white;
+    color:#3F69FF;  
+}
+
+.btn-default{
+    background-color: #3F69FF ;
+    padding: 13px;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor:pointer;
+}
+.btn_guardarCambios{
+    background-color: #3F69FF ;
+    padding: 17px;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor:pointer;
+    display: block;
+    width: 100%;
+    margin-top: 5em;
+}
+
+.btn_mostrarPerfil{
+    background-color: white;
+    border:none;
+    width: 5em;
+    height: 3em;
+    display: flex;
+    align-items: center;
+}
+.btn_mostrarPerfil_Video{
+    background-color: #212429;
+    border:none;
+    width: 5em;
+    height: 3em;
+    display: flex;
+    align-items: center;
+}
+#buton__perfil{
+ color: #3256D5;
+}
+
+.btn__cerrarSesion{
+    border:none;
+    width: 100%;
+    height: 100%;
+    background-color: #F4F4F4;
+    font-size: 1em;
+    text-align: start;
+    padding-left: 0.7em;
+    border-top: 1px solid gray;
+}

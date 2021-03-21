@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 const ContainBannerCurso = styled.div `
     position: absolute;
     top:0;
@@ -48,7 +47,7 @@ const EmpezarYa = styled.button `
     
     width: 100%;
     height: 14.8em;
-    background-image: url('assets/img/profesor1.jpg');
+    background-image: url('/assets/img/profesor1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: 50%; 

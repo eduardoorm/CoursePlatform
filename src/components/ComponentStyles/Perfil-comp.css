@@ -1,0 +1,78 @@
+.perfil-estudiante-header{
+    font-size: 80%;
+     display: flex;
+    margin:auto;
+    margin-bottom: 2em;
+    padding: 1em;
+    border-bottom:2px solid #EFF1F3;
+    width: 81%;
+ }
+
+ .perfil-estudiante-header img{ 
+    width: 4em;
+    height: 4em;
+    margin-right: 1em;
+ }
+ 
+ .perfil-estudiante{
+     padding: 2em 3em;
+ }
+
+ .estudiante-misCursos-container{
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+ }
+ .estudiante-SinCursos-container{
+     width: 80%;
+     margin:auto;
+ }
+ .estudiante-misCursos{
+   display:flex;
+   justify-content: space-between;
+  align-items: center;
+  padding: 1.4em 1em;
+  border:2px solid #EFF1F3;
+  border-radius: 8px;
+  margin-top: 1em;
+ }
+ .estudiante-header-item p:nth-child(1){
+     font-weight: 700;
+     margin-bottom: 0.1em;
+ }
+ .estudiante-header-item p:nth-child(2){
+     font-size: 80%;
+     color:#B3BCC3;
+ }
+ .estudiante-header-item p:nth-child(3){
+     font-weight: 700;
+     color:#3F81FF;
+     margin-top: 0.6em;
+ }
+ 
+
+ .misCursos_Titulo{
+     margin-left: 5em;
+    margin-bottom: 1em;
+}
+
+ .btn-explorarCursos{
+     background-color:#3F69FF ;
+     border:none;
+     padding: 1em 1em;
+     border-radius: 3px;
+     color:#fff;
+     font-weight: 600;
+     text-align: center;
+     font-size: 80%;
+ }
+ .volverPerfil{
+    background-color:#3F69FF ;
+    border:none;
+    padding: 0.5em 1em;
+    border-radius: 3px;
+    color:#fff;
+    font-weight: 500;
+    text-align: center;
+    font-size: 70%;
+ }

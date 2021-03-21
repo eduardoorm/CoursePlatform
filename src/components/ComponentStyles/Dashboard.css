@@ -1,0 +1,14 @@
+/*DashNav*/
+#DashNav_Container{
+    border:1px solid;
+    display:flex;
+    justify-content: space-between;
+}
+#DashNav_Container li{
+    list-style: none;
+    border:1px solid;
+   
+}
+#DashNav_Container:nth-child(2){
+   border: 9px solid green;
+}
