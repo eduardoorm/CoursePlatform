@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import { postComentario } from '../helpers/postComentario';
 import './ComponentStyles/Comentarios.css'
 export default function ComentarioEscribir(props) {
@@ -12,6 +13,8 @@ export default function ComentarioEscribir(props) {
         })
       }
 
+     const {id,id_video}= useParams();
+
     useEffect(()=>{
       const  escribirComent=document.getElementById("escribirComent");
       escribirComent.addEventListener("click",function(e){
@@ -19,10 +22,10 @@ export default function ComentarioEscribir(props) {
           setEstadoComent(true);
         })
     },[])
-    
+  
       const realizarComentario= async (e)=>{
         e.preventDefault();
-        postComentario(coment)
+        postComentario(coment,id,id_video)
        }
        
        const cancelarComentario =()=>{

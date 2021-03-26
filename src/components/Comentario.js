@@ -4,12 +4,14 @@ import './ComponentStyles/Comentarios.css'
 import './ComponentStyles/Respuesta.css'
 import {useFetchRespuestas} from '../hooks/useFetchRespuestas'
 import { postRespuesta } from '../helpers/postRespuesta';
+import { deleteComentario } from '../helpers/deleteComentario';
 export default function Comentario({id_comentario,id_persona,id_curso,id_video,comentario,fecha,likes,nombre,apellido}) {
     const [responder,setResponder]       = useState(false)
     const [showRpta,setShowRpta]         = useState(false);
     const [respuestaTXT,setRespuestaTXT] = useState({});
     const {dataRespuesta:respuestas}     = useFetchRespuestas(id_comentario)
-    
+    const [elipsi, setElipsi] = useState(false);
+
     const hanldeResponder=()=>setResponder(true);
     const cancelarRespuesta =()=> setResponder(false);
     const OcultarRespuestas=()=>setShowRpta(false);
@@ -27,28 +29,50 @@ export default function Comentario({id_comentario,id_persona,id_curso,id_video,c
         postRespuesta(respuestaTXT)
     }
 
+    const clickElipsi = ()=>{
+        setElipsi(!elipsi)
+    }
+
+    const eliminarComentario =()=>{
+    //    deleteComentario();
+    }
+
     return(
-        <div className="">
+        <div className="Comentario_container_item">
           {/* COMENTARIOS REALIZADOS */}
             <div className="comentario-realizado">
-                <img 
-                src="/assets/img/perfil.png" 
-                alt="img-perfil" 
-                className="perfil-comentario"/>
-                <div>
-                    <p>{nombre} {apellido}</p>
-                    <p className="hace-dias">{fecha}</p>
-                </div>              
+                <div className="datos_comentario">
+                    <img 
+                    src="/assets/img/perfil.png" 
+                    alt="img-perfil" 
+                    className="perfil-comentario"/>
+                    <div className="">
+                        <p>{nombre} {apellido}</p>
+                        <p className="hace-dias">{fecha}</p>
+                    </div> 
+                </div>       
+            
+                <div className="eliminar_container">
+                  <button className="btn_elipsi" onClick={clickElipsi}><i class="fas fa-ellipsis-v"></i></button> 
+                    {elipsi && 
+                      <button className="btn_eliminarComent" onClick={eliminarComentario}>
+                         <i class="far fa-trash-alt"></i>
+                         <p>Eliminar</p> 
+                      </button> 
+                
+                    } 
+                 </div>    
             </div>
+
             <div className="comentario-realizado-txt">
                 <p className="text-coment">{comentario}</p>
-                <button 
+                {/* <button 
                     id="btn-like" 
                     data-id={id_comentario}
                     className="boton-coment">
                     <i className="fas fa-thumbs-up"></i>
                     <small className="cant-btn1">0</small>
-                </button>
+                </button> */}
                 {(!responder) && <button className="btn-reponder" onClick={hanldeResponder}>Responder</button>}
             </div>
         

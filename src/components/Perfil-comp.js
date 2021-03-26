@@ -51,7 +51,8 @@ export default function PerfilComp () {
                 </div>
              </div>
           
-             :<>
+             :
+             <>
              <h2 className="misCursos_Titulo">Mis Cursos</h2>
               <div className="estudiante-misCursos-container">             
                     {cursos?.map(curso=><MiCurso key={curso} {...curso} />) }

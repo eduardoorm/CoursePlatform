@@ -5,14 +5,16 @@ import {Btn} from './Button.js'
 import {TitleIntesla,NavbarRight} from '../elementos/Navbar-elementos'
 import { Oferta } from './Oferta';
 import {countdown,getFecha} from './Reloj'
+import { useFecthUsuario } from '../hooks/useFecthUsuario';
 export default function NavBar() {
      const[sesion,setSesion] = useState(false);
      const[clickPerfil,setClickPerfil] = useState(false);
      const history = useHistory();
+     const{data}= useFecthUsuario();
      const handlPerfil = () =>{
          (clickPerfil) ?   setClickPerfil(false) : setClickPerfil(true);
      }
-     
+     console.log(data);
      useEffect(()=>{
         if(localStorage.getItem("token")){
             return setSesion(true);
@@ -32,7 +34,7 @@ export default function NavBar() {
         <Oferta/>
         <nav id={"navBar"}>
         <div className="row">
-            <Link to='/'><TitleIntesla><span className="li_navbar">Intesla</span></TitleIntesla></Link>
+            <Link to='/'><TitleIntesla><span className="li_navbar">Intesla Education</span></TitleIntesla></Link>
                 <ul className="main-nav">  
                 <Link ><li id="li_navbar">Enseña en Intesla</li> </Link>
                 <Link to='/collections'><li id="li_navbar">Cursos</li> </Link>          
@@ -62,7 +64,7 @@ export default function NavBar() {
                                      </Link>
                                   </li>
                                   <li id="id_liNav">
-                                    <Link to='/certificado'>Mis Certificados </Link> 
+                                    <Link to={`/certificados/${data?.id_persona}`}>Mis Certificados </Link> 
                                   </li> 
                                   <li id="id_liNav">
                                       <Link>Mis Cursos </Link> 

@@ -1,6 +1,7 @@
 import React from 'react'
 
 export const getCursoID = async (id) => {
+  
     const url=`http://localhost:3001/getCursoID/${id}`;
     const response = await fetch(url);
     const cursos = await response.json();

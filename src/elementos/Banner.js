@@ -8,7 +8,7 @@ const Banner =styled.div `
     width: 100%;
     max-width : 1340px;
     height: 60vh;
-    background-image: url(assets/img/bannerIntesla2.jpg) ;
+    background-image: url("assets/img/bannerIntesla2.jpg") ;
     background-repeat: no-repeat;
     background-size: cover;
     margin:0em auto 3em;
@@ -26,10 +26,10 @@ width: 23em;
 float: left;
 margin-top: 1.2em;
 margin-left:3em;
-background-color: white;
 padding: 1em;
 border: 0.1px solid rgba(0, 0, 0, 0.10);
 box-shadow: 0px 1.5px 6px rgba(0, 0, 0, 0.171);
+background-color:white;
 `;
 
 const TextBanner = styled.p `

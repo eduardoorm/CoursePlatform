@@ -1,6 +1,6 @@
 import React from 'react'
-import { DashNav } from '../components/DashNav'
+import { DashDashboard } from '../components/DashDashboard';
 
 export const Dashboard = () => {
-    return (<DashNav/>);
+    return (<DashDashboard/>);
 }

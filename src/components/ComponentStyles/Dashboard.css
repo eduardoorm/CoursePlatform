@@ -1,14 +1,411 @@
 /*DashNav*/
 #DashNav_Container{
-    border:1px solid;
     display:flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    padding: 1em 2em;
+    background-color: #253742;
+    color:white;
+    font-size: 80%;
 }
+
+#DashNav_Container a{
+    color:#E7E8E9;
+}
+
 #DashNav_Container li{
     list-style: none;
-    border:1px solid;
-   
 }
-#DashNav_Container:nth-child(2){
-   border: 9px solid green;
+
+#DashNav_Container .DashNav_Item:nth-child(1){
+   display: flex;
+   justify-content: space-between;
+  
+}
+
+li{
+    padding: 0.5em;
+}
+
+.DashNav_Item:nth-child(1) li:nth-child(2){
+    border:1px solid white;
+    margin-left: 2em;
+}
+
+/*DASHBOARD COLUMN 1*/
+.Dashboard-Column_1{
+    min-width: 20%;
+    height: 91vh;
+    border:1px solid black;
+    padding: 2.6em 1em;
+    
+}
+
+.Dashboard-Column_2{
+    width: 80%;
+    height: 90vh;
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+}
+.Dashboard-Preview{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 0.2em;
+}
+.Dashboard-Contenido{
+    width: 100%;
+    min-height: 80%;
+    background-color: #EAEDED;
+    border-radius: 0.2em;
+    padding: 1em;
+}
+.dashboar_contenido_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4em 0em 1.4em 0em;
+}
+
+.Dashboar_container_bienvenido{
+    text-align: center;
+    margin-top: 15%;
+}
+.Dashaboard_Container{
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+    background-color: #EAEDED;
+}
+
+.Dashboard_Sections{
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    font-size: 80%;
+    padding-top: 2em;
+}
+
+/*COMPONENT Dash section*/
+.Dash_Section{
+  display: flex;
+  
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0em 1.5em;
+  align-items: center;
+
+}
+.dash_section_perfil{
+    text-align: center;
+}
+.dash_section_perfil img{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+}
+.txt_Navegacion{
+    padding: 1em;
+    margin-left: 1em;
+}
+.Dash_Section_Item{
+    display: flex;
+    width: 100%;
+    padding: 0.6em 1em;
+    margin-top: 0.3em;
+}
+.Dash_Section_Item p{
+   margin-left: 0.7em;
+}
+.Dash_Section:nth-child(4) .Dash_Section_Item> p{
+    margin-left: 1em;
+}
+
+/*HEADER */
+.Header_Titulo{
+  padding-left: 1.5em;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+ 
+}
+.Header_Titulo_item{
+    display: flex;
+    align-items: center;
+}
+.Header_Titulo_item p{
+     margin-left: 10px;
+}
+.btn_header{
+     padding: 0.7em;
+     background-color: white;
+     border:1px solid;
+     border-radius: 8px;
+     color:#5991E1;
+}
+/*DASH CONTE DASHBOAR */
+.titulo_DashConteDashBoard{
+    text-align: center;
+    margin-top: 15%;
+}
+/*Dash add categoria*/
+.Container_categoria{
+  
+}
+.input_addCategoria{
+    margin-top: 0.5em;
+    border-radius: 5px;
+}
+#addCategoria_select{
+    height: 2em;
+    font-size: 0.8em;
+    border-radius: 4px;
+    border: 1px solid #BBBBBB;
+    margin-bottom: 0.5em;
+}
+.item_input_addCategoria{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.categoria_items{
+    display: flex;
+    padding: 0.5em;
+    border-top:1px solid;
+    justify-content: space-between;
+}
+.categoria_items:nth-child(1){
+    border:none;
+}
+.categoria_cursos{
+    padding: 0.5em;
+    width: 22em;
+    margin:1em;
+    font-size: 80%;
+    border-radius: 4px;
+    background-color: white;
+}
+
+
+.btn_categoria{
+    border:none;
+    padding: 0.8em;
+    border-radius: 0.4em;
+    width: 6em;
+}
+
+.btn_agregar{
+    border:none;
+    padding: 0.8em 2em;
+    border-radius: 0.4em;
+    background-color: #3498DB;
+    color:white;
+    display: block;
+    margin:auto;
+    margin-top: 1.3em;
+}
+.btn_categoria:nth-child(1){
+   margin-right: 1em;
+   background-color: #3498DB;
+}
+.btn_categoria:nth-child(2){
+    margin-right: 1em;
+    
+    background-color: #EC7063;
+ }
+.identi_categoria{
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid black;
+    padding-left: 0.4em;
+}
+
+.input_categoria{
+    border-radius: 5px;
+    margin-top: 1.2em;
+    margin-bottom: 2em;
+}
+.form_categoria{
+    margin-top: 1em;
+}
+ /*Cursos*/
+
+ .container_cursos_admin{
+     margin-top: 1em;
+     width: 100%;
+ }
+ .container_curso_item{
+     border:1px solid;
+     padding: 1em;
+     font-size: 80%;
+     margin:1em;
+     display:flex;
+     justify-content: flex-start;
+     width: 100%;
+    
+ }
+ .container_curso_item p{
+     border:1px solid;
+ }
+  .item_span{
+     font-weight: 500;
+ }
+
+ .botones_curso{
+     margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+
+ }
+ #masContenidoCurso{
+     background-color: #21D547 ;
+ }
+ #btn_editarCurso{
+     background-color:#2196D5  ;
+ }
+ #btn_eliminarCurso{
+     background-color: #D52121  ;
+ }
+ .btn_curso{
+     width: 7.5em;
+     padding: 0.7em;
+     border:none;
+     border-radius: 5px;
+     color:white;
+     font-size: 90%;
+ }
+
+ .ID_Curso img{
+    width: 100%;
+    height: 13em;
+    margin-bottom: 1em;
+}
+
+#precio_input,#duracion_input,#lecciones_input{
+    width: 4.5em;
+    height: 1.7em;
+}
+
+.Container_curso{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+ }
+
+.negr_curso{
+    font-weight: 600;
+}
+.btn_volverCurso,.btn_addSeccion,.btn_addLeccion{
+    padding: 0.5em;
+    width: 7em;
+    margin-right: 1em;
+    margin-top: 1em;
+}
+ /*Secciones*/
+ .Container_Secciones{
+     margin-top: 1em;
+     background-color: white;
+ }
+ .header_secciones{
+     border:1px solid black;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 0.4em;
+ }
+
+ .botones_Secciones button{
+    border:none;
+    padding: 1em;
+    margin-right: 10px;
+ }
+ 
+ .botones_Secciones .btn-default:nth-child(1){
+   background-color: #21A9D5;
+   padding: 0.7em;
+ }
+ .botones_Secciones .btn-default:nth-child(2){
+    background-color: #D52121;
+    padding: 0.7em;
+ }
+ .titulo_AddSeccion,.titulo_AddLeccion{
+     text-align: center;
+     margin: 1em 0em;
+ }
+ #btn_AddSeccion,#btn_AddLeccion{
+   margin-right: 1em;
+ }
+ #btn_AddVolver{
+     background-color: white;
+     color:#3F69FF;
+     border:1px solid #3F69FF;
+ }
+ .btn-Volver{
+     border:1px solid;
+     width: 6em;
+     padding: 0.6em;
+     background-color: white;
+     border-radius: 4px;
+     color:#3F69FF;
+     font-size: 80%;
+     border:1px solid #3F69FF;
+     margin-bottom: 1em;
+ }
+ /*Lecciones*/
+ #selectModulo{
+     height: 3.5em;
+     border-radius: 5px;
+     border:1px solid #EAEDED ;
+     width: 25em;
+ }
+ .lecciones_item{
+    border-right: 1px solid;
+     border-left: 1px solid;
+     border-bottom: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8em;
+    font-size: 85%;
+}
+
+.lecciones_botones_item{
+    padding:  0.5em 0.8em;
+    background-color: white;
+    border:none;
+}
+.lecciones_botones_item:nth-child(1){
+    margin-right: 1em;
+}
+
+/*Suscripciones */
+.suscripciones_container{
+     margin-top:2em;
+}
+.suscripciones_item{
+    border-top: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em;
+    font-size: 90%;
+}
+.suscripciones_item:nth-child(1){
+    border:none;
+}
+
+/*Certificado*/
+#select_buscar_persona{
+    width: 20em;
+    height: 2em;
+    font-size: 85%;
+    border: 1px solid  #BBBBBB;
+    border-radius: 5px;
 }

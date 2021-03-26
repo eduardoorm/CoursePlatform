@@ -51,11 +51,12 @@ export default function VideoComp() {
             <Link to="/"><i class="fas fa-arrow-left"></i></Link> 
              <p className="txt_clasesDelCurso">Clases del Curso</p>
             </div>
-         
-            {
-            modulos.map(
-              (el,pos)=><TituloDelModulo pos={pos+1} {...el}/>
-              )}
+           <div >
+              {
+                modulos.map(
+                (el,pos)=><TituloDelModulo pos={pos+1} {...el}/>
+                )}
+            </div>
           </div>
           
         <div className="reproductor-right">
@@ -77,15 +78,16 @@ export default function VideoComp() {
          
              {/* COMPONENTE PARA REALIZAR UN COMENTARIO*/}
              <ComentarioEscribir cantidad={comentarios?.length}/>
-             
-             {comentarios.length === 0
-               ?
-               <h3>No se encontraron Comentarios</h3>
-               :
+             <div className="container_comentario">
+             {comentarios?.length !== 0
+               &&
                comentarios.map(comentario =>
+               
                    <Comentario {...comentario}/>
-               )
-             }    
+              
+               )  
+             }  
+               </div>  
          </div>
      </div> 
    </>

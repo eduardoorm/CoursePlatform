@@ -4,8 +4,8 @@ const ContainerModulos = styled.div `
     width: 650px;
     margin:  0.5em auto ;
     
+    
 `
-
 const ContainerHeaderModulo= styled.div `
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,6 @@ const ContainerHeaderModulo= styled.div `
     border-radius:6px;
     padding: 0px 2em;
     margin-top:0.4em;
-    
 `
 const FlechaModulo = styled.div `
 
@@ -42,6 +41,7 @@ const BtnModulo  = styled.label `
     font-weight: 600;
     width:1em;
     height:2em;
+    padding-top:0.2em;
     cursor:pointer;
     &:before {
     content:'';

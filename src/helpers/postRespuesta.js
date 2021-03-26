@@ -17,6 +17,9 @@ export const postRespuesta = async (respuestaTXT) => {
         },
         body: JSON.stringify(enviarCampos)
       } 
-      const r = await fetch(url,config)
+      const res = await fetch(url,config)
 
+      if(res.ok){
+        alert("Se agrego la respuesta")
+    }
 }
