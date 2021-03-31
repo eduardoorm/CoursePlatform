@@ -15,11 +15,14 @@ import {Link} from 'react-router-dom';
 import './ComponentStyles/Navbar.css'
 export default function VideoComp() {
   const {id,id_video}=useParams(); 
+  console.log("id",id ,"id_video",id_video);
   const {dataComentPorVideo:comentarios}=useFetchComentariosPorVideo(id_video)
   const {dataCursoID:curso} =useFecthCursoID(id);
   const {dataModulos:modulos}= useFetchModulo(id);
+
   const{nombre} = curso.length>0 && curso[0];
    const{dataVideo:video}=useFetchVideoID(id_video);
+ 
         return(
             <>
        <div className="navbar-preview">

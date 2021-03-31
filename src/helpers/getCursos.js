@@ -14,7 +14,8 @@ export const getCursos = async() => {
            fecha: curso.fecha_curso, 
            id_categoria: curso.id_categoria,
            categoria: curso.nom_cate,
-           lecciones: curso.lecciones
+           lecciones: curso.lecciones,
+           ruta:curso.ruta_curso,
         }
     })
     return cursos;

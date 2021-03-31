@@ -50,7 +50,6 @@ export default function PerfilComp () {
                  <Link to="/collections"><button className="btn-explorarCursos">Explorar Cursos</button></Link>  
                 </div>
              </div>
-          
              :
              <>
              <h2 className="misCursos_Titulo">Mis Cursos</h2>

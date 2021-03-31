@@ -12,7 +12,6 @@ import { useFetchUltimosCurso } from '../hooks/useFetchUltimosCurso';
 
 function Principal() {
   const {dataCursos:curso} = useFetchUltimosCurso();
-  
   return (
     <>
     <Banner>
@@ -41,11 +40,11 @@ function Principal() {
           :
           curso?.map(curso =>
             <>
-            <Link to={`/course/${curso?.id}`}>
+            <Link to={`/course/${curso?.ruta}`}>
               <Course style={"container-curso"} 
-              key={curso?.id}
-               duracion={curso?.duracion} 
-               categoria={curso?.categoria}
+                key={curso?.id}
+                duracion={curso?.duracion} 
+                categoria={curso?.categoria}
                 tituloCurso={curso?.nombre}
                 lecciones={curso?.lecciones}
                 />

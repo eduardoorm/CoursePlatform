@@ -1,6 +1,7 @@
 
 export const getModulo = async (id) => {
-    const url = `http://localhost:3001/getModulo/${id ? id : 0}`;
+    const url = `http://localhost:3001/getModulo/${id}`;
+   
     const respuesta = await fetch(url);
     const res = await respuesta.json();
     const modulo = res.map(item=>{

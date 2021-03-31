@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react'
 import { getCursoID } from '../helpers/getCursoID'
 
 export const useFecthCursoID = (id) => {
+    
     const [curso, setCurso] = useState({
         dataCursoID:[],
     })

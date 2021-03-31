@@ -14,7 +14,7 @@ export default function NavBar() {
      const handlPerfil = () =>{
          (clickPerfil) ?   setClickPerfil(false) : setClickPerfil(true);
      }
-     console.log(data);
+
      useEffect(()=>{
         if(localStorage.getItem("token")){
             return setSesion(true);

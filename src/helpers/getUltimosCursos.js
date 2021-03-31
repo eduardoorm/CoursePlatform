@@ -11,7 +11,8 @@ export const getUltimosCursos = async () => {
           duracion: curso.dura_curso,
           id: curso.id_curso,
           categoria:curso.nom_cate,
-          lecciones:curso.lecciones
+          lecciones:curso.lecciones,
+          ruta: curso.ruta_curso,
         }
     })
     return cursos;

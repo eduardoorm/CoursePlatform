@@ -8,7 +8,7 @@ const Banner =styled.div `
     width: 100%;
     max-width : 1340px;
     height: 60vh;
-    background-image: url("assets/img/bannerIntesla2.jpg") ;
+    background-image: url("/assets/img/bannerIntesla2.jpg") ;
     background-repeat: no-repeat;
     background-size: cover;
     margin:0em auto 3em;

@@ -2,6 +2,7 @@
 import './ComponentStyles/Perfil-comp.css'
 import React from 'react';
 export default function Course (props){
+
       return(    
        <div className={props.style}>
           <div className="curso-img">

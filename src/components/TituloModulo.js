@@ -7,7 +7,7 @@ export default function TituloDelModulo ({pos,nombre,id_modulo,style}){
     const [showVideos, setShowVideos] = useState(true)
     const collapseVideos=()=> setShowVideos(!showVideos);
     const {dataVideos:videos} = useFetchVideo(id_modulo);
-    
+ 
         return(  
                  <>
                  <ContainerHeaderModulo >    
@@ -21,7 +21,7 @@ export default function TituloDelModulo ({pos,nombre,id_modulo,style}){
                  </ContainerHeaderModulo>
                  {(showVideos) ?
                     (videos.length>0) ?
-                    videos.map(video=> <TituloVideo {...video}/>) 
+                    videos.map(video=> <TituloVideo key={video.nombre} {...video}/>) 
                     :
                     <span>Modulo sin contenido ☹</span>
                     :

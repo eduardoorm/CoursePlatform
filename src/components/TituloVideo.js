@@ -3,13 +3,13 @@ import {Link} from 'react-router-dom'
 const ListVideo =({nombre,duracion})=>{
     if(!nombre) return (<span>Modulo sin contenido ☹</span>)   
     return(
-      <p><i className="fas fa-lock"></i> {nombre}</p>
+      <p><i className="fas fa-lock"></i> {nombre} </p>
     )
   }
-
-export default function TituloVideo ({id_video ,nombre,duracion ,id_modulo,id_curso}){ 
+  
+export default function TituloVideo ({id_video ,nombre,duracion ,id_modulo,id_curso,ruta_curso,ruta_video}){ 
         return(             
-          <Link to={`/course/${id_curso}/${id_video}`}>
+          <Link to={`/course/${ruta_curso}/${ruta_video}`}>
                 <ContenidoModulo >
                  <span className="item-contenido-modulo">
                     <TxtContenidoModulo> 

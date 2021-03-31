@@ -11,7 +11,8 @@ export const getVideoID = async(id_video) => {
            duracion  :  item.dura_video,
            id_modulo :  item.id_modulo,
            id_curso  :  item.id_curso,
-           descripcion: item.des_video
+           descripcion: item.des_video,
+           ruta_video: item.ruta_video,
         }
     })
     return video

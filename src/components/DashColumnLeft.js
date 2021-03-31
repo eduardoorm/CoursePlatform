@@ -7,7 +7,7 @@ export const DashColumnLeft = () => {
         <div className="Dashboard-Column_1"> 
                       <div className="Dashboard_Sections">
                         <div className="dash_section_perfil">
-                          <img src="../assets/img/profesor1.jpg" alt="img-admin"/>
+                          <img src="/assets/img/perfil.png" alt="img-admin"/>
                           <p>Erick Romucho</p>
                         </div>      
                           <p className="txt_Navegacion">Navegación</p>

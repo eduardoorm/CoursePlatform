@@ -4,7 +4,6 @@ import {Formulario} from '../elementos/Formularios'
 import {Btn} from './Button'
 import EditarContraseña from './EditarContraseña'
 import { useFecthUsuario } from '../hooks/useFecthUsuario';
-import { putUsuario } from '../helpers/putUsuario';
 
 export default function PerfilEditar (){
   const [changePass,setchangePass] = useState(false);
@@ -50,7 +49,7 @@ export default function PerfilEditar (){
                   <div className="form-post">
                       <Formulario id="form">
                             <Input
-                            value={usuario?.data.nombre || ""}
+                            value={aa?.data.nombre || ""}
                             id="nombres"
                             name="nombre"
                             type="text"
@@ -60,14 +59,14 @@ export default function PerfilEditar (){
                             id="apellidos"
                             name="apellido"
                             type="text"
-                            value={usuario?.data.apellido|| ""}
+                            value={aa?.data.apellido|| ""}
                             onInput={handleChange}
                             /> 
                             <Input 
                             id="email"
                             name="email"
                             type="email"
-                            value={usuario?.email || ""}
+                            value={aa?.data.email || ""}
                             disabled={true}
                             /> 
                         {
