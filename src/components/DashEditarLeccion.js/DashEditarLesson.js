@@ -10,13 +10,14 @@ export const DashEditarLesson = () => {
     const [form, setform] = useState({});
     const history= useHistory()
      const {dataVideo:video} =  useFetchVideoID(id);
+     console.log("videito",video);
     const handleChange =(e)=>{
       setform({
         ...form,
         [e.target.name]:e.target.value
       })
      }
-     console.log(form);
+     console.log(video);
 
      const editarSeccion =(e)=>{
       e.preventDefault();
@@ -29,7 +30,7 @@ export const DashEditarLesson = () => {
         <Formulario id="form">
                             <label htmlFor="nombre">Nombre</label>
                             <Input
-                           value={video[0]?.nombre|| "----" }
+                           placeholder={video[0]?.nombre}
                            id="nombre"
                            name="nombre"
                            type="text"
@@ -37,7 +38,7 @@ export const DashEditarLesson = () => {
                            /> 
                             <label htmlFor="nombre">Descripción</label>
                             <Input
-                           value={video[0]?.descripcion|| "----" }
+                           placeholder={video[0]?.descripcion}
                            id="descripcion"
                            name="descripcion"
                            type="text"
@@ -45,7 +46,7 @@ export const DashEditarLesson = () => {
                            /> 
                            <label htmlFor="nombre">Duración</label>
                             <Input
-                           value={video[0]?.duracion|| "----" }
+                           placeholder={video[0]?.duracion }
                            id="duracion"
                            name="duracion"
                            type="number"

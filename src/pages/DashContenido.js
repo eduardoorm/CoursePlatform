@@ -19,16 +19,15 @@ export const DashContenido = () => {
      const [clickAddSeccion, setclickAddSeccion] = useState(false);
      const [clickAddLeccion, setclickAddLecciones] = useState(false)
      const {dataSeccion:secciones}=useFetchgetSeccionPorCursoID(id);
-     const {dataLecciones:lecciones}= useFetchGetLecciones();
      const clickAddSecciones =()=>{
      return (setclickAddSeccion(!clickAddSeccion))
      }
-    console.log(secciones);
+     
      const clickAddLecciones =()=>{
       return (setclickAddLecciones(!clickAddLeccion))
      }
-       const deleteSecciones= (id)=>{
-        if(window.confirm(`¿Seguro que quieres eliminar al modulo ID:${id}?`)){
+       const deleteSecciones= (nombre,id)=>{
+        if(window.confirm(`¿Seguro que quieres eliminar al modulo "${nombre}"?`)){
           window.location.reload();
            return deleteSeccion(id);
         }
@@ -78,7 +77,7 @@ export const DashContenido = () => {
                                     <Link to={`/admin/modulo/editar/${el.id_modulo}`}>
                                        <button className="btn-default">Editar Sección</button> 
                                      </Link>  
-                                      <button className="btn-default" onClick={()=>{deleteSecciones(el.id_modulo)}}>Eliminar Sección</button>
+                                      <button className="btn-default" onClick={()=>{deleteSecciones(el.nombre,el.id_modulo)}}>Eliminar Sección</button>
                                     </div>        
                                   </div>
                                   <div>

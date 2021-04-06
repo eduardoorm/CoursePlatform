@@ -2,11 +2,13 @@
 import './ComponentStyles/Perfil-comp.css'
 import React from 'react';
 export default function Course (props){
-
+      
       return(    
        <div className={props.style}>
           <div className="curso-img">
-              <img src='assets/img/profesor1.jpg' alt="imagen-del-curso" className="curso-img-img"/>
+              <img 
+              src={props.imagen} 
+              alt="imagen-del-curso" className="curso-img-img"/>
           </div>
           <div className="curso-titulo">
             <p>{props.tituloCurso}</p>

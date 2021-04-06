@@ -30,10 +30,11 @@ export const DashEditarSection = () => {
         <Formulario id="form">
                             <label htmlFor="nombre">Nombre</label>
                             <Input
-                           value={seccion[0]?.nombre|| "----" }
+                           placeholder={seccion[0]?.nombre }
                            id="nombre"
                            name="nombre"
                            type="text"
+                           
                            onChange={handleChange}
                            /> 
            <button type="submit" className="btn-default" onClick={editarSeccion}>Actualizar</button>

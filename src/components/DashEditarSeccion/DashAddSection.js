@@ -2,20 +2,23 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router'
 import { postEstudiante } from '../../helpersAdmin/postEstudiante'
 import { postSection } from '../../helpersAdmin/postSection'
+import { useFecthCursoID } from '../../hooks/useFecthCursoID'
 
 export const DashAddSection = () => {
     const [form, setForm] = useState({})
+    const {id} = useParams();
+    const {dataCursoID:curso} =  useFecthCursoID(id);
+
     const handleSubmit =(e)=>{
        setForm({
-           ...form,
+           ...form,id_curso:curso[0]?.id,
           [e.target.name]:e.target.value,
        })
     }
-    const {id} = useParams()
-    console.log("formulario",form);
+   
     const AddSeccion =(e)=>{
        e.preventDefault();
-       window.location.reload();
+    //    window.location.reload();
        postSection(form,id);
     }
 

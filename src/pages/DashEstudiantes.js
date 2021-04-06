@@ -9,6 +9,7 @@ import { DashAddStudent } from '../components/DashEditarStudent/DashAddStudent'
 import { DashMostarStudent } from '../components/DashEditarStudent/DashMostarStudent'
 
 export const DashEstudiantes = () => {
+    
     const [clickAddStudent, setclickAddStudent] = useState(false)
     const clickAddStudents =()=>{
          return (setclickAddStudent(!clickAddStudent))
@@ -25,7 +26,7 @@ export const DashEstudiantes = () => {
                         {/* /*DASHBOARD HEADER*/}
                         <div className="Dashboard-Preview">
                             <DashHeader 
-                            icono={<i class="fas fa-graduation-cap"></i>}
+                            icono={<i className="fas fa-graduation-cap"></i>}
                             nombre="Estudiantes"
                             />
                         </div>

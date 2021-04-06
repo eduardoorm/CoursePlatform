@@ -1,21 +1,39 @@
          
-export default function DescripcionVideo({descripcion,duracion,nombre}) {
+import React, { useEffect, useState } from 'react'
+import {useHistory, useParams} from 'react-router-dom'
+export default function DescripcionVideo(props) {
+    const {videosCurso} = props;
+    const history = useHistory()
+ 
+    const {id,id_video}= useParams();
+    const pos = videosCurso?.findIndex(el=>el==id_video);
+    console.log("pos",pos);
+    const btnAnterior = ()=>{
+     history.push(`/course/${id}/${videosCurso[pos-1]}`)
+     window.location.reload();
+    }
+
+    const btnSiguiente  = ()=>{
+     history.push(`/course/${id}/${videosCurso[pos+1]}`)
+     window.location.reload();
+    }
+
     return(
         <>
            <div className="footer-reproductor">
-               <h3>{nombre}</h3>
+               <h3>{props.nombre}</h3>
                <div>
-                    <button className="Anterior"> <i className="fas fa-angle-left"></i> Anterior</button>
-                    <button className="Siguiente">Siguiente <i className="fas fa-angle-right"></i></button>
-               </div>
-               
+            
+               <button className="Anterior" onClick={btnAnterior} > <i className="fas fa-angle-left"></i> Anterior</button>    
+               <button className="Siguiente" onClick={btnSiguiente}><i className="fas fa-angle-right"></i>Siguiente </button>          
+    
+               </div>       
            </div>
 
            <div className="descrip-video">
-            <p>{descripcion}</p>
+            <p>{props.descripcion}</p>
            </div>
-
-           </>
+        </>
     )     
 }
            

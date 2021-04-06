@@ -5,8 +5,8 @@ import '../components/ComponentStyles/Dashboard.css'
 import { DashColumnLeft } from '../components/DashColumnLeft'
 import { DashHeader } from '../components/DashHeader'
 import { DashConteDashboard } from '../components/DashConteDashboard'
-import { DashAddCategoria } from './DashAddCategoria'
-import { DashMostrarCategoria } from './DashMostrarCategoria'
+import { DashAddCategoria } from '../components/DashEditarCategoria/DashAddCategoria'
+import { DashMostrarCategoria } from '../components/DashEditarCategoria/DashMostrarCategoria'
 
 export const DashCategoria = () => {
     const [clickAddCate, setclickAddCate] = useState(false)
@@ -25,7 +25,7 @@ export const DashCategoria = () => {
                         {/* /*DASHBOARD HEADER*/}
                         <div className="Dashboard-Preview">
                             <DashHeader 
-                            icono={<i class="fas fa-puzzle-piece"></i>}
+                            icono={<i className="fas fa-puzzle-piece"></i>}
                             nombre="Categorias"
                             btn="+ Agregar Categoria"
                             />

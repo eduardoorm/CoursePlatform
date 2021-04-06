@@ -17,7 +17,7 @@ import { DashCategoria } from './pages/DashCategoria';
 import { DashCursos } from './pages/DashCursos';
 import { DashEstudiantes } from './pages/DashEstudiantes';
 import { DashSuscripciones } from './pages/DashSuscripciones';
-import { DashEditarCategoria } from './pages/DashEditarCategoria';
+
 import { DashEditarEstudiante } from './pages/DashEditarEstudiante';
 import { DashEditarCurso } from './pages/DashEditarCurso';
 import { DashContenido } from './pages/DashContenido';
@@ -25,6 +25,12 @@ import { DashEditarSeccion } from './pages/DashEditarSeccion';
 import { DashEditarLeccion } from './pages/DashEditarLeccion';
 import { DashCertificado } from './pages/DashCertificado';
 import { DashEditarCertificado } from './pages/DashEditarCertificado';
+import { DashEditarCategoria } from './components/DashEditarCategoria/DashEditarCategoria';
+import { DashProfesor } from './pages/DashProfesor';
+import { DashEditarProfesor } from './pages/DashEditarProfesor';
+import { DashAddCertificado } from './components/DashEditarCertificados/DashAddCertificado';
+import { DashMostrarReportes } from './components/DashSuscripciones/DashMostrarReportes';
+import { DashReportes } from './pages/DashReportes';
 
 function App() {
   return (
@@ -41,10 +47,13 @@ function App() {
               <Route path='/course/:id/:id_video' exact ><Video/></Route>
               <Route path='/certificados/:id' exact ><NavBar/><Certificado/></Route>
 
-
               <Route path='/admin/dashboard' exact ><DashDashboard/></Route>
+
               <Route path='/admin/categorias' exact ><DashCategoria/></Route>
               <Route path='/admin/categorias/editar/:id' exact ><DashEditarCategoria/></Route>
+
+              <Route path='/admin/profesor' exact ><DashProfesor/></Route>
+              <Route path='/admin/profesor/editar/:id' exact ><DashEditarProfesor/></Route>
 
               <Route path='/admin/cursos' exact ><DashCursos/></Route>
               <Route path='/admin/cursos/editar/:id' exact ><DashEditarCurso/></Route>
@@ -56,11 +65,13 @@ function App() {
               
               <Route path='/admin/certificados' exact ><DashCertificado/></Route>
               <Route path='/admin/certificados/editar/:id' exact ><DashEditarCertificado/></Route>
+              <Route path='/admin/certificados/add' exact ><DashAddCertificado/></Route>
 
               <Route path='/admin/estudiantes' exact ><DashEstudiantes/></Route>
               <Route path='/admin/estudiante/editar/:id' exact ><DashEditarEstudiante/></Route>
 
               <Route path='/admin/suscripciones' exact ><DashSuscripciones/></Route>
+              <Route path='/admin/suscripciones/:id' exact ><DashReportes/></Route>
               {/* <Route path='/publicar' exact ><NavBar/><PublicarCurso/></Route> */}
               <Route path='/checkout' exact ><NavBar/><Checkout/> </Route>    
           </Switch>

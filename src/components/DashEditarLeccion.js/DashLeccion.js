@@ -5,9 +5,8 @@ import { useFetchGetVideosPorModulo } from '../../hooks/useFetchGetVideosPorModu
 
 export const DashLeccion = ({id_modulo}) => {
    const {dataVideos:videos} =useFetchGetVideosPorModulo(id_modulo)
-   console.log(videos);
-   const deleteLecciones= (id)=>{
-    if(window.confirm(`¿Seguro que quieres eliminar al modulo ID:${id}?`)){
+   const deleteLecciones= (id,nombre)=>{
+    if(window.confirm(`¿Seguro que quieres eliminar al video: ${nombre}?`)){
       window.location.reload();
      return deleteLeccion(id);
     }
@@ -21,13 +20,13 @@ export const DashLeccion = ({id_modulo}) => {
                     {el.nombre}
                 </p>
                 <div className="lecciones_botones">
-                <Link to={`/admin/leccion/editar/${el.id_video}`}>
+                <Link to={`/admin/leccion/editar/${el.ruta_video}`}>
                     <button className="lecciones_botones_item">
                         <i className="fas fa-pencil-alt" ></i>
                     </button> 
                 </Link>
 
-                <button onClick={()=>{deleteLecciones(el.id_video)}} className="lecciones_botones_item">
+                <button onClick={()=>{deleteLecciones(el.id_video,el.nombre)}} className="lecciones_botones_item">
                     <i className="fas fa-times"></i>
                 </button> 
 

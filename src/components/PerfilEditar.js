@@ -4,41 +4,35 @@ import {Formulario} from '../elementos/Formularios'
 import {Btn} from './Button'
 import EditarContraseña from './EditarContraseña'
 import { useFecthUsuario } from '../hooks/useFecthUsuario';
+import {putUsuario} from '../helpers/putUsuario'
 
 export default function PerfilEditar (){
   const [changePass,setchangePass] = useState(false);
-  const aa = useFecthUsuario();
-  const [usuario, setUsuario] = useState({ data: [{}], loading: true });
+  const {data}= useFecthUsuario();
+  const [usuario, setUsuario] = useState({});
 
   const handleChange =(e)=>{
     setUsuario({
       ...usuario,
-      data:
-      {...usuario.data, [e.target.name]: e.target.value}
+      id_persona:data?.id_persona,
+      [e.target.name] : e.target.value
     })
    }
   
-  
+ 
   const clickCambiarContraseña =(e)=>{
     (changePass) ? setchangePass(false) : setchangePass(true);
     e.preventDefault();
   }
 
-  useEffect(async () => {
-    const res = await aa;
-    console.log("adentro",res);
-    setUsuario(res); 
-   }, [])
 
-
-  // const handleGuardarCambios= async (e)=>{
-  //   e.preventDefault();
-  //   (nombre.trim().length>2 && apellido.trim().length>4) 
-  //     ? 
-  //     putUsuario(form) 
-  //     :
-  //    alert("Los nombres y apellidos deben ser mayor a cuatro letras")
-  // }
+  
+  const handleGuardarCambios= async (e)=>{
+    e.preventDefault();
+      putUsuario(usuario) 
+      window.location.reload();
+      alert("Se actualizo al usuario")
+  }
 
   return(
         <div className="form__actualizar">
@@ -49,9 +43,9 @@ export default function PerfilEditar (){
                   <div className="form-post">
                       <Formulario id="form">
                             <Input
-                            value={aa?.data.nombre || ""}
                             id="nombres"
                             name="nombre"
+                            placeholder={data?.nombre || ""}
                             type="text"
                             onInput={handleChange}
                             /> 
@@ -59,14 +53,16 @@ export default function PerfilEditar (){
                             id="apellidos"
                             name="apellido"
                             type="text"
-                            value={aa?.data.apellido|| ""}
+                            placeholder="Nuevo Apellido"
+                            placeholder={data?.apellido || ""}
                             onInput={handleChange}
                             /> 
                             <Input 
                             id="email"
                             name="email"
+                            placeholder="Email"
                             type="email"
-                            value={aa?.data.email || ""}
+                            value={data?.email || ""}
                             disabled={true}
                             /> 
                         {
@@ -82,7 +78,7 @@ export default function PerfilEditar (){
                             style="btn_guardarCambios"
                             value="Guardar cambios"
                             type="button"
-                            // onClick={handleGuardarCambios}
+                            onClick={handleGuardarCambios}
                           />
                           </>
                         }  

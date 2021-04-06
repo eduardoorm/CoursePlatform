@@ -1,21 +1,23 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router'
 import { postLeccion } from '../../helpersAdmin/postLeccion'
+import { useFecthCursoID } from '../../hooks/useFecthCursoID'
 import { useFetchgetSeccionPorCursoID } from '../../hooksAdmin.js/useFetchgetSeccionPorCursoID'
 
 export const DashAddLeccion = () => {
     const [form, setForm] = useState({})
+    const {id} = useParams();
+    const {dataCursoID:curso} =  useFecthCursoID(id);
+
     const handleSubmit =(e)=>{
        setForm({
-           ...form,
+           ...form,id_curso:curso[0]?.id,
           [e.target.name]:e.target.value,
        })
     }
-    
-    const {id} = useParams();
+
     const {dataSeccion:seccion}=useFetchgetSeccionPorCursoID(id);
-    console.log(seccion);
-    console.log("formulario",form);
+
     const AddLeccion =(e)=>{
        e.preventDefault();
     //    window.location.reload();

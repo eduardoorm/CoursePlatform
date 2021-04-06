@@ -1,6 +1,14 @@
-import React from 'react'
+export const postCurso = async(form,fd) => {
 
-export const postCurso = async(form) => {
+    const ruta_con_espacios = form.nom_curso;
+    const regex = / /g;
+    const ruta_curso=ruta_con_espacios.trim().replace(regex, '-');
+    const data ={ 
+        ...form,
+        fd,
+        ruta_curso 
+    }
+   
     const url =`http://localhost:3001/postCurso`;
     let config ={
        method:"POST",
@@ -8,7 +16,7 @@ export const postCurso = async(form) => {
        'Accept': 'application/json',
        'Content-Type': 'application/json',
        },
-       body: JSON.stringify(form)
+       body: JSON.stringify(data)
     };
     const res = await fetch(url,config);
 

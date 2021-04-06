@@ -1,9 +1,9 @@
 import React from 'react'
-import { DashNav } from '../components/DashNav'
-import '../components/ComponentStyles/Dashboard.css'
-import { DashColumnLeft } from '../components/DashColumnLeft'
-import { DashHeader } from '../components/DashHeader'
-import { DashEditarCate } from '../components/DashEditarCate'
+import { DashNav } from '../DashNav'
+import '../ComponentStyles/Dashboard.css'
+import { DashColumnLeft } from '../DashColumnLeft'
+import { DashHeader } from '../DashHeader'
+import { DashEditarCate } from '../DashEditarCate'
 
 export const DashEditarCategoria = () => {
     return (
@@ -18,7 +18,7 @@ export const DashEditarCategoria = () => {
                         {/* /*DASHBOARD HEADER*/}
                         <div className="Dashboard-Preview">
                             <DashHeader 
-                            icono={<i class="fas fa-puzzle-piece"></i>}
+                            icono={<i className="fas fa-puzzle-piece"></i>}
                             nombre="Cursos"
                             />
                         </div>

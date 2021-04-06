@@ -20,7 +20,7 @@ export const DashEditarEstudiante = () => {
                         {/* /*DASHBOARD HEADER*/}
                         <div className="Dashboard-Preview">
                             <DashHeader 
-                            icono={<i class="fas fa-graduation-cap"></i>}
+                            icono={<i className="fas fa-graduation-cap"></i>}
                             nombre="Estudiante"
                             />
                         </div>

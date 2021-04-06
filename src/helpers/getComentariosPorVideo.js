@@ -6,7 +6,7 @@ export const getComentariosPorVideo =async (id) => {
     const respuestaID = res.map(r=>{
         return{
             id_comentario: r.id_comentario,
-            id_personao:r.id_persona,
+            id_persona:r.id_persona,
             id_curso: r.id_curso,
             id_video: r.id_video,
             comentario: r.comentario,

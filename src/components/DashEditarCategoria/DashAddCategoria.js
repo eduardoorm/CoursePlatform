@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { getCategoria } from '../helpersAdmin/getCategoria'
-import { postCategoria } from '../helpersAdmin/postCategoria'
-import {useFecthGetCategoria} from '../hooksAdmin.js/useFecthGetCategoria'
+import { getCategoria } from '../../helpersAdmin/getCategoria'
+import { postCategoria } from '../../helpersAdmin/postCategoria'
+import {useFecthGetCategoria} from '../../hooksAdmin.js/useFecthGetCategoria'
 export const DashAddCategoria = () => {
     const [form, setForm] = useState({})
     const handleSubmit =(e)=>{

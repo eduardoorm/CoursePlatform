@@ -5,8 +5,10 @@ import { deleteCurso } from '../../helpersAdmin/deleteCurso';
 export const DashMostrarCurso = () => {
      const {dataCurso:cursos}= useFecthCurso();
      const [file, setFile] = useState()
-     const eliminarCurso =(id)=>{
-      if(window.confirm(`¿Seguro que quieres eliminar al curso ID:${id}?`)){
+     console.log("cursos el",cursos);
+
+     const eliminarCurso =(nombre,id)=>{
+      if(window.confirm(`¿Seguro que quieres eliminar al curso: "${nombre}"?`)){
         window.location.reload();
         return deleteCurso(id);
       }
@@ -58,7 +60,7 @@ export const DashMostrarCurso = () => {
             
                  <div className="categoria_cursos">
                   <div className="ID_Curso">
-                         <img src="../assets/img/profesor1.jpg"></img>
+                         <img src={el.imagen}></img>
                           <p><span className="negr_curso">ID: </span>{el.id}</p>
                         </div>
                         <div className="nombre_Categoria">
@@ -75,11 +77,14 @@ export const DashMostrarCurso = () => {
                         </div>
                         <div className="nombre_Categoria">
                           <p> <span className="negr_curso">Precio: </span> {el.precio || "----"}</p>
-                        </div>        
+                        </div> 
+                        <div className="nombre_Categoria">
+                          <p> <span className="negr_curso">Profesor: </span> {el.profesor|| "----"}</p>
+                        </div>      
                         <div className="botones_curso">
-                         <Link to={`/admin/cursos/contenido/${el.id}`}><button className="btn_curso" id="masContenidoCurso">+ Contenido</button></Link>   
-                         <Link to={`/admin/cursos/editar/${el.id}`}><button className="btn_curso" id="btn_editarCurso" >Editar</button></Link>   
-                         <button className="btn_curso" id="btn_eliminarCurso" onClick={()=>eliminarCurso(el.id)}>Eliminar</button>    
+                         <Link to={`/admin/cursos/contenido/${el.ruta}`}><button className="btn_curso" id="masContenidoCurso">+ Contenido</button></Link>   
+                         <Link to={`/admin/cursos/editar/${el.ruta}`}><button className="btn_curso" id="btn_editarCurso" >Editar</button></Link>   
+                         <button className="btn_curso" id="btn_eliminarCurso" onClick={()=>eliminarCurso(el.nombre,el.id)}>Eliminar</button>    
                     </div>
                   </div>
                </>

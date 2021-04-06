@@ -11,10 +11,11 @@ export const getUsuario = async () => {
                 }}
 
             const response = await fetch(url,config);
-         
+             
             if(!response.ok) return localStorage.clear();
           
             const user = await response.json();
+          
             const usuario = {
               nombre:user.nombre,
               apellido:user.apellidos,

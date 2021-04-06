@@ -1,4 +1,4 @@
-import React , {useState,useEffect} from 'react'
+import React , {useState} from 'react'
 import { useFecthUsuario } from '../hooks/useFecthUsuario'
 import { useFecthPersonaCurso } from '../hooks/useFetchPersonaCurso';
 import './ComponentStyles/Perfil-comp.css'
@@ -9,8 +9,8 @@ import {Link} from 'react-router-dom'
 export default function PerfilComp () {
    const[clickEditarPerfil,setEditarPerfil]=useState(false);
    const {data:user,loading} = useFecthUsuario();
-   const {dataCurso:cursos}= useFecthPersonaCurso()
-   const handlEditarPerfil = ()=>(clickEditarPerfil) ? setEditarPerfil(false) : setEditarPerfil (true)
+   const {dataCurso:cursos}= useFecthPersonaCurso();
+   const handlEditarPerfil = ()=>(clickEditarPerfil) ? setEditarPerfil(false) : setEditarPerfil (true);
        return(         
         <section className="perfil-estudiante">
              {
@@ -27,7 +27,7 @@ export default function PerfilComp () {
                     <img src="assets/img/perfil.png" alt="img-perfil"/>
                 </div>
                 <div className="estudiante-header-item">
-                    <p>{user?.nombre||loading} {user?.apellido||loading}</p>
+                    <p>{user?.nombre||loading} {user?.apellido||"null"}</p>
                     <p>{user?.email||loading}</p>
                     <button 
                         onClick={handlEditarPerfil} 

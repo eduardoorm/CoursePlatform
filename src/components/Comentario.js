@@ -5,22 +5,21 @@ import './ComponentStyles/Respuesta.css'
 import {useFetchRespuestas} from '../hooks/useFetchRespuestas'
 import { postRespuesta } from '../helpers/postRespuesta';
 import { deleteComentario } from '../helpers/deleteComentario';
-export default function Comentario({id_comentario,id_persona,id_curso,id_video,comentario,fecha,likes,nombre,apellido}) {
+export default function Comentario(props) {
     const [responder,setResponder]       = useState(false)
     const [showRpta,setShowRpta]         = useState(false);
     const [respuestaTXT,setRespuestaTXT] = useState({});
-    const {dataRespuesta:respuestas}     = useFetchRespuestas(id_comentario)
+    const {dataRespuesta:respuestas}     = useFetchRespuestas(props.id_comentario)
     const [elipsi, setElipsi] = useState(false);
-
     const hanldeResponder=()=>setResponder(true);
     const cancelarRespuesta =()=> setResponder(false);
     const OcultarRespuestas=()=>setShowRpta(false);
     const MostarRespuestas=async (e)=>setShowRpta(true);
-
+                  
     const handleChange =(e)=>{
         setRespuestaTXT({
           ...respuestaTXT,
-          id_comentario:id_comentario,
+          id_comentario:props.id_comentario,
           [e.target.name]:e.target.value
         })
     }
@@ -34,10 +33,11 @@ export default function Comentario({id_comentario,id_persona,id_curso,id_video,c
     }
 
     const eliminarComentario =()=>{
-    //    deleteComentario();
+       deleteComentario(props.id_comentario);
     }
 
     return(
+  
         <div className="Comentario_container_item">
           {/* COMENTARIOS REALIZADOS */}
             <div className="comentario-realizado">
@@ -47,25 +47,27 @@ export default function Comentario({id_comentario,id_persona,id_curso,id_video,c
                     alt="img-perfil" 
                     className="perfil-comentario"/>
                     <div className="">
-                        <p>{nombre} {apellido}</p>
-                        <p className="hace-dias">{fecha}</p>
+                        <p>{props.nombre} {props.apellido}</p>
+                        <p className="hace-dias">{props.fecha}</p>
                     </div> 
                 </div>       
             
                 <div className="eliminar_container">
-                  <button className="btn_elipsi" onClick={clickElipsi}><i class="fas fa-ellipsis-v"></i></button> 
-                    {elipsi && 
+                {(props.id_persona === props.id_persona_actual) &&
+                  <button className="btn_elipsi" onClick={clickElipsi}><i className="fas fa-ellipsis-v"></i></button> 
+                  }
+                 
+                   {elipsi && 
                       <button className="btn_eliminarComent" onClick={eliminarComentario}>
-                         <i class="far fa-trash-alt"></i>
+                         <i className="far fa-trash-alt"></i>
                          <p>Eliminar</p> 
                       </button> 
-                
-                    } 
+                    }
                  </div>    
             </div>
 
             <div className="comentario-realizado-txt">
-                <p className="text-coment">{comentario}</p>
+                <p className="text-coment">{props.comentario}</p>
                 {/* <button 
                     id="btn-like" 
                     data-id={id_comentario}
@@ -122,7 +124,7 @@ export default function Comentario({id_comentario,id_persona,id_curso,id_video,c
             :
             (showRpta) &&
                 respuestas.map( respuesta =>
-                    <ComentarioRespuesta key={respuesta}  {...respuesta}/>  
+                    <ComentarioRespuesta key={respuesta}  {...respuesta} id_persona_actual={props.id_persona_actual}/>  
                 )
          }
     </div>

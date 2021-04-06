@@ -1,37 +1,23 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import Input from '../components/Input';
 import styled from 'styled-components'
 import {Formulario} from '../elementos/Formularios'
 import {Btn} from '../components/Button'
 import {Redirect} from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
-class Register extends Component{
-     constructor(props){
-         super(props);
-         this.respuestaGoogle = this.respuestaGoogle.bind(this);
-     }
-    state={
-        form:{
-            apellidos:'',
-            nombre:'',
-            email:'',
-            password:'',
-        },
-        register:false
-    }
+import { postEstudiante } from '../helpersAdmin/postEstudiante';
 
-    handleChange = e =>{
-        this.setState({
-            form:{
-                ...this.state.form,
+export default function Register (){
+     const [form, setForm] = useState({})
+     const [register, setRegister] = useState(false)
+     const handleChange = e =>{
+        setForm({
+                ...form,
                 [e.target.name] : e.target.value
-            }
         })
     }
-
-    handleSubmit = async(e) =>{
+    const handleSubmit = async(e) =>{
        e.preventDefault()
-       console.log(this.state)
        try {
          let config ={
            method: 'POST',
@@ -44,12 +30,9 @@ class Register extends Component{
          }
 
          let res = await fetch('http://localhost:3001/postUser',config)
-         console.log("esta es al respuesta",res);
          let json = await (res);
          if(res.ok){
-            this.setState({
-                register:true,
-            })
+            setRegister(true)
          }else{
              console.log("No se pudo registar");
          }
@@ -59,12 +42,19 @@ class Register extends Component{
        }
     }
     
-    respuestaGoogle =(respuesta)=>{
-       console.log(respuesta);
+    const respuestaGoogle =(response)=>{
+        const dataUser= response.profileObj;
+        //el data user trae email,familyName,givenName,googleId,imageUrl y el name
+        const { email,familyName,givenName,googleId} = dataUser;
+        const sendDataUser = {
+            email,
+            apellidos:familyName,
+            password:googleId,
+            nombre:givenName,
+        }
+        postEstudiante(sendDataUser)
     }
-
-   render(){
-     const {register} = this.state
+        
     if(register){
         return <Redirect to="/login"/>
     }
@@ -79,12 +69,12 @@ class Register extends Component{
             <GoogleLogin
                 clientId="593174414261-1gu1nc4svuu26erj483ptivnt56i5ab2.apps.googleusercontent.com"
                 buttonText="Register"
-                // onSuccess={respuestaGoogle}
-                // onFailure={respuestaGoogle}
+                onSuccess={respuestaGoogle}
+                onFailure={respuestaGoogle}
                 cookiePolicy={'single_host_origin'}
             />
             <br/> <br/>
-            <Formulario id="form" onChange={this.handleChange} onSubmit={this.handleSubmit}>
+            <Formulario id="form" onChange={handleChange} onSubmit={handleSubmit}>
                     <Input
                     placeholder="Nombres"
                     id="nombres"
@@ -119,7 +109,6 @@ class Register extends Component{
             </div>
        </div>  
        </>
-    )}
+    )
 }
 
-export default Register;

@@ -7,6 +7,7 @@ import { DashHeader } from '../components/DashHeader'
 import { DashConteDashboard } from '../components/DashConteDashboard'
 import { DashMostrarCertificados } from '../components/DashEditarCertificados/DashMostrarCertificados'
 import { DashAddCertificado } from '../components/DashEditarCertificados/DashAddCertificado'
+import { Link } from 'react-router-dom'
 export const DashCertificado = () => {
     const [clickAddCertificado, setclickAddCertificado] = useState(false)
     const clickAddCertificados =()=>{
@@ -24,7 +25,7 @@ export const DashCertificado = () => {
                         {/* /*DASHBOARD HEADER*/}
                         <div className="Dashboard-Preview">
                             <DashHeader 
-                            icono={<i class="fas fa-certificate"></i>}
+                            icono={<i className="fas fa-certificate"></i>}
                             nombre="Certificados"
                             btn="+ Agregar Certificado"
                             />
@@ -35,7 +36,7 @@ export const DashCertificado = () => {
                                 <DashConteDashboard titulo="Seccion Certificado" btn="Agrega Certificado"/>
                                 {clickAddCertificado 
                                 ?  
-                                <button className="btn_header" onClick={clickAddCertificados}>Volver</button>
+                               <Link to="/admin/certificados"><button className="btn_header" onClick={clickAddCertificados}>Volver</button> </Link> 
                                 :  
                                 <button className="btn_header" onClick={clickAddCertificados}>Agregar Certificado</button>}
                           </div>

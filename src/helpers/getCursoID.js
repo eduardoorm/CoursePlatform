@@ -16,6 +16,9 @@ export const getCursoID = async (id) => {
             fecha: curso.fecha_curso, 
             id_categoria: curso.id_categoria,
             ruta_curso: curso.ruta_curso,
+            imagen: curso.imagen,
+            instructor: curso.instrucor,
+            
            }   
     }) 
     return curso;

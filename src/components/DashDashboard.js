@@ -17,7 +17,7 @@ export const DashDashboard = () => {
                         {/* /*DASHBOARD HEADER*/}
                         <div className="Dashboard-Preview">
                             <DashHeader 
-                            icono={<i class="fas fa-tachometer-alt"></i>}
+                            icono={<i className="fas fa-tachometer-alt"></i>}
                             nombre="Dashboard"
                             />
                         </div>

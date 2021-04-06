@@ -17,7 +17,7 @@ export const DashEditarCertificado = () => {
                           {/* /*DASHBOARD HEADER*/}
                             <div className="Dashboard-Preview">
                                 <DashHeader 
-                                icono={<i class="fas fa-certificate"></i>}
+                                icono={<i className="fas fa-certificate"></i>}
                                 nombre="Editar Certificado"
                                 />
                             </div>

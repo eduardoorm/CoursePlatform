@@ -3,7 +3,8 @@ import React from 'react'
 export const postSection = async(form,id) => {
     const enviarCampos={
         nom_modulo:form.nombre,
-        id_curso:id,
+        id_curso:form.id_curso,
+        ruta_curso: id,
     }
     const url =`http://localhost:3001/postSeccion`;
     let config ={

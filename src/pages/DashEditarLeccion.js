@@ -21,7 +21,7 @@ export const DashEditarLeccion = () => {
                         {/* /*DASHBOARD HEADER*/}
                         <div className="Dashboard-Preview">
                             <DashHeader 
-                            icono={<i class="far fa-money-bill-alt"></i>}
+                            icono={<i className="far fa-money-bill-alt"></i>}
                             nombre="Editar Sección"
                             />
                         </div>

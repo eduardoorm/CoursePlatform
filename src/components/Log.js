@@ -1,78 +1,58 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import './ComponentStyles/Log.css'
 import  {Formulario} from '../elementos/Formularios'
 import Input from './Input'
-import { Redirect,Route } from 'react-router';
+import { Redirect,Route } from 'react-router-dom';
 import {withRouter} from 'react-router-dom'
-import GoogleLogin from 'react-google-login';
-class Log extends Component {
-    
-    state={
-        form:{
-            email:'',
-            password:'',
-        },
-        sesion:false,
-    }
+import {GoogleLogin,GoogleLogout} from 'react-google-login';
+import { loginUser } from '../hooks/loginUser';
 
+export default function Log () {
+    const [form, setForm] = useState({});
+    const [redirect, setRedirect] = useState(false)
     
-    handleChange = e =>{
-        this.setState({
-            form:{
-                ...this.state.form,
+   const handleChange = e =>{
+        setForm({
+                ...form,
                 [e.target.name] : e.target.value
-            }
         })
+        console.log(form);
+      
     }
-
-    handleSubmit = async e =>{
+   const respuestaGoogle = async(response)=>{
+       console.log("respuesta",response);
+       const dataUser= response.profileObj;
+       const { email,googleId} = dataUser;
+       const sendDataUser = {
+        email,
+        password:googleId,
+       }
+       const log = await loginUser(sendDataUser)
+        if(log?.ok){
+            setRedirect(true)
+        }  
+   }
+  
+   const handleSubmit = async e =>{
         e.preventDefault();
-        try {
-            let config ={
-                method:'POST',
-                headers:{
-                    'Accept':'application/json',
-                    'Content-Type':'application/json'
-                },
-                body: JSON.stringify(this.state.form)
-            }
-       
-            let res = await fetch('http://localhost:3001/loginUser',config)
-            let token = await res.json();
-
-             if(res.ok){
-                localStorage.setItem("token",JSON.stringify(token));
-              
-             }else{
-                 alert("DATOS INVALIDOS")
-             }
-
-             if(localStorage.getItem("token")){
-              this.setState({
-                  redirect:true,
-              })
-             }
-    
-        } catch (error) {
-            /*CAMBIAR*/
-            console.log(error)
-        }
+        const log = await loginUser(form)
+        if(log?.ok){
+            setRedirect(true)
+        }  
     }
 
     //localStorage solo almacena strings, la otra manera es meterlo dentrod e un json.stringyfy()
-
-    render(){
-       
         return(
             <>
-            { this.state.redirect ? (<Redirect push to="/"/>) : null }
+            {(redirect) && <Redirect to="/"/> }
+            
             <div className="formulario-contenedor">
             <div className="form-titulo">
                 <h1>Bienvenido</h1>
             </div>
           
             <div className="form-post">
-                <Formulario onSubmit = {this.handleSubmit} onChange={this.handleChange}>
+                <Formulario onSubmit = {handleSubmit} onChange={handleChange}>
                     <Input
                      type="email"
                      name="email" 
@@ -92,8 +72,6 @@ class Log extends Component {
                     id="started"
                     >
                     </Input>
-                    
-                  
                 </Formulario>          
             </div>
 
@@ -105,14 +83,18 @@ class Log extends Component {
             <GoogleLogin
                 clientId="593174414261-1gu1nc4svuu26erj483ptivnt56i5ab2.apps.googleusercontent.com"
                 buttonText="Ingresar"
-                // onSuccess={respuestaGoogle}
-                // onFailure={respuestaGoogle}
+                onSuccess={respuestaGoogle}
+                onFailure={respuestaGoogle}
                 cookiePolicy={'single_host_origin'}
             />
+
+             {/* <GoogleLogout
+            clientId="593174414261-1gu1nc4svuu26erj483ptivnt56i5ab2.apps.googleusercontent.com"
+            buttonText="Cerrar sesión"
+            // onLogoutSuccess={logout}
+            >
+            </GoogleLogout> */}
         </div>
         </>
         )
-    }
-}
-
-export default Log;
+  }

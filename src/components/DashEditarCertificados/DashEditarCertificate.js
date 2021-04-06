@@ -3,41 +3,42 @@ import {Link, useHistory, useParams} from 'react-router-dom'
 import { Formulario } from '../../elementos/Formularios';
 import Input from '../Input';
 import { useFetchGetCertificadoPorID } from '../../hooksAdmin.js/useFetchGetCertificadoPorID';
+import {putCertificado} from '../../helpersAdmin/putCertificado'
 export const DashEditarCertificate = () => {
     
     let {id}= useParams();
     const [form, setform] = useState({});
     const history= useHistory()
    
-    const {dataCertificado:certificado}= useFetchGetCertificadoPorID(id)
-    
+    const {dataCertificado:certificado}= useFetchGetCertificadoPorID(id);
+    const {id_persona}=certificado;
     const handleChange =(e)=>{
       setform({
         ...form,
         [e.target.name]:e.target.value
       })
      }
-     console.log(certificado[0]?.nombre_archivo);
-
+     
     const editarSeccion =(e)=>{
       e.preventDefault();
-    //   putVideo(form,id);
+       putCertificado(form,id_persona,id);
      }
+
     return (
         <div>
-        <button className="btn-Volver" onClick={()=>{history.goBack()}}>volver</button>
+        <button className="btn-Volver" onClick={()=>{history.push(`/admin/certificados`)}}>volver</button>
         <Formulario id="form">
                             <label htmlFor="nombre">Nombre del curso</label>
                             <Input
-                           value={certificado[0]?.nombre_curso|| "----" }
+                           placeholder={certificado[0]?.nombre_curso|| "----" }
                            id="nombre"
-                           name="nombre"
+                           name="nombre_curso"
                            type="text"
                            onChange={handleChange}
                            /> 
                             <label htmlFor="nombre">Certificado</label>
                             <Input
-                           value={certificado[0]?.nombre_archivo|| "----" }
+                           placeholder={certificado[0]?.nombre_archivo|| "----" }
                            id="descripcion"
                            name="descripcion"
                            type="text"

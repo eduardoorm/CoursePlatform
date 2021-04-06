@@ -13,21 +13,26 @@ import TituloDelModulo from './TituloModulo';
 import {Btn} from './Button.js'
 import {Link} from 'react-router-dom';
 import './ComponentStyles/Navbar.css'
+import { useFecthUsuario } from '../hooks/useFecthUsuario';
+import { useFetchGetVideosPorCurso } from '../hooks/useFetchGetVideosPorCurso';
 export default function VideoComp() {
   const {id,id_video}=useParams(); 
-  console.log("id",id ,"id_video",id_video);
   const {dataComentPorVideo:comentarios}=useFetchComentariosPorVideo(id_video)
   const {dataCursoID:curso} =useFecthCursoID(id);
   const {dataModulos:modulos}= useFetchModulo(id);
+  const {data:usuario} =useFecthUsuario();
+  const {dataVideosCurso:videosCurso}=useFetchGetVideosPorCurso(id);
+
+  const array = videosCurso?.map(({ruta_video})=>ruta_video)
+  const id_persona_actual=usuario.id_persona;
 
   const{nombre} = curso.length>0 && curso[0];
-   const{dataVideo:video}=useFetchVideoID(id_video);
- 
+  const{dataVideo:video}=useFetchVideoID(id_video);
         return(
             <>
        <div className="navbar-preview">
          <div className="navbar-preview-titulo">
-         <Link to="/"><i class="fab fa-reddit" id="icon_videoReproductor"></i></Link> 
+         <Link to="/"><i className="fab fa-reddit" id="icon_videoReproductor"></i></Link> 
            <p>{nombre}</p> 
          </div>   
            {/* <div className="container_Calificacion">
@@ -51,7 +56,7 @@ export default function VideoComp() {
        <div className="container-seccion-video">
           <div className="reproductor-left">
             <div className="container_txt_ClasesDelCurso">
-            <Link to="/"><i class="fas fa-arrow-left"></i></Link> 
+            <Link to="/"><i className="fas fa-arrow-left"></i></Link> 
              <p className="txt_clasesDelCurso">Clases del Curso</p>
             </div>
            <div >
@@ -77,16 +82,16 @@ export default function VideoComp() {
                  </video>
              </div>
                      
-             <DescripcionVideo {...video[0]}/>
+             <DescripcionVideo {...video[0]} videosCurso={array}/>
          
              {/* COMPONENTE PARA REALIZAR UN COMENTARIO*/}
-             <ComentarioEscribir cantidad={comentarios?.length}/>
+             <ComentarioEscribir cantidad={comentarios?.length} ruta_video={video[0]?.ruta_video} id_curso={curso[0]?.id}/>
              <div className="container_comentario">
              {comentarios?.length !== 0
                &&
                comentarios.map(comentario =>
                
-                   <Comentario {...comentario}/>
+                   <Comentario {...comentario} id_persona_actual={id_persona_actual}/>
               
                )  
              }  

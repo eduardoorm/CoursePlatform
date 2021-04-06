@@ -29,7 +29,7 @@ export const DashEditarStudent = () => {
           <Formulario id="form">
                             <label htmlFor="nombre">Nombre </label>
                              <Input
-                             value={estudiante[0]?.nombre || "---" }
+                             placeholder={estudiante[0]?.nombre || "---" }
                              id="nombre"
                              name="nombre"
                              type="text"
@@ -37,7 +37,7 @@ export const DashEditarStudent = () => {
                              /> 
                               <label htmlFor="apellido">Apellido</label>
                               <Input
-                             value={estudiante[0]?.apellido || "----" }
+                             placeholder={estudiante[0]?.apellido || "----" }
                              id="apellido"
                              name="apellido"
                              type="text"
@@ -45,7 +45,7 @@ export const DashEditarStudent = () => {
                              /> 
                              <label htmlFor="email">Email</label>
                               <Input
-                             value={estudiante[0]?.email|| "---" }
+                             placeholder={estudiante[0]?.email|| "---" }
                              id="email"
                              name="email"
                              type="email"

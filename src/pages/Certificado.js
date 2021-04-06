@@ -8,7 +8,6 @@ export const Certificado = () => {
    
     const {id} = useParams();
     const {dataCertificado:certificados}= useFetchGetCertificadoPorPersonaID(id);
-    console.log(certificados);
     return (
         <>
             <h1 className="certificado_titulo">Mis Certificados </h1>

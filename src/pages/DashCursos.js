@@ -25,7 +25,7 @@ export const DashCursos = () => {
                         {/* /*DASHBOARD HEADER*/}
                         <div className="Dashboard-Preview">
                             <DashHeader 
-                            icono={<i class="fas fa-book"></i>}
+                            icono={<i className="fas fa-book"></i>}
                             nombre="Cursos"
                             />
                         </div>

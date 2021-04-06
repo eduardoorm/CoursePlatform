@@ -11,8 +11,8 @@ import {IdPreguntasfrecuentes} from '../elementos/Preguntas'
 import { useFetchUltimosCurso } from '../hooks/useFetchUltimosCurso';
 
 function Principal() {
-  const {dataCursos:curso} = useFetchUltimosCurso();
-  return (
+   const {dataCursos:curso} = useFetchUltimosCurso();
+   return (
     <>
     <Banner>
         <ContTextBanner> 
@@ -47,6 +47,7 @@ function Principal() {
                 categoria={curso?.categoria}
                 tituloCurso={curso?.nombre}
                 lecciones={curso?.lecciones}
+                imagen={curso?.imagen}
                 />
             </Link>     
             </>
@@ -78,7 +79,7 @@ function Principal() {
           </TextContInstructor>
 
     </ContInstructor>
-        
+  
         <IdPreguntasfrecuentes>
           <h2>Preguntas frecuentes</h2> <br/><br/>
           <Preguntas

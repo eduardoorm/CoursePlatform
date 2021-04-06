@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { postComentario } from '../helpers/postComentario';
+import { useFecthCursoID } from '../hooks/useFecthCurso';
 import './ComponentStyles/Comentarios.css'
-export default function ComentarioEscribir(props) {
+export default function ComentarioEscribir({cantidad,ruta_video,id_curso}) {
     const [coment,setComent] = useState({});
     const [estadoComent,setEstadoComent] = useState(false);
-  
     const handleChange =(e)=>{
         setComent({
           ...coment,
@@ -13,7 +13,7 @@ export default function ComentarioEscribir(props) {
         })
       }
 
-     const {id,id_video}= useParams();
+    //  const {id,id_video}= useParams();
 
     useEffect(()=>{
       const  escribirComent=document.getElementById("escribirComent");
@@ -22,10 +22,10 @@ export default function ComentarioEscribir(props) {
           setEstadoComent(true);
         })
     },[])
-  
+ 
       const realizarComentario= async (e)=>{
         e.preventDefault();
-        postComentario(coment,id,id_video)
+        postComentario(coment,id_curso,ruta_video)
        }
        
        const cancelarComentario =()=>{
@@ -35,7 +35,7 @@ export default function ComentarioEscribir(props) {
 
     return(
         <div className="comentarios-video">
-               <h3 className="comentario-titulo">Comentarios <span className="cantComentarios">({props.cantidad})</span></h3>
+               <h3 className="comentario-titulo">Comentarios <span className="cantComentarios">({cantidad})</span></h3>
            <div className="hacer-comentario">
                 <img src="/assets/img/perfil.png" className="perfil-comentario"/>
                 <form className="formulario-comentario" id="miForm" >
