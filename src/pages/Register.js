@@ -6,8 +6,18 @@ import {Btn} from '../components/Button'
 import {Redirect} from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import { postEstudiante } from '../helpersAdmin/postEstudiante';
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+      "& .MuiTextField-root": {
+        margin: theme.spacing(1),
+      }
+    }
+  }));
 export default function Register (){
+     const classes = useStyles();
      const [form, setForm] = useState({})
      const [register, setRegister] = useState(false)
      const handleChange = e =>{
@@ -25,8 +35,7 @@ export default function Register (){
                'Accept': 'application/json',
                'Content-Type': 'application/json'
            },
-           body: JSON.stringify(this.state.form),
-          
+           body: JSON.stringify(form),
          }
 
          let res = await fetch('http://localhost:3001/postUser',config)
@@ -38,7 +47,7 @@ export default function Register (){
          }
         
        } catch (error) {
-           
+           console.log(error)
        }
     }
     
@@ -74,37 +83,41 @@ export default function Register (){
                 cookiePolicy={'single_host_origin'}
             />
             <br/> <br/>
-            <Formulario id="form" onChange={handleChange} onSubmit={handleSubmit}>
-                    <Input
-                    placeholder="Nombres"
-                    id="nombres"
+            <form className={classes.root} noValidate autoComplete="off" onChange={handleChange} onSubmit={handleSubmit}>
+                <div>
+                <TextField
+                    required
+                    id="standard-required"
+                    label="Nombres"
                     name="nombre"
-                    type="text"
-                    /> 
-                     <Input
-                    placeholder="Apellidos"
-                    id="apellidos"
+                    />
+                    <TextField
+                    required
+                    id="standard-required"
+                    label="Apellidos"
                     name="apellidos"
-                    type="text"
-                    /> 
-                     <Input
-                     placeholder="Email"
-                     id="email"
-                     name="email"
-                     type="email"
-                    /> 
-                     <Input
-                    placeholder="Contraseña"
-                    id=  "password"
-                    name="password"
+                    />
+                    <TextField
+                    required
+                    id="standard-required"
+                    label="Email"
+                    name="email"
+                    />
+                    <TextField
+                    id="standard-password-input"
+                    label="Contraseña"
                     type="password"
-                    /> 
-                    <Btn
+                    name="password"
+                    autoComplete="current-password"
+                    />
+                   
+                </div>
+                   <Btn
                     style="registrarme"
                     value="Registrarme"
                     type="Submit"
                     />
-            </Formulario>
+            </form>
            
             </div>
        </div>  

@@ -5,7 +5,7 @@ import {Btn} from './Button'
 import EditarContraseña from './EditarContraseña'
 import { useFecthUsuario } from '../hooks/useFecthUsuario';
 import {putUsuario} from '../helpers/putUsuario'
-
+import './ComponentStyles/Perfil-comp.css'
 export default function PerfilEditar (){
   const [changePass,setchangePass] = useState(false);
   const {data}= useFecthUsuario();

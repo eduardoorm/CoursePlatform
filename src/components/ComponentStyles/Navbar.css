@@ -139,3 +139,10 @@
     color:white;
 }
 
+/* DEL DIV*/
+.MuiToolbar-root{
+    justify-content: space-between;
+}
+.MuiIconButton-label{
+    font-size: 50%;
+}

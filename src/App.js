@@ -17,7 +17,6 @@ import { DashCategoria } from './pages/DashCategoria';
 import { DashCursos } from './pages/DashCursos';
 import { DashEstudiantes } from './pages/DashEstudiantes';
 import { DashSuscripciones } from './pages/DashSuscripciones';
-
 import { DashEditarEstudiante } from './pages/DashEditarEstudiante';
 import { DashEditarCurso } from './pages/DashEditarCurso';
 import { DashContenido } from './pages/DashContenido';

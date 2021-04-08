@@ -2,18 +2,19 @@
     border:1px solid #D9D9D9;
     box-shadow: 0px 6px 10px  #D9D9D9;
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 1.3em;
     border-radius: 0.3em;
     padding: 0.7em;
-    width: 60em ;
-    height: 12.5em;
+    word-break: break-word;
 }
 
 .MisCursos_column2{
-    width: 100%;
     padding: 0em 1em;
     display: flex;
     justify-content: space-between;
+    width: 60%;
+    flex-wrap: wrap;
 }
 
 .btn-verCurso{
@@ -34,11 +35,12 @@
 }
 .MisCursos_column2_item1{
    line-height: 2em;
-   width: 100%;
+  
 }
 .contenedor_imgMisCursos{
-    width: 28em;
+    border:1px solid;
     height: 11em;
+    width: 40%;
     border-radius: 0.4em;
 }
 .img_MisCursos{
@@ -46,6 +48,8 @@
     height: 100%;
     border-radius: 0.4em;
 }
+
+
 
 /*CURSO COLLECTIONS*/
 #start-CursoCollection{
@@ -65,4 +69,24 @@
     font-weight: 600;
     margin-top:10px;
     cursor:pointer;
+}
+@media only screen and (max-width: 960px) {
+    .MisCursos_column2{
+        width: 100%;
+    }
+    .contenedor_imgMisCursos{
+        width: 100%;
+    }
+    .container-MisCursos{
+      justify-content: center;
+    }
+    .txt_Acceso {
+        margin-top: 10px;
+    }
+    .btn-ComprarCurso{
+        width: 100%;
+    }
+    .MisCursos_column2_item2,.MisCursos_column2_item1{
+        width: 100%;
+    }
 }

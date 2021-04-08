@@ -1,10 +1,11 @@
 import React , {useState} from 'react'
 import { useFecthUsuario } from '../hooks/useFecthUsuario'
 import { useFecthPersonaCurso } from '../hooks/useFetchPersonaCurso';
-import './ComponentStyles/Perfil-comp.css'
 import { MiCurso } from './MiCurso';
 import PerfilEditar from './PerfilEditar'
 import {Link} from 'react-router-dom'
+import './ComponentStyles/Perfil-comp.css'
+
 
 export default function PerfilComp () {
    const[clickEditarPerfil,setEditarPerfil]=useState(false);

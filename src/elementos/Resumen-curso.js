@@ -4,7 +4,9 @@ const ContainerModulos = styled.div `
     width: 650px;
     margin:  0.5em auto ;
     
-    
+    @media (max-width: 768px) {
+    width: auto;
+  }
 `
 const ContainerHeaderModulo= styled.div `
     display: flex;
@@ -14,6 +16,8 @@ const ContainerHeaderModulo= styled.div `
     border-radius:6px;
     padding: 0px 2em;
     margin-top:0.4em;
+    margin-left:0.4em;
+    margin-right:0.4em;
 `
 const FlechaModulo = styled.div `
 

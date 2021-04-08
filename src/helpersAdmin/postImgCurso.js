@@ -9,7 +9,6 @@ export const postImgCurso = async (fd) => {
         method:"POST",
         enctype:"multipart/form-data",
         headers:{
-        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': `${token}`
         },
@@ -20,6 +19,6 @@ export const postImgCurso = async (fd) => {
     const res = await respuesta.json();
     (!res.ok) ? alert("Hubo un error") : alert("Se Agrego la Imagen")
     }catch{
-  console.log();
+  console.log(); 
   }
 }

@@ -12,6 +12,9 @@ const Banner =styled.div `
     background-repeat: no-repeat;
     background-size: cover;
     margin:0em auto 3em;
+    @media (max-width: 1000px) {
+      display:none
+  }
 `;
 
 const TitleBanner= styled.p `

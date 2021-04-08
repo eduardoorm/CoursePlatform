@@ -5,6 +5,10 @@ const IdPreguntasfrecuentes = styled.div `
      margin:auto;
      margin-bottom:50px;
      color:#3C3B37;
+     padding:1em;
+     @media (max-width: 550px) {
+        width:auto;
+  }
 `
 const Label = styled.label `
     padding-left: 1.3em;

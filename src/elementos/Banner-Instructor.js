@@ -8,6 +8,10 @@ const ContInstructor = styled.div `
     padding-right: 10em;
     display: flex;
     justify-content: flex-end;
+    @media (max-width: 1130px) {
+        padding:0px;
+         height:auto;
+     }
 `;
 
 const BtnEmpiezaEnseniar = styled.button `
@@ -24,6 +28,9 @@ const BtnEmpiezaEnseniar = styled.button `
 const TextContInstructor = styled.div `
     width: 430px;
     padding-top: 2.0em;
+    @media (max-width: 1130px) {
+        padding:2em;
+     }
 `   ;
 
 const ImgContInstructor = styled.div `
@@ -31,6 +38,9 @@ const ImgContInstructor = styled.div `
     height: 390px;
     margin-right:100px;
     transform: translateY(-38px);
+    @media (max-width: 1130px) {
+        display:none;
+     }
 `;
 
 const ImgTeacher = styled.img `

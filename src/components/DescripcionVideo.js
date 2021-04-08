@@ -20,12 +20,13 @@ export default function DescripcionVideo(props) {
 
     return(
         <>
+
            <div className="footer-reproductor">
                <h3>{props.nombre}</h3>
-               <div>
+               <div className="footer-botones">
             
                <button className="Anterior" onClick={btnAnterior} > <i className="fas fa-angle-left"></i> Anterior</button>    
-               <button className="Siguiente" onClick={btnSiguiente}><i className="fas fa-angle-right"></i>Siguiente </button>          
+               <button className="Siguiente" onClick={btnSiguiente}>Siguiente <i className="fas fa-angle-right"></i></button>          
     
                </div>       
            </div>

@@ -35,10 +35,7 @@ li{
 /*DASHBOARD COLUMN 1*/
 .Dashboard-Column_1{
     min-width: 20%;
-    height: 91vh;
-   
     padding: 2.6em 1em;
-    
 }
 
 .Dashboard-Column_2{
@@ -69,6 +66,7 @@ li{
     align-items: center;
     justify-content: space-between;
     padding: 0.4em 0em 1.4em 0em;
+    flex-wrap: wrap;
 }
 
 .Dashboar_container_bienvenido{
@@ -90,7 +88,52 @@ li{
     font-size: 80%;
     padding-top: 2em;
 }
+/*RESPONSIVE SECTIONS*/
+@media only screen and (max-width: 1240px) {
+    .Dashboard-Column_1{
+        width: 100%;
+    }
 
+    .Dashboard_Sections {
+      width: 100%;
+      height: auto;
+    }
+    
+    .Dash_List_Items{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .txt_Navegacion{
+        text-align: center;
+    }
+    .Dashboard-Column_2{
+        width: 100%;
+        height: auto;
+    }
+    .Dashboard-Column_1{
+        height: auto;
+    }
+    .Dashaboard_Container{
+        height: auto;
+    }
+    .Dashboard-Preview{
+        height: auto;
+    }
+    .categoria_cursos{
+        width: 100% !important;
+    }
+    .botones_curso{
+        justify-content: center ;
+    }
+    
+  }
+
+  @media only screen and (max-width: 406px) {
+    .categoria_items{
+        justify-content: center !important;
+    }
+  }
 /*COMPONENT Dash section*/
 .Dash_Section{
   display: flex;
@@ -143,12 +186,18 @@ li{
 .Header_Titulo_item p{
      margin-left: 10px;
 }
+.botones_categoria{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .btn_header{
      padding: 0.7em;
      background-color: white;
      border:1px solid;
      border-radius: 8px;
      color:#5991E1;
+     margin-top: 1em;
 }
 /*DASH CONTE DASHBOAR */
 .titulo_DashConteDashBoard{
@@ -181,6 +230,7 @@ li{
     padding: 0.5em;
     border-top:1px solid;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .categoria_items:nth-child(1){
     border:none;
@@ -262,10 +312,15 @@ li{
 
  .botones_curso{
      margin-top: 1em;
-    display: flex;
-    justify-content: space-between;
-
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
  }
+
+ .botones_curso button{
+     margin-top: 1em;
+ }
+
  #masContenidoCurso{
      background-color: #21D547 ;
  }
