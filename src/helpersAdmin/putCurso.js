@@ -25,7 +25,9 @@ export const putCurso = async (form,id) => {
    try{    
     const respuesta = await fetch(`http://localhost:3001/putCurso/${id}`,config)
     const res = await respuesta.json();
-    (!res.ok) ? alert("Hubo un error") : alert("Se actualizo correctamente")
+    if(res.ok){
+      return {ok:true}
+    }
     }catch{
   console.log();
   }

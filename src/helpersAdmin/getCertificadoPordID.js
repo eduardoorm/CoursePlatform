@@ -1,8 +1,18 @@
 import React from 'react'
 
 export const getCertificadoPordID = async(id) => {
+    if(!localStorage.getItem("token")) return alert ("registrate")
+    const {token} = JSON.parse(localStorage.getItem("token"));
+    let config ={
+        method:"GET",
+        headers:{
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`
+        },
+     }
     const url=`http://localhost:3001/getCertificadoPorID/${id}`;
-    const response = await fetch(url);
+    const response = await fetch(url,config);
     const certificados = await response.json();
     console.log("certidicafos",certificados);
     const certificado = certificados.map(item=>{

@@ -1,11 +1,14 @@
 import React from 'react'
 
 export const deleteLeccion = async(id) => {
+  const {token} = JSON.parse(localStorage.getItem("token"));
+
     let config ={
        method:"DELETE",
        headers:{
        'Accept': 'application/json',
        'Content-Type': 'application/json',
+       'Authorization': `${token}`
        },
     }
    try{    

@@ -1,33 +1,40 @@
 import React, {Component, useState} from 'react';
-import Input from '../components/Input';
-import styled from 'styled-components'
-import {Formulario} from '../elementos/Formularios'
 import {Btn} from '../components/Button'
 import {Redirect} from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import { postEstudiante } from '../helpersAdmin/postEstudiante';
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 const useStyles = makeStyles((theme) => ({
     root: {
       "& .MuiTextField-root": {
         margin: theme.spacing(1),
-      }
+      },
+        width: '100%',
+        '& > * + *': {
+        marginTop: theme.spacing(2),
+        },
     }
-  }));
+}));
+
 export default function Register (){
      const classes = useStyles();
-     const [form, setForm] = useState({})
-     const [register, setRegister] = useState(false)
-     const handleChange = e =>{
+     const [form, setForm] = useState({});
+     const [register, setRegister] = useState(false);
+     const [loading, setLoading]= useState(false);
+
+    const handleChange = e =>{
         setForm({
                 ...form,
                 [e.target.name] : e.target.value
         })
     }
+
     const handleSubmit = async(e) =>{
        e.preventDefault()
+       setLoading(true);
        try {
          let config ={
            method: 'POST',
@@ -39,9 +46,9 @@ export default function Register (){
          }
 
          let res = await fetch('http://localhost:3001/postUser',config)
-         let json = await (res);
          if(res.ok){
             setRegister(true)
+            setLoading(false)
          }else{
              console.log("No se pudo registar");
          }
@@ -74,7 +81,7 @@ export default function Register (){
                     <h1>Inscríbete y comienza a aprender.</h1> 
             </div>
             <div className="form-post">
-           
+
             <GoogleLogin
                 clientId="593174414261-1gu1nc4svuu26erj483ptivnt56i5ab2.apps.googleusercontent.com"
                 buttonText="Register"
@@ -82,7 +89,7 @@ export default function Register (){
                 onFailure={respuestaGoogle}
                 cookiePolicy={'single_host_origin'}
             />
-            <br/> <br/>
+            <br/><br/>
             <form className={classes.root} noValidate autoComplete="off" onChange={handleChange} onSubmit={handleSubmit}>
                 <div>
                 <TextField
@@ -112,6 +119,7 @@ export default function Register (){
                     />
                    
                 </div>
+                 {loading &&  <LinearProgress />}
                    <Btn
                     style="registrarme"
                     value="Registrarme"

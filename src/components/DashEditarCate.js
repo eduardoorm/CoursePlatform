@@ -4,11 +4,13 @@ import { useFetchGetCategoriaID } from '../hooksAdmin.js/useFetchGetCategoriaID'
 import { Formulario } from '../elementos/Formularios';
 import { putCategoria } from '../helpersAdmin/putCategoria';
 import Input from './Input';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 export const DashEditarCate= () => {
    let {id}= useParams();
    const {dataCategoria:categoria} = useFetchGetCategoriaID(id);
    const [form, setform] = useState({});
+   const [loading, setLoading]= useState(false);
 
    const handleChange =(e)=>{
     setform({
@@ -17,11 +19,13 @@ export const DashEditarCate= () => {
     })
    }
 
-   console.log(form);
-
-   const editarCategoria =(e)=>{
+   const editarCategoria = async (e)=>{
     e.preventDefault();
-    putCategoria(form,id);
+    setLoading(true)
+    const response = await putCategoria(form,id);
+    if(response.ok){
+      setLoading(false)
+    }
    }
     return (
        <div>
@@ -35,6 +39,7 @@ export const DashEditarCate= () => {
                             type="text"
                             onChange={handleChange}
                             /> 
+                            {loading &&  <LinearProgress />} <br/><br/>
             <button type="submit" className="btn-default" onClick={editarCategoria}>Actualizar</button>
          </Formulario>
        </div>

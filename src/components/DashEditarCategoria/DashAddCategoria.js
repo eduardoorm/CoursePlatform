@@ -1,24 +1,30 @@
 import React, { useState } from 'react'
-import { getCategoria } from '../../helpersAdmin/getCategoria'
 import { postCategoria } from '../../helpersAdmin/postCategoria'
-import {useFecthGetCategoria} from '../../hooksAdmin.js/useFecthGetCategoria'
+import LinearProgress from '@material-ui/core/LinearProgress';
+
 export const DashAddCategoria = () => {
     const [form, setForm] = useState({})
+    const [loading, setLoading]= useState(false);
     const handleSubmit =(e)=>{
        setForm({
            ...form,
           [e.target.name]:e.target.value,
        })
     }
-    const AddCategoria =(e)=>{
+    const AddCategoria =async (e)=>{
        e.preventDefault();
-       postCategoria(form);
+       setLoading(true)
+      const response = await postCategoria(form);
+      if(response?.ok){
+        setLoading(false)
+      }
     }
     return (
         <div className="Agregar_categoria_container">
             <form className="form_categoria">
                 <label for="categoria" >Nombre Categoria</label>
                 <input id="categoria" name="nom_cate" className="input_categoria" type="text" onChange={handleSubmit}/>
+                {loading &&  <LinearProgress />}
                 <button className="btn_agregar" type="submit" onClick={AddCategoria}>Agregar</button>
             </form>
             

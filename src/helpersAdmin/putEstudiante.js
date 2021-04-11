@@ -23,7 +23,10 @@ export const putEstudiante = async (form,id) => {
    try{    
     const respuesta = await fetch('http://localhost:3001/putUser',config)
     const res = await respuesta.json();
-    (!res.ok) ? alert("Hubo un error") : alert("Se actualizo correctamente")
+    console.log(res);
+    if(res.ok){
+      return {ok:true}
+  }
     }catch{
   console.log();
   }

@@ -7,7 +7,48 @@ import { useFetchGetCertificado } from '../../hooksAdmin.js/useFetchGetCertifica
 import { useFetchGetEstudiante } from '../../hooksAdmin.js/useFetchGetEstudiante';
 import queryString from 'query-string'
 import { getCertificateByEmail } from '../../selectors/getCertificateByEmail';
+// MATERIAL UI TABLE
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+
+   //Boton material ui
+   const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+  }))(TableCell);
+  
+  const StyledTableRow = withStyles((theme) => ({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);
+  
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+    table: {
+      minWidth: 700,
+    },
+  }));
 export const DashMostrarCertificados = () => {
+    const classes = useStyles();
     // const {dataEstudiante:estudiante}= useFetchGetEstudiante();
     const [editar, setEditar] = useState(true);   
     const {dataCertificado:certificados}= useFetchGetCertificado()
@@ -35,7 +76,13 @@ export const DashMostrarCertificados = () => {
     }
   
    
-    const eliminarStudent=(id_certificado,nombre_curso,certificado_email)=>{
+    // const eliminarStudent=(id_certificado,nombre_curso,certificado_email)=>{
+    //   if(window.confirm(`¿Seguro que quieres eliminar al certificado: "${nombre_curso}" del email : "${certificado_email}"?`)){
+    //     window.location.reload();
+    //      return deleteCertificado(id_certificado);
+    //   }
+    // }
+    const eliminarCertificado=(id_certificado,nombre_curso,certificado_email)=>{
       if(window.confirm(`¿Seguro que quieres eliminar al certificado: "${nombre_curso}" del email : "${certificado_email}"?`)){
         window.location.reload();
          return deleteCertificado(id_certificado);
@@ -43,6 +90,7 @@ export const DashMostrarCertificados = () => {
     }
     return (
       <>
+     
       <div>
       <p>Total de Certificados: {certificados?.length}</p>
       <br/>
@@ -95,7 +143,7 @@ export const DashMostrarCertificados = () => {
                            <button className="btn_categoria" >Editar</button>
                         </Link>   
                          <button className="btn_categoria"
-                          onClick={()=>eliminarStudent(certificado.id_certificado,certificado.nombre_curso,certificado.email)}>
+                          onClick={()=>eliminarCertificado(certificado.id_certificado,certificado.nombre_curso,certificado.email)}>
                            Eliminar</button>    
                         </div>
                     </div> 
@@ -106,7 +154,49 @@ export const DashMostrarCertificados = () => {
           <br/>
           <h4>Certificados:</h4> 
          <hr/>
-        <div className="Container_categoria">
+         <TableContainer component={Paper}>
+              <Table className={classes.table} aria-label="customized table">
+                <TableHead>
+                  <TableRow>
+                    <StyledTableCell>Pos</StyledTableCell>
+                    <StyledTableCell align="left">Email</StyledTableCell>
+                    <StyledTableCell align="left">Curso</StyledTableCell>
+                    <StyledTableCell align="right"></StyledTableCell>
+                    <StyledTableCell align="right"></StyledTableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {certificados?.map((row,pos) => (
+                    <StyledTableRow key={row.nombre}>
+                      <StyledTableCell component="th" scope="row">
+                        {pos+1}
+                      </StyledTableCell>
+                      <StyledTableCell align="left">{row.email}</StyledTableCell>
+                      <StyledTableCell align="left">{row.nombre_curso}</StyledTableCell>
+                      <StyledTableCell align="right">
+                      <Link to={`/admin/certificados/editar/${row.id_certificado}`}>
+                      <Button variant="contained" color="primary">
+                          Editar
+                      </Button>
+                        </Link>
+                      </StyledTableCell>
+                      <StyledTableCell align="right">
+                        <Button
+                          variant="contained"
+                          color="secondary"
+                          className={classes.button}
+                          onClick={()=>eliminarCertificado(row.id_row,row.nombre_curso,row.email)}
+                        >
+                          Eliminar
+                        </Button>
+                      </StyledTableCell>
+                    
+                    </StyledTableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+        {/* <div className="Container_categoria">
                 { certificados?.map((certificado,pos)=>
                 <>  
                     <div className="categoria_items" >
@@ -124,13 +214,13 @@ export const DashMostrarCertificados = () => {
                            <button className="btn_categoria" >Editar</button>
                         </Link>   
                          <button className="btn_categoria"
-                          onClick={()=>eliminarStudent(certificado.id_certificado,certificado.nombre_curso,certificado.email)}>
+                          onClick={()=>eliminarCertificado(certificado.id_certificado,certificado.nombre_curso,certificado.email)}>
                            Eliminar</button>    
                         </div>
                     </div> 
                 </>
                 )}
-          </div>
+          </div> */}
        </>
     )
 }

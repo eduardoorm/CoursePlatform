@@ -5,13 +5,15 @@ import Input from '../Input';
 import { useFetchGetCertificadoPorID } from '../../hooksAdmin.js/useFetchGetCertificadoPorID';
 import { useFecthGetProfesorID } from '../../hooksAdmin.js/useFecthGetProfesorID';
 import { putProfesor } from '../../helpersAdmin/putProfesor';
+import LinearProgress from '@material-ui/core/LinearProgress';
 export const DashEditarTeacher = () => {
     
     let {id}= useParams();
     const [form, setform] = useState({});
     const history= useHistory()
-   
+    const [loading, setLoading]= useState(false);
     const {dataProfesor:profesor}=useFecthGetProfesorID(id);
+    
     const handleChange =(e)=>{
       setform({
         ...form,
@@ -19,11 +21,15 @@ export const DashEditarTeacher = () => {
       })
      }
 
-
-    const editarProfesor =(e)=>{
+    const editarProfesor =async(e)=>{
       e.preventDefault();
-      putProfesor(form,id);
+      setLoading(true)
+      const response = await putProfesor(form,id);
+      if(response.ok){
+        setLoading(false)
+      }
      }
+     
     return (
         <div>
         <button className="btn-Volver" onClick={()=>{history.goBack()}}>volver</button>
@@ -44,6 +50,7 @@ export const DashEditarTeacher = () => {
                            type="text"
                            onChange={handleChange}
                            />
+                           {loading &&  <LinearProgress />} <br/><br/>
            <button type="submit" className="btn-default" onClick={editarProfesor}>Actualizar</button>
         </Formulario>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const getSeccionPorID = async (id) => {
+export const getLastFiveStudents = async() => {
     if(!localStorage.getItem("token")) return alert ("registrate")
     const {token} = JSON.parse(localStorage.getItem("token"));
     let config ={
@@ -11,16 +11,18 @@ export const getSeccionPorID = async (id) => {
         'Authorization': `${token}`
         },
      }
-    const url=`http://localhost:3001/getSeccionPorID/${id}`;
+    const url=`http://localhost:3001/getLastFiveStudents`;
     const response = await fetch(url,config);
-    const secciones = await response.json();
-    const seccion = secciones.map(item=>{
+    const students= await response.json();
+    const student = students.map(item=>{
         return {
-            id_modulo: item.id_modulo,  
-            nombre: item.nom_modulo,
-            id_curso: item.id_curso,
+            id : item.id_estudiante,
+            nombre: item.nombre,
+            apellidos:item.apellidos,
+            email:item.email,
+            role:item.role,
+            id_persona:item.id_persona,
            }   
     }) 
-
-    return seccion;
+    return student;
 }

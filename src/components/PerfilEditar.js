@@ -5,12 +5,15 @@ import {Btn} from './Button'
 import EditarContraseña from './EditarContraseña'
 import { useFecthUsuario } from '../hooks/useFecthUsuario';
 import {putUsuario} from '../helpers/putUsuario'
+import LinearProgress from '@material-ui/core/LinearProgress';
 import './ComponentStyles/Perfil-comp.css'
+
 export default function PerfilEditar (){
   const [changePass,setchangePass] = useState(false);
   const {data}= useFecthUsuario();
-  const [usuario, setUsuario] = useState({});
 
+  const [usuario, setUsuario] = useState({});
+  const [loading, setLoading]= useState(false);
   const handleChange =(e)=>{
     setUsuario({
       ...usuario,
@@ -19,19 +22,19 @@ export default function PerfilEditar (){
     })
    }
   
- 
   const clickCambiarContraseña =(e)=>{
     (changePass) ? setchangePass(false) : setchangePass(true);
     e.preventDefault();
   }
 
-
-  
   const handleGuardarCambios= async (e)=>{
     e.preventDefault();
-      putUsuario(usuario) 
-      window.location.reload();
-      alert("Se actualizo al usuario")
+     setLoading(true)
+     const response = await putUsuario(usuario) 
+      // window.location.reload();
+      if(response.ok){
+       setLoading(false)
+      }
   }
 
   return(
@@ -73,7 +76,8 @@ export default function PerfilEditar (){
                             onClick={clickCambiarContraseña} 
                             type="button">Cambiar Contraseña
                           </button>
-
+                          
+                          {loading &&  <LinearProgress />}
                           <Btn
                             style="btn_guardarCambios"
                             value="Guardar cambios"
@@ -88,7 +92,7 @@ export default function PerfilEditar (){
              <div className="actualizar__item">
                {changePass && <EditarContraseña/>} 
              </div>
-          </div>   
+        </div>   
       )
 }
 

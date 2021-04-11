@@ -4,12 +4,14 @@ import { Formulario } from '../../elementos/Formularios';
 import Input from '../Input';
 import { useFetchGetCertificadoPorID } from '../../hooksAdmin.js/useFetchGetCertificadoPorID';
 import {putCertificado} from '../../helpersAdmin/putCertificado'
+import LinearProgress from '@material-ui/core/LinearProgress';
+
 export const DashEditarCertificate = () => {
     
     let {id}= useParams();
     const [form, setform] = useState({});
     const history= useHistory()
-   
+    const [loading, setLoading]= useState(false);
     const {dataCertificado:certificado}= useFetchGetCertificadoPorID(id);
     const {id_persona}=certificado;
     const handleChange =(e)=>{
@@ -19,9 +21,15 @@ export const DashEditarCertificate = () => {
       })
      }
      
-    const editarSeccion =(e)=>{
-      e.preventDefault();
-       putCertificado(form,id_persona,id);
+    const editarSeccion =async(e)=>{
+       e.preventDefault();
+       const {id_persona,nombre_archivo,nombre_curso}=form;
+       const enviar ={id_persona,nombre_archivo,nombre_curso}
+       setLoading(true)
+       const response = await putCertificado(form,id_persona,id);;
+       if(response.ok){
+         setLoading(false)
+      }   
      }
 
     return (
@@ -44,6 +52,7 @@ export const DashEditarCertificate = () => {
                            type="text"
                            onChange={handleChange}
                            />
+                 {loading &&  <LinearProgress />} <br/><br/>
            <button type="submit" className="btn-default" onClick={editarSeccion}>Actualizar</button>
         </Formulario>
       </div>

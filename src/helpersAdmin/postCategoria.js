@@ -2,16 +2,20 @@ import React from 'react'
 
 export const postCategoria =async (categoria) => {
      const url =`http://localhost:3001/addCategoria`;
-     let config ={
+     if(!localStorage.getItem("token")) return alert ("registrate")
+     const {token} = JSON.parse(localStorage.getItem("token"));
+
+      let config ={
         method:"POST",
         headers:{
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `${token}`
         },
         body: JSON.stringify(categoria)
      };
      const res = await fetch(url,config);
      if(res.ok){
-         alert("Se agrego la categoria")
+        return {ok:true}
      }
 }

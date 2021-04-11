@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { getPersonas } from '../helpersAdmin/getPersonas'
 
 export const useFetchGetPersonas = () => {
     const [personas, setPersona] = useState({
         dataPersona:[],
-    })
+    }) 
 
      useEffect(()=>{
         getPersonas().then(item=>{

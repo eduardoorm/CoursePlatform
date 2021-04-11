@@ -30,11 +30,13 @@ import { DashEditarProfesor } from './pages/DashEditarProfesor';
 import { DashAddCertificado } from './components/DashEditarCertificados/DashAddCertificado';
 import { DashMostrarReportes } from './components/DashSuscripciones/DashMostrarReportes';
 import { DashReportes } from './pages/DashReportes';
+import { PurchaseMade } from './components/PurchaseMade';
+import { Upload } from './components/Upload';
 
 function App() {
   return (
    <Router>    
-        <Switch>
+        <Switch> 
               <Route path='/' exact ><NavBar /><Home/><Footer/></Route>
               <Route path='/login' exact ><NavBar/><Login/> <Footer/></Route>
               <Route path='/register' exact ><NavBar/><Register/> <Footer/></Route>
@@ -45,7 +47,8 @@ function App() {
               <Route path='/course/:id' exact><NavBar/><Course_Page/><Footer/></Route>
               <Route path='/course/:id/:id_video' exact ><Video/></Route>
               <Route path='/certificados/:id' exact ><NavBar/><Certificado/></Route>
-
+              <Route path='/purchasemade' exact ><PurchaseMade/></Route>
+              <Route path='/uploadVideos' exact ><Upload/></Route>
               <Route path='/admin/dashboard' exact ><DashDashboard/></Route>
 
               <Route path='/admin/categorias' exact ><DashCategoria/></Route>

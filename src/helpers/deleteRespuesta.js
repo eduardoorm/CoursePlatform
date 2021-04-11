@@ -1,5 +1,4 @@
 import React from 'react'
-
 export const deleteRespuesta = async(id) => {
     let config ={
         method:"DELETE",

@@ -4,37 +4,26 @@ import { useFetchGetEstudiante } from '../../hooksAdmin.js/useFetchGetEstudiante
 import {Link, useLocation} from 'react-router-dom'
 import queryString from 'query-string'
 import { searchScreen } from '../Search/searchScreen';
-import { deleteEstudiante } from '../../helpersAdmin/deleteEstudiante';
-import { NavbarRight } from '../../elementos/Navbar-elementos';
-import TituloVideo from '../TituloVideo';
 import { useHistory, useParams } from 'react-router-dom'
 import { getStudientByEmail } from '../../selectors/getStudientByEmail';
+import LinearProgress from '@material-ui/core/LinearProgress';
+
 import { DashNav } from '../DashNav'
 export const DashAddCertificado = () => {
-    // const handleSubmit =(e)=>{
-    //    setForm({
-    //        ...form,
-    //       [e.target.name]:e.target.value,
-    //    })
-    // }
     const [clickBuscar, setClickBuscar] = useState(false)
     const location = useLocation();
     const {q=''}=queryString.parse(location.search);
-    console.log(q);
+    const [loading, setLoading]= useState(false);
     const [form, setForm] = useState({
       searchText:q,
     })
 
-    const [dataCertificate, setDataCertificate] = useState({
-
-    })
     const history = useHistory();
-    
-  
     const {dataEstudiante:estudiante} =useFetchGetEstudiante()
     const {searchText} = form;
     const studentFiltered=useMemo(() =>  getStudientByEmail(q,estudiante), [q]);
     const id_persona = studentFiltered[0]?.id_persona;
+
     const handleSearch = (e)=>{
         e.preventDefault();
          setForm({
@@ -51,12 +40,15 @@ export const DashAddCertificado = () => {
       history.push(`?q=${searchText}`);
     }
 
-    const AddCertificado=(e)=>{
+    const AddCertificado=async(e)=>{
        e.preventDefault();
        const {id_persona,nombre_archivo,nombre_curso}=form;
        const enviar ={id_persona,nombre_archivo,nombre_curso}
-       
-       return postCertificado(enviar)
+       setLoading(true)
+      const response = await postCertificado(enviar);
+      if(response.ok){
+        setLoading(false)
+      }   
     }
  
     return (
@@ -122,7 +114,9 @@ export const DashAddCertificado = () => {
             <input id="nom_curso" name="nombre_curso" type="text" onChange={handleSearch}/>
             <label for="des_curso">Certificado</label>
             <input id="des_curso" name="nombre_archivo" type="text" onChange={handleSearch}/>
-                <br/> <br/>
+                <br/>
+                {loading &&  <LinearProgress />} 
+                 <br/>
             <button type="submit" className="btn-default" onClick={AddCertificado}>Agregar</button>
          </form>
      }

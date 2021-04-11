@@ -15,7 +15,7 @@ export const CursosCollections = ({nombre,descripcion,precio}) => {
                   <i className="fa fa-star review__star" id="start-CursoCollection"></i>
                   <i className="fa fa-star review__star" id="start-CursoCollection"></i>
                   <i className="fa fa-star review__star" id="start-CursoCollection"></i> 
-                  <p className="txt_CursoCollection">asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddcjcjcdjd</p>
+                  <p className="txt_CursoCollection">{nombre}</p>
                   <p className="txt_Acceso">¡Acceso de por vida!</p>           
                   <p ><span className="precio_CursoCollection">${precio} USD</span><del className="precio_antiguo"> $50 USD</del> </p> 
                 </div>    

@@ -1,19 +1,24 @@
 import React, { useState } from 'react'
 import { postEstudiante } from '../../helpersAdmin/postEstudiante'
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 export const DashAddStudent = () => {
     const [form, setForm] = useState({})
+    const [loading, setLoading]= useState(false);
     const handleSubmit =(e)=>{
        setForm({
            ...form,
           [e.target.name]:e.target.value,
        })
     }
-    console.log("formulario",form);
-    const AddStudent =(e)=>{
+
+    const AddStudent =async(e)=>{
        e.preventDefault();
-       window.location.reload();
-       postEstudiante(form);
+       setLoading(true)
+       const response = await   postEstudiante(form);;
+       if(response?.ok){
+         setLoading(false)
+       }
     }
     return (
         <div >
@@ -27,9 +32,9 @@ export const DashAddStudent = () => {
                 <input id="estudiante" name="email" type="email" onChange={handleSubmit}/>
                 <label for="estudiante">Contraseña</label>
                 <input id="estudiante" name="password" type="text" onChange={handleSubmit}/>
+                {loading &&  <LinearProgress />} <br/>
                 <button type="submit" className="btn-default" onClick={AddStudent}>Agregar</button>
             </form>
-            
         </div>
     )
 }

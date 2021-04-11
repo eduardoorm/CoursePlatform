@@ -160,7 +160,7 @@ export default function NavBar() {
       <Link to={`/certificados/${data?.id_persona}`}>
           <MenuItem onClick={handleMenuClose}>Mis certificados</MenuItem>
       </Link>
-      <Link ><MenuItem onClick={handleMenuClose}>Mis cursos</MenuItem></Link>
+      <Link to="#"><MenuItem onClick={handleMenuClose}>Mis cursos</MenuItem></Link>
       <Link to ="/login"><MenuItem onClick={handleCerrarSesion}>Cerrar Sesión</MenuItem></Link>
     </Menu>
   );
@@ -179,15 +179,15 @@ export default function NavBar() {
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge color="secondary">
-            <i class="fas fa-book"></i>
+            <i className="fas fa-book"></i>
           </Badge>
         </IconButton>
-        <Link > <p>Mis Cursos</p></Link>
+        <Link to="#" > <p>Mis Cursos</p></Link>
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge color="secondary">
-          <i class="fas fa-certificate"></i>
+          <i className="fas fa-certificate"></i>
           </Badge>
         </IconButton>
         <Link to={`/certificados/${data?.id_persona}`}><p>Certificados</p></Link>

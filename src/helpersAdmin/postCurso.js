@@ -8,19 +8,21 @@ export const postCurso = async(form,fd) => {
         fd,
         ruta_curso 
     }
-   
+    if(!localStorage.getItem("token")) return alert ("registrate")
+    const {token} = JSON.parse(localStorage.getItem("token"));
     const url =`http://localhost:3001/postCurso`;
     let config ={
        method:"POST",
        headers:{
        'Accept': 'application/json',
        'Content-Type': 'application/json',
+       'Authorization': `${token}`
        },
        body: JSON.stringify(data)
     };
     const res = await fetch(url,config);
 
     if(res.ok){
-        alert("Se agrego el Curso")
+        return {ok:true}
     }
 }

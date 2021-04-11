@@ -137,7 +137,7 @@ button{
 
 .reproductor-video{
     width: 98.5%;
-    height: 88vh;
+    height: auto; /*auto*/
 }
 
 .video-js ,.vjs-big-play-centered{
@@ -145,8 +145,6 @@ button{
     height: 100%;
     background-color: #FFFFFF;
 }
-
-
 
 
 .navbar-preview{
@@ -245,4 +243,25 @@ button{
     align-items: center;
     padding-left:1.3em;
 
+}
+
+
+/*************************/
+.main{
+    height: 100%;
+    overflow: hidden;
+}
+
+.video-box{
+    width: 100%;
+    height: 100%;    
+}
+
+.video{
+    
+}
+
+.video video{
+    width: 100%;
+    height: auto;
 }

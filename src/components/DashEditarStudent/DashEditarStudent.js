@@ -4,11 +4,15 @@ import { useFetchGetEstudianteID } from '../../hooksAdmin.js/useFetchGetEstudian
 import { Formulario } from '../../elementos/Formularios';
 import Input from '../Input';
 import { putEstudiante } from '../../helpersAdmin/putEstudiante';
+import LinearProgress from '@material-ui/core/LinearProgress';
+
 export const DashEditarStudent = () => {
       let {id}= useParams();
       const{dataEstudiante:estudiante}  = useFetchGetEstudianteID(id);
       const id_persona = estudiante[0]?.id_persona;
       const [form, setform] = useState({});
+      const [loading, setLoading]= useState(false);
+
    
       const handleChange =(e)=>{
         setform({
@@ -16,10 +20,14 @@ export const DashEditarStudent = () => {
           [e.target.name]:e.target.value
         })
        }
-       console.log(form);
-       const editarStudent =(e)=>{
+
+       const editarStudent = async(e)=>{
         e.preventDefault();
-        putEstudiante(form,id_persona);
+        setLoading(true)
+        const response = await  putEstudiante(form,id_persona);
+        if(response?.ok){
+          setLoading(false)
+        }
        }
     return (
         <div>
@@ -59,6 +67,8 @@ export const DashEditarStudent = () => {
                              type="email"
                              onChange={handleChange}
                              /> 
+                       {loading &&  <LinearProgress />} <br/>
+
              <button type="submit" onClick={editarStudent} className="btn-default">Actualizar</button>
           </Formulario>
         </div>

@@ -91,6 +91,7 @@ export default function VideoComp() {
                               </div>
             </div>
          </div>
+
        <div className="container-seccion-video">
           <div className="reproductor-left">
             <div className="container_txt_ClasesDelCurso">
@@ -106,7 +107,20 @@ export default function VideoComp() {
           </div>
           
         <div className="reproductor-right">
-             <div className="reproductor-video">
+          
+        <div className="reproductor-video">
+          <div class="main">
+              <div class="video-box">
+                  <div class="video">
+                      <video width="400" controls >
+                          <source src="/assets/videos/video1.mp4" type="video/mp4" />
+                      </video>
+                  </div>
+              </div>
+            </div>
+        </div> 
+
+             {/* <div className="reproductor-video">
                  <video
                    controls
                    id="video-Player"
@@ -118,7 +132,7 @@ export default function VideoComp() {
                  >
                  <source  src="/assets/videos/video1.mp4" type="video/mp4" ></source>
                  </video>
-             </div>
+             </div> */}
                      
              <DescripcionVideo {...video[0]} videosCurso={array}/>
          

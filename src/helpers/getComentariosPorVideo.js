@@ -1,5 +1,8 @@
 
 export const getComentariosPorVideo =async (id) => {
+    if(!localStorage.getItem("token")) return alert ("registrate")
+    const {token} = JSON.parse(localStorage.getItem("token"));
+    
     const url = `http://localhost:3001/getComentariosPorVideo/${id}`;
     const respuesta =  await fetch(url);
     const res = await respuesta.json();

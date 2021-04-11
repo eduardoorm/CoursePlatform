@@ -14,11 +14,13 @@ export const putUsuario = async({id_persona,nombre,apellido}) => {
         },
         body: JSON.stringify(enviarCampos)
      }
-   console.log(enviarCampos);
+
      try{    
          const respuesta = await fetch('http://localhost:3001/putUser',config)
          const res = await respuesta.json();
-         (!res.ok) ? alert("Hubo un error") : alert("Se actualizo correctamente")
+         if (res.ok) {
+           return {ok:true}
+         }
      }catch{
        console.log();
      }

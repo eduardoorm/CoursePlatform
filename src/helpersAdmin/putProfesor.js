@@ -7,16 +7,20 @@ export const putProfesor =async ({nombre,apellidos},id) => {
        apellidos,
        id
     }
+    if(!localStorage.getItem("token")) return alert ("registrate")
+    const {token} = JSON.parse(localStorage.getItem("token"));
     let config ={
        method:"PUT",
        headers:{
        'Accept': 'application/json',
        'Content-Type': 'application/json',
+       'Authorization': `${token}`
+
        },
        body: JSON.stringify(enviarCampos)
     };
     const res = await fetch(url,config);
     if(res.ok){
-        alert("Se actualizo el profesor")
+        return {ok:true}
     }
 }
