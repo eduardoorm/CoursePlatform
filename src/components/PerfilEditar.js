@@ -3,15 +3,14 @@ import Input from './Input';
 import {Formulario} from '../elementos/Formularios'
 import {Btn} from './Button'
 import EditarContraseña from './EditarContraseña'
-import { useFecthUsuario } from '../hooks/useFecthUsuario';
+import { UseFecthUsuario } from '../hooks/useFecthUsuario';
 import {putUsuario} from '../helpers/putUsuario'
 import LinearProgress from '@material-ui/core/LinearProgress';
 import './ComponentStyles/Perfil-comp.css'
 
 export default function PerfilEditar (){
   const [changePass,setchangePass] = useState(false);
-  const {data}= useFecthUsuario();
-
+  let {data}= UseFecthUsuario();
   const [usuario, setUsuario] = useState({});
   const [loading, setLoading]= useState(false);
   const handleChange =(e)=>{
@@ -20,17 +19,22 @@ export default function PerfilEditar (){
       id_persona:data?.id_persona,
       [e.target.name] : e.target.value
     })
+    console.log(usuario);
    }
   
   const clickCambiarContraseña =(e)=>{
     (changePass) ? setchangePass(false) : setchangePass(true);
     e.preventDefault();
   }
-
+   useEffect(()=>{
+    data=UseFecthUsuario()
+   },[loading])
+   
   const handleGuardarCambios= async (e)=>{
-    e.preventDefault();
-     setLoading(true)
-     const response = await putUsuario(usuario) 
+      e.preventDefault();
+      setLoading(true)
+      const response = await putUsuario(usuario);
+      
       // window.location.reload();
       if(response.ok){
        setLoading(false)

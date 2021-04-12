@@ -40,20 +40,7 @@
    border-radius: 8px;
    margin-top: 1em;
  }
-  /*RESPONSIVE perfil */
-@media only screen and (max-width: 600px) {
-    .perfil-estudiante{
-        margin-top: 1.5em;
-        padding: 0px;
-    }
-    .estudiante-misCursos p{
-        margin-bottom: 1em;
-        text-align: center;
-    }
-    .estudiante-misCursos{
-        justify-content: center;
-    }
-}
+ 
  .estudiante-header-item p:nth-child(1){
      font-weight: 700;
      margin-bottom: 0.1em;
@@ -70,8 +57,8 @@
  
 
  .misCursos_Titulo{
-     margin-left: 5em;
-    margin-bottom: 1em;
+
+    margin : 1em 0em 1em 5em
 }
 
  .btn-explorarCursos{
@@ -98,4 +85,26 @@
 /*CAMBIAR CONTRASEÑA*/
 #form-contraseña{
     margin-top: 1em;
+}
+
+ /*RESPONSIVE perfil */
+ @media only screen and (max-width: 600px) {
+    .perfil-estudiante{
+        margin-top: 1.5em;
+        padding: 0px;
+    }
+    .estudiante-misCursos p{
+        margin-bottom: 1em;
+        text-align: center;
+    }
+    .estudiante-misCursos{
+        justify-content: center;
+    }
+    .misCursos_Titulo{
+        width: 100%;
+        text-align: center;
+        margin:auto;
+        margin-top:1em;
+        margin-bottom: 1em;
+    }
 }

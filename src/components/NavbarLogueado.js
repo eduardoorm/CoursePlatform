@@ -15,7 +15,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import {Link,useHistory, useParams} from 'react-router-dom';
-import { useFecthUsuario } from '../hooks/useFecthUsuario';
+import { UseFecthUsuario } from '../hooks/useFecthUsuario';
 const useStyles = makeStyles((theme) => ({
     grow: {
       flexGrow: 1
@@ -84,7 +84,7 @@ export const NavbarLogueado = ({stateSesion}) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const{data}= useFecthUsuario();
+  const{data}= UseFecthUsuario();
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const history = useHistory();

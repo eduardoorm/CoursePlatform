@@ -32,6 +32,7 @@ import { DashMostrarReportes } from './components/DashSuscripciones/DashMostrarR
 import { DashReportes } from './pages/DashReportes';
 import { PurchaseMade } from './components/PurchaseMade';
 import { Upload } from './components/Upload';
+import { MisCursos } from './pages/MisCursos';
 
 function App() {
   return (
@@ -49,6 +50,8 @@ function App() {
               <Route path='/certificados/:id' exact ><NavBar/><Certificado/></Route>
               <Route path='/purchasemade' exact ><PurchaseMade/></Route>
               <Route path='/uploadVideos' exact ><Upload/></Route>
+              <Route path='/aprender' exact ><MisCursos/></Route>
+              
               <Route path='/admin/dashboard' exact ><DashDashboard/></Route>
 
               <Route path='/admin/categorias' exact ><DashCategoria/></Route>

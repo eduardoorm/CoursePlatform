@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import { useFecthUsuario } from '../hooks/useFecthUsuario'
+import { UseFecthUsuario } from '../hooks/useFecthUsuario'
 import { useFecthPersonaCurso } from '../hooks/useFetchPersonaCurso';
 import { MiCurso } from './MiCurso';
 import PerfilEditar from './PerfilEditar'
@@ -9,7 +9,7 @@ import './ComponentStyles/Perfil-comp.css'
 
 export default function PerfilComp () {
    const[clickEditarPerfil,setEditarPerfil]=useState(false);
-   const {data:user,loading} = useFecthUsuario();
+   const {data:user,loading} = UseFecthUsuario();
    const {dataCurso:cursos}= useFecthPersonaCurso();
    const handlEditarPerfil = ()=>(clickEditarPerfil) ? setEditarPerfil(false) : setEditarPerfil (true);
        return(         

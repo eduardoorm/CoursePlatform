@@ -2,11 +2,11 @@ import Input from './Input';
 import {Formulario} from '../elementos/Formularios'
 import {Btn} from './Button'
 import { useState} from 'react';
-import { useFecthUsuario } from '../hooks/useFecthUsuario';
+import { UseFecthUsuario } from '../hooks/useFecthUsuario';
 import { putUsuarioPassword } from '../helpers/putUsuarioPassword';
 export default function EditarContraseña(){
     const [inputState,setInputState]= useState({});
-    const {data:user} = useFecthUsuario();
+    const {data:user} = UseFecthUsuario();
 
         const handleChange = ({target:{name,value}})=>{
             setInputState ({...inputState,[name]:value})

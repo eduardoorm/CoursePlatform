@@ -1,7 +1,7 @@
 
 import { useEffect,useState } from 'react'
 import { getUsuario } from '../helpers/getUsuario'
-export const useFecthUsuario = () => {
+export const UseFecthUsuario = () => {
     const [state, setstate] = useState({
         data:[],
         loading:true,

@@ -14,7 +14,7 @@ import TituloDelModulo from './TituloModulo';
 import {Btn} from './Button.js'
 import {Link} from 'react-router-dom';
 import './ComponentStyles/Navbar.css'
-import { useFecthUsuario } from '../hooks/useFecthUsuario';
+import { UseFecthUsuario } from '../hooks/useFecthUsuario';
 import { useFetchGetVideosPorCurso } from '../hooks/useFetchGetVideosPorCurso';
 /*material ui menu */
 import Button from '@material-ui/core/Button';
@@ -25,13 +25,13 @@ export default function VideoComp() {
   const {dataComentPorVideo:comentarios}=useFetchComentariosPorVideo(id_video)
   const {dataCursoID:curso} =useFecthCursoID(id);
   const {dataModulos:modulos}= useFetchModulo(id);
-  const {data:usuario} =useFecthUsuario();
+  const {data:usuario} =UseFecthUsuario();
   const {dataVideosCurso:videosCurso}=useFetchGetVideosPorCurso(id);
   const array = videosCurso?.map(({ruta_video})=>ruta_video)
   const id_persona_actual=usuario.id_persona;
   const{nombre} = curso.length>0 && curso[0];
   const{dataVideo:video}=useFetchVideoID(id_video);
-  const{data}= useFecthUsuario();
+  const{data}= UseFecthUsuario();
   /*MATERIAL UI MENU */
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleClick = (event) => {

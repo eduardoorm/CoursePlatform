@@ -4,7 +4,7 @@ import {Btn} from './Button.js'
 import {TitleIntesla,NavbarRight} from '../elementos/Navbar-elementos'
 import { Oferta } from './Oferta';
 import {countdown,getFecha} from './Reloj'
-import { useFecthUsuario } from '../hooks/useFecthUsuario';
+import { UseFecthUsuario } from '../hooks/useFecthUsuario';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -103,7 +103,7 @@ export default function NavBar() {
      const[sesion,setSesion] = useState(false);
      const[clickPerfil,setClickPerfil] = useState(false);
      const history = useHistory();
-     const{data}= useFecthUsuario();
+     const{data}= UseFecthUsuario();
      const handlPerfil = () =>{
          (clickPerfil) ?   setClickPerfil(false) : setClickPerfil(true);
      }
@@ -160,7 +160,7 @@ export default function NavBar() {
       <Link to={`/certificados/${data?.id_persona}`}>
           <MenuItem onClick={handleMenuClose}>Mis certificados</MenuItem>
       </Link>
-      <Link to="#"><MenuItem onClick={handleMenuClose}>Mis cursos</MenuItem></Link>
+      <Link to="/aprender"><MenuItem onClick={handleMenuClose}>Mis cursos</MenuItem></Link>
       <Link to ="/login"><MenuItem onClick={handleCerrarSesion}>Cerrar Sesión</MenuItem></Link>
     </Menu>
   );
@@ -182,7 +182,7 @@ export default function NavBar() {
             <i className="fas fa-book"></i>
           </Badge>
         </IconButton>
-        <Link to="#" > <p>Mis Cursos</p></Link>
+        <Link to="/aprender" > <p>Mis Cursos</p></Link>
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">

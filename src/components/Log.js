@@ -1,13 +1,12 @@
-import React, {Component, useState} from 'react';
+import React, { useState} from 'react';
 import './ComponentStyles/Log.css'
 import Input from './Input'
-import { Link, Redirect,Route } from 'react-router-dom';
-import {GoogleLogin,GoogleLogout} from 'react-google-login';
+import { Link ,useHistory} from 'react-router-dom';
+import {GoogleLogin} from 'react-google-login';
 import { loginUser } from '../hooks/loginUser';
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import LinearProgress from '@material-ui/core/LinearProgress';
-
 const useStyles = makeStyles((theme) => ({
     root: {
       "& .MuiTextField-root": {
@@ -22,6 +21,7 @@ export default function Log () {
     const [redirect, setRedirect] = useState(false)
     const [loading, setLoading]= useState(false);
     const [invalidData, setinvalidData] = useState(false)
+     const history = useHistory();
     const handleChange = e =>{
         setForm({
                 ...form,
@@ -31,15 +31,17 @@ export default function Log () {
 
     const respuestaGoogle = async(response)=>{
        const dataUser= response.profileObj;
-       const { email,googleId} = dataUser;
-       const sendDataUser = {
-        email,
-        password:googleId,
-       }
-       const log = await loginUser(sendDataUser)
-        if(log?.ok){
-            setRedirect(true)
-        }  
+       if(dataUser){
+        const { email,googleId} = dataUser;
+        const sendDataUser = {
+         email,
+         password:googleId,
+        }
+        const log = await loginUser(sendDataUser)
+         if(log?.ok){
+             setRedirect(true)
+         }  
+       }   
     }
   
     const handleSubmit = async e =>{
@@ -55,11 +57,13 @@ export default function Log () {
             setLoading(false)
         }
     }
+
     const classes = useStyles();
     //localStorage solo almacena strings, la otra manera es meterlo dentrod e un json.stringyfy()
     return(       
         <>
-        {(redirect) && <Redirect to="/"/> }
+        {(localStorage.getItem("token")) && history.push("/")}
+        {(redirect) && history.replace("/") }
         <div className="formulario-contenedor">
             <form className={classes.root} noValidate autoComplete="off"
                  onSubmit = {handleSubmit} onChange={handleChange}>
