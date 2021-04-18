@@ -1,17 +1,60 @@
-import React , {useState} from 'react'
+import React , {useEffect, useState} from 'react'
 import { UseFecthUsuario } from '../hooks/useFecthUsuario'
-import { useFecthPersonaCurso } from '../hooks/useFetchPersonaCurso';
+import { useFecthPersonaCurso } from '../hooks/useFetchPersonaCurso'
 import { MiCurso } from './MiCurso';
 import PerfilEditar from './PerfilEditar'
 import {Link} from 'react-router-dom'
 import './ComponentStyles/Perfil-comp.css'
-
+import Input from './Input';
+import {Formulario} from '../elementos/Formularios'
+import {Btn} from './Button'
+import EditarContraseña from './EditarContraseña'
+import {putUsuario} from '../helpers/putUsuario'
+import LinearProgress from '@material-ui/core/LinearProgress'
+import './ComponentStyles/Perfil-comp.css'
+import {useFetchPerfil} from '../hooks/useFetchPerfil'
 
 export default function PerfilComp () {
    const[clickEditarPerfil,setEditarPerfil]=useState(false);
-   const {data:user,loading} = UseFecthUsuario();
+   //const {data:user} = UseFecthUsuario();
+   const [token,setToken]=useState();
+
+   
+    const {data} = useFetchPerfil(token)
    const {dataCurso:cursos}= useFecthPersonaCurso();
    const handlEditarPerfil = ()=>(clickEditarPerfil) ? setEditarPerfil(false) : setEditarPerfil (true);
+   const [changePass,setchangePass] = useState(false);
+  /// let {data}= UseFecthUsuario();
+   const [usuario, setUsuario] = useState({});
+   const [loading, setLoading]= useState(false);
+   const handleChange =(e)=>{
+     setUsuario({
+       ...usuario,
+       id_persona:data?.id_persona,
+       [e.target.name] : e.target.value
+     })
+     console.log(usuario);
+    }
+   
+   const clickCambiarContraseña =(e)=>{
+     (changePass) ? setchangePass(false) : setchangePass(true);
+     e.preventDefault();
+   }
+  
+    
+   const handleGuardarCambios= async (e)=>{
+       e.preventDefault();
+       setLoading(true)
+       const response = await putUsuario(usuario);
+       
+       // window.location.reload();
+       if(response.ok){
+        localStorage.setItem("token",JSON.stringify({token:response.token}))
+                setToken(response.token)
+        setLoading(false)
+       }
+   }
+
        return(         
         <section className="perfil-estudiante">
              {
@@ -28,8 +71,8 @@ export default function PerfilComp () {
                     <img src="assets/img/perfil.png" alt="img-perfil"/>
                 </div>
                 <div className="estudiante-header-item">
-                    <p>{user?.nombre||loading} {user?.apellido||"null"}</p>
-                    <p>{user?.email||loading}</p>
+                    <p>{data?.nombre||loading} {data?.apellidos||"null"}</p>
+                    <p>{data?.email||loading}</p>
                     <button 
                         onClick={handlEditarPerfil} 
                         className="btn_editarPerfil">
@@ -41,7 +84,61 @@ export default function PerfilComp () {
             </div>
             {(clickEditarPerfil)
              ? 
-             <PerfilEditar/>  
+             <div className="form__actualizar">
+             <div className="actualizar__item">
+                     <div className="form-titulo">
+                             <h1>Tus datos</h1> 
+                     </div>
+                   <div className="form-post">
+                       <Formulario id="form">
+                             <Input
+                             id="nombres"
+                             name="nombre"
+                             placeholder={data?.nombre || ""}
+                             type="text"
+                             onInput={handleChange}
+                             /> 
+                             <Input
+                             id="apellidos"
+                             name="apellido"
+                             type="text"
+                             placeholder="Nuevo Apellido"
+                             placeholder={data?.apellidos || ""}
+                             onInput={handleChange}
+                             /> 
+                             <Input 
+                             id="email"
+                             name="email"
+                             placeholder="Email"
+                             type="email"
+                             value={data?.email || ""}
+                             disabled={true}
+                             /> 
+                         {
+                         (!changePass) &&
+                           <>
+                           <button
+                             className="btn_cambiarContraseña"
+                             onClick={clickCambiarContraseña} 
+                             type="button">Cambiar Contraseña
+                           </button>
+                           
+                           {loading &&  <LinearProgress />}
+                           <Btn
+                             style="btn_guardarCambios"
+                             value="Guardar cambios"
+                             type="button"
+                             onClick={handleGuardarCambios}
+                           />
+                           </>
+                         }  
+                     </Formulario>
+                   </div>
+              </div> 
+              <div className="actualizar__item">
+                {changePass && <EditarContraseña/>} 
+              </div>
+         </div> 
              :
              (cursos?.length===0)?
               <div className="estudiante-SinCursos-container">

@@ -11,6 +11,7 @@ export default function Comentario(props) {
     const [respuestaTXT,setRespuestaTXT] = useState({});
     const {dataRespuesta:respuestas}     = useFetchRespuestas(props.id_comentario)
     const [elipsi, setElipsi] = useState(false);
+    
     const hanldeResponder=()=>setResponder(true);
     const cancelarRespuesta =()=> setResponder(false);
     const OcultarRespuestas=()=>setShowRpta(false);
@@ -68,13 +69,6 @@ export default function Comentario(props) {
 
             <div className="comentario-realizado-txt">
                 <p className="text-coment">{props.comentario}</p>
-                {/* <button 
-                    id="btn-like" 
-                    data-id={id_comentario}
-                    className="boton-coment">
-                    <i className="fas fa-thumbs-up"></i>
-                    <small className="cant-btn1">0</small>
-                </button> */}
                 {(!responder) && <button className="btn-reponder" onClick={hanldeResponder}>Responder</button>}
             </div>
         

@@ -21,7 +21,7 @@ export const putUsuario = async({id_persona,nombre,apellido}) => {
          
          if (res.ok) {
            localStorage.setItem("token",JSON.stringify({token:res.newToken}));
-           return {ok:true}
+           return {ok:true,token:res.newToken}
          }
      }catch{
        console.log();

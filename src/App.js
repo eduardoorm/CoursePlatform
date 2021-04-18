@@ -1,6 +1,6 @@
 import NavBar from './components/Navbar'
 import Footer from './components/Footer'
-import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch,Route, Redirect} from 'react-router-dom';
 import Home from './pages/Home'
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -33,7 +33,7 @@ import { DashReportes } from './pages/DashReportes';
 import { PurchaseMade } from './components/PurchaseMade';
 import { Upload } from './components/Upload';
 import { MisCursos } from './pages/MisCursos';
-
+import {Provider} from './store/UseContextComment'
 function App() {
   return (
    <Router>    
@@ -43,7 +43,11 @@ function App() {
               <Route path='/register' exact ><NavBar/><Register/> <Footer/></Route>
               <Route path='/perfil' exact ><NavBar/><Perfil/></Route>
               <Route path='/collections' exact ><NavBar /><Collections/> <Footer/></Route>
-              <Route path='/video' exact ><Video/></Route>
+             
+
+              <Route path='/video' exact ><Video/>  </Route>
+            
+
               <Route path='/course' exact ><NavBar/><Course_Page/> <Footer/></Route>
               <Route path='/course/:id' exact><NavBar/><Course_Page/><Footer/></Route>
               <Route path='/course/:id/:id_video' exact ><Video/></Route>
@@ -79,8 +83,13 @@ function App() {
               <Route path='/admin/suscripciones/:id' exact ><DashReportes/></Route>
               {/* <Route path='/publicar' exact ><NavBar/><PublicarCurso/></Route> */}
               <Route path='/checkout' exact ><NavBar/><Checkout/> </Route>    
+               
+              {/*Si en caso no encuentra la ruta muestra el home */}
+              <Redirect to="/"/> 
+          
           </Switch>
    </Router>
+  
   );
 }
 

@@ -1,5 +1,3 @@
-
-
 export const getUsuario = async () => {
             if(!localStorage.getItem("token")) return alert("logueate");  
             const {token} = JSON.parse(localStorage.getItem("token"));

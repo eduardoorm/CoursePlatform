@@ -1,19 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useContext } from 'react';
 import { useParams } from 'react-router';
 import { postComentario } from '../helpers/postComentario';
 import { useFecthCursoID } from '../hooks/useFecthCurso';
 import './ComponentStyles/Comentarios.css'
+/** context*/
+import ContextComment, { Context } from '../store/UseContextComment';
+
 export default function ComentarioEscribir({cantidad,ruta_video,id_curso}) {
-    const [coment,setComent] = useState({});
+    const {setComment,comment} = useContext(Context)
+    
+    const [txtComment, setTxComment] = useState({})
     const [estadoComent,setEstadoComent] = useState(false);
     const handleChange =(e)=>{
-        setComent({
-          ...coment,
+        setTxComment({
+          ...txtComment,
           [e.target.name]:e.target.value
         })
       }
-
-    //  const {id,id_video}= useParams();
 
     useEffect(()=>{
       const  escribirComent=document.getElementById("escribirComent");
@@ -25,7 +28,15 @@ export default function ComentarioEscribir({cantidad,ruta_video,id_curso}) {
  
       const realizarComentario= async (e)=>{
         e.preventDefault();
-        postComentario(coment,id_curso,ruta_video)
+        /**Aqui se postea el comentario (lo tengo apagado, por pruebas) */
+        // supongoq ue cuando haces postComentario, alli se va a formatear todo el objecto y poner los datos del usuario del que hizo el comment?
+        //si deberia aparecer todo mas su comentario que realizo
+        //aqui y cuando el usuario elimine un comentario...
+        // postComentario(txtComment,id_curso,ruta_video)
+        setComment({
+          ...comment,
+          txtComment
+        })
        }
        
        const cancelarComentario =()=>{

@@ -1,6 +1,7 @@
 import React from 'react'
 
-export const postComentario =async (coment,id,ruta_video) => {
+export const postComentario =async (coment,id,ruta_video,setComment,comment) => {
+    
      const url =`http://localhost:3001/comentario`;
      const fecha_comentario = Date.now();
      const enviarComentario={
@@ -9,6 +10,7 @@ export const postComentario =async (coment,id,ruta_video) => {
          ruta_video,
          id_curso:id,
      }
+    
     
      if(!localStorage.getItem("token")) return alert("Registrate!")
      const token = JSON.parse(localStorage.getItem("token"));

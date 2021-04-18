@@ -24,7 +24,7 @@ export default function Register (){
      const [form, setForm] = useState({});
      const [register, setRegister] = useState(false);
      const [loading, setLoading]= useState(false);
-
+     const [alert,setAlert] = useState({status:false,msg:""})
     const handleChange = e =>{
         setForm({
                 ...form,
@@ -35,6 +35,20 @@ export default function Register (){
     const handleSubmit = async(e) =>{
        e.preventDefault()
        setLoading(true);
+       
+       const {nombre,apellidos,email,password} = form;
+       let ckeckEmail=
+        /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(email)
+       if(!ckeckEmail){
+        setLoading(false);
+        return setAlert({status:true,msg:"Ingrese un email correcto"});
+       }
+       if(!(nombre,apellidos,email,password)){     
+           setLoading(false);
+           return setAlert({status:true,msg:"Todos los campos son obligatorios"});
+       }
+          
+
        try {
          let config ={
            method: 'POST',
@@ -46,9 +60,11 @@ export default function Register (){
          }
 
          let res = await fetch('http://localhost:3001/postUser',config)
+         console.log("la respuestita",res);
          if(res.ok){
             setRegister(true)
             setLoading(false)
+            setAlert(false)
          }else{
              console.log("No se pudo registar");
          }
@@ -119,6 +135,7 @@ export default function Register (){
                     />
                    
                 </div>
+                 {alert.status &&  <p>{alert.msg}</p>}
                  {loading &&  <LinearProgress />}
                    <Btn
                     style="registrarme"

@@ -154,6 +154,7 @@ export const DashMostarStudent = () => {
                   <StyledTableCell>Pos</StyledTableCell>
                   <StyledTableCell align="left">Nombres</StyledTableCell>
                   <StyledTableCell align="left">Apellidos</StyledTableCell>
+                  <StyledTableCell align="left">Email</StyledTableCell>
                   <StyledTableCell align="left"></StyledTableCell>
                   <StyledTableCell align="left"></StyledTableCell>
                 </TableRow>
@@ -166,6 +167,7 @@ export const DashMostarStudent = () => {
                     </StyledTableCell>
                     <StyledTableCell align="left">{row.nombre}</StyledTableCell>
                     <StyledTableCell align="left">{row.apellidos}</StyledTableCell>
+                    <StyledTableCell align="left">{row.email}</StyledTableCell>
                     <StyledTableCell align="right">
                     <Link to={`/admin/estudiante/editar/${row.id}`}>
                     <Button variant="contained" color="primary">
@@ -212,13 +214,7 @@ export const DashMostarStudent = () => {
                 )
                }
             </div>*/}
-
       
-        
-              
-              
-      
-            
          </>
     )
 }
