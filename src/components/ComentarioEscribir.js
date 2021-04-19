@@ -1,16 +1,16 @@
-import { useEffect, useState,useContext } from 'react';
-import { useParams } from 'react-router';
+import { useEffect, useState } from 'react';
 import { postComentario } from '../helpers/postComentario';
-import { useFecthCursoID } from '../hooks/useFecthCurso';
+import { UseFecthUsuario } from '../hooks/useFecthUsuario';
 import './ComponentStyles/Comentarios.css'
-/** context*/
-import ContextComment, { Context } from '../store/UseContextComment';
-
-export default function ComentarioEscribir({cantidad,ruta_video,id_curso}) {
-    const {setComment,comment} = useContext(Context)
-    
+import  {convertirFecha} from './convertirFecha'
+export default function ComentarioEscribir({cantidad,ruta_video,id_curso, dispatch}) {
+    const {data:usuario} =UseFecthUsuario();
+    const {nombre,apellido,id_persona}=usuario;
     const [txtComment, setTxComment] = useState({})
     const [estadoComent,setEstadoComent] = useState(false);
+
+ 
+
     const handleChange =(e)=>{
         setTxComment({
           ...txtComment,
@@ -25,23 +25,38 @@ export default function ComentarioEscribir({cantidad,ruta_video,id_curso}) {
           setEstadoComent(true);
         })
     },[])
- 
+   
       const realizarComentario= async (e)=>{
         e.preventDefault();
-        /**Aqui se postea el comentario (lo tengo apagado, por pruebas) */
-        // supongoq ue cuando haces postComentario, alli se va a formatear todo el objecto y poner los datos del usuario del que hizo el comment?
-        //si deberia aparecer todo mas su comentario que realizo
-        //aqui y cuando el usuario elimine un comentario...
-        // postComentario(txtComment,id_curso,ruta_video)
-        setComment({
+       
+        const comment = {
+          ...txtComment,
+          id_persona,
+          id_curso,
+          ruta_video,
+          fecha_comentario: Date.now()
+        }
+        const {id_comentario} = await postComentario(comment);
+        
+        const date = new Date(Number(Date.now())); 
+        const fecha = convertirFecha(date);
+
+        const payload = {
           ...comment,
-          txtComment
+          nombre,
+          apellido,
+          id_comentario,
+          fecha
+        }
+        
+        dispatch({
+          type: 'ADD_COMMENT', payload
         })
        }
        
        const cancelarComentario =()=>{
-        document.getElementById("miForm").reset();
-        setEstadoComent(false);
+          document.getElementById("miForm").reset();
+          setEstadoComent(false);
        }  
 
     return(

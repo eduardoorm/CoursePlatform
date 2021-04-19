@@ -1,22 +1,48 @@
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import ComentarioRespuesta from './ComentarioRespuesta'
 import './ComponentStyles/Comentarios.css'
 import './ComponentStyles/Respuesta.css'
 import {useFetchRespuestas} from '../hooks/useFetchRespuestas'
 import { postRespuesta } from '../helpers/postRespuesta';
 import { deleteComentario } from '../helpers/deleteComentario';
+import { UseFecthUsuario } from '../hooks/useFecthUsuario';
+import { AnswerWrite } from './AnswerWrite';
+import  {convertirFecha} from './convertirFecha'
+
 export default function Comentario(props) {
     const [responder,setResponder]       = useState(false)
     const [showRpta,setShowRpta]         = useState(false);
     const [respuestaTXT,setRespuestaTXT] = useState({});
-    const {dataRespuesta:respuestas}     = useFetchRespuestas(props.id_comentario)
+    const {data:usuario} =UseFecthUsuario();
+    const {nombre,apellido,id_persona}=usuario;
+      /*¨RESPUESTAS ESTADO*/
+     const [answers_list, dispatchAnswer] = useReducer((state,action)=>{
+    switch (action.type) {
+      case 'LOAD_ANSWERS':
+        return action.payload
+      case 'DEL_ANSWERS':{
+        const id=action.payload;
+        const newState= state.filter(el=>el.id_respuesta !== id)  //aqui estoy eliminado la respuesta
+        return newState
+      }
+      case 'ADD_ANSWERS':{
+      
+        return [...state,action.payload]
+      }
+      default:
+        return state
+    }
+     })
+  
+    useFetchRespuestas(props.id_comentario,dispatchAnswer)
+
+
     const [elipsi, setElipsi] = useState(false);
-    
     const hanldeResponder=()=>setResponder(true);
     const cancelarRespuesta =()=> setResponder(false);
     const OcultarRespuestas=()=>setShowRpta(false);
     const MostarRespuestas=async (e)=>setShowRpta(true);
-                  
+
     const handleChange =(e)=>{
         setRespuestaTXT({
           ...respuestaTXT,
@@ -24,22 +50,39 @@ export default function Comentario(props) {
           [e.target.name]:e.target.value
         })
     }
+    
     const enviarRespuesta= async(e)=>{
         e.preventDefault();
-        postRespuesta(respuestaTXT)
+        const {id_respuesta} = await postRespuesta(respuestaTXT)
+        const date = new Date(Number(Date.now())); 
+        const fecha = convertirFecha(date);
+
+        const payload ={
+            respuesta:respuestaTXT.respuesta,
+            id_respuesta,
+            id_persona,
+            apellido,
+            nombre,
+            fecha,
+        }
+        dispatchAnswer({
+            type:'ADD_ANSWERS',payload
+        })
     }
 
     const clickElipsi = ()=>{
         setElipsi(!elipsi)
     }
-
+    
     const eliminarComentario =()=>{
        deleteComentario(props.id_comentario);
+       props.dispatch({
+           type: 'DEL_COMMENT', payload: props.id_comentario
+       })
     }
 
     return(
-  
-        <div className="Comentario_container_item">
+        <div  className="Comentario_container_item">
           {/* COMENTARIOS REALIZADOS */}
             <div className="comentario-realizado">
                 <div className="datos_comentario">
@@ -74,26 +117,12 @@ export default function Comentario(props) {
         
         {/* ESCRIBIR Y ENVIAR RESPUESTA */}
         {(responder) &&
-         <div className="comentarios-video">
-            <div className="hacer-comentario">
-               
-                <img src="/assets/img/perfil.png" className="perfil-comentario"/>
-                <form className="formulario-comentario" id="miForm" >
-                    <input
-                        type="text" 
-                        placeholder="Escribe una respuesta..."
-                        value={respuestaTXT.respuestaTXT}
-                        name="respuesta" 
-                        onChange={handleChange} 
-                        className="inputComentario"
-                    /> 
-                    <div className="btn-comentarios">
-                        <button className="btn cancelar" type="button" onClick={cancelarRespuesta}>Cancelar</button>
-                        <button className="btn comentar" type="submit" onClick={enviarRespuesta} >Responder</button>
-                    </div>
-                </form>
-            </div>   
-          </div>
+           <AnswerWrite 
+           handleChange ={handleChange}
+           respuestaTXT={respuestaTXT}
+           cancelarRespuesta={cancelarRespuesta}
+           enviarRespuesta={enviarRespuesta}
+           />
     }   
      {/* MOSTRAR Y OCULTAR CAMPO RESPUESTA */}
         {(showRpta) 
@@ -101,9 +130,11 @@ export default function Comentario(props) {
             <button 
               onClick={OcultarRespuestas} 
               className="btn-respuesta">
-              Ocultar {respuestas.length} respuestas
+              Ocultar {answers_list.length} respuestas
             </button> 
-             : (respuestas.length>0) &&
+
+             : 
+             (answers_list?.length>0) &&
              <button 
                onClick={MostarRespuestas} 
                className="btn-respuesta">
@@ -112,13 +143,18 @@ export default function Comentario(props) {
         } 
         {/* RESPUESTAS DEL COMENTARIO*/}
          {
-            (respuestas.length === 0 && (showRpta))
+            (answers_list === 0 && (showRpta))
             ?
             <p>cargando...</p>
             :
             (showRpta) &&
-                respuestas.map( respuesta =>
-                    <ComentarioRespuesta key={respuesta}  {...respuesta} id_persona_actual={props.id_persona_actual}/>  
+                answers_list.map( respuesta =>
+                    <ComentarioRespuesta
+                      key={respuesta.id_respuesta}  
+                      dispatchAnswer={dispatchAnswer}
+                      {...respuesta}
+                      id_persona_actual={props.id_persona_actual}
+                      />  
                 )
          }
     </div>

@@ -1,10 +1,13 @@
 import React from 'react'
 export const deleteRespuesta = async(id) => {
+    if(!localStorage.getItem("token")) return alert ("registrate")
+     const {token} = JSON.parse(localStorage.getItem("token"));
     let config ={
         method:"DELETE",
         headers:{
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `${token}`
         },
      }
     try{    

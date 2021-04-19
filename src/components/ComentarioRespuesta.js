@@ -2,10 +2,12 @@ import { useState } from "react";
 import { deleteRespuesta } from "../helpers/deleteRespuesta";
 
 export default function ComentarioRespuesta (props){
-     
      const [elipsi, setElipsi] = useState(false);
      const eliminarRespuesta =()=>{
         deleteRespuesta(props.id_respuesta)
+        props.dispatchAnswer({
+          type: 'DEL_ANSWERS', payload: props.id_respuesta
+        })
      }
      const clickElipsi = ()=>{
         setElipsi(!elipsi)

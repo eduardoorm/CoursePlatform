@@ -6,6 +6,7 @@ export const postRespuesta = async (respuestaTXT) => {
           ...respuestaTXT,
           fecha_respuesta: Date.now(),
       }
+
       if(!localStorage.getItem("token")) return alert("Registrate")
       const {token} = JSON.parse(localStorage.getItem("token"));
       let config={
@@ -17,9 +18,8 @@ export const postRespuesta = async (respuestaTXT) => {
         },
         body: JSON.stringify(enviarCampos)
       } 
-      const res = await fetch(url,config)
-
-      if(res.ok){
-        alert("Se agrego la respuesta")
-    }
+      
+      const res = await fetch(url,config);
+      const respuesta = await res.json()
+      return respuesta;
 }
