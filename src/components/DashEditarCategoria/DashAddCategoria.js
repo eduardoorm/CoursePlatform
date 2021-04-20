@@ -22,7 +22,7 @@ export const DashAddCategoria = () => {
     return (
         <div className="Agregar_categoria_container">
             <form className="form_categoria">
-                <label for="categoria" >Nombre Categoria</label>
+                <label htmlFor="categoria" >Nombre Categoria</label>
                 <input id="categoria" name="nom_cate" className="input_categoria" type="text" onChange={handleSubmit}/>
                 {loading &&  <LinearProgress />}
                 <button className="btn_agregar" type="submit" onClick={AddCategoria}>Agregar</button>

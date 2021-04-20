@@ -7,7 +7,7 @@ export default function Course (props){
        <div className={props.style}>
           <div className="curso-img">
               <img 
-              src={props.imagen} 
+              //aqui falta el src
               alt="imagen-del-curso" className="curso-img-img"/>
           </div>
           <div className="curso-titulo">

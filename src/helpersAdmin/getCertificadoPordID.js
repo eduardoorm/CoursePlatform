@@ -14,7 +14,6 @@ export const getCertificadoPordID = async(id) => {
     const url=`http://localhost:3001/getCertificadoPorID/${id}`;
     const response = await fetch(url,config);
     const certificados = await response.json();
-    console.log("certidicafos",certificados);
     const certificado = certificados.map(item=>{
         return {
             id_certificado: item.id_certificado,  

@@ -19,11 +19,11 @@ export const putEstudiante = async (form,id) => {
         },
         body: JSON.stringify(enviarCampos)
      }
-   console.log(enviarCampos);
+ 
    try{    
     const respuesta = await fetch('http://localhost:3001/putUser',config)
     const res = await respuesta.json();
-    console.log(res);
+   
     if(res.ok){
       return {ok:true}
   }

@@ -15,7 +15,7 @@ export const DashLeccion = ({id_modulo}) => {
     return (
        <div className="lecciones_container">
             {videos.map(el=>
-            <div className="lecciones_item">
+            <div className="lecciones_item" key={el.id_video}>
                 <p>
                     {el.nombre}
                 </p>

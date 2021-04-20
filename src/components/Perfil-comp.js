@@ -33,7 +33,6 @@ export default function PerfilComp () {
        id_persona:data?.id_persona,
        [e.target.name] : e.target.value
      })
-     console.log(usuario);
     }
    
    const clickCambiarContraseña =(e)=>{
@@ -71,7 +70,7 @@ export default function PerfilComp () {
                     <img src="assets/img/perfil.png" alt="img-perfil"/>
                 </div>
                 <div className="estudiante-header-item">
-                    <p>{data?.nombre||loading} {data?.apellidos||"null"}</p>
+                    <p>{data?.nombre||loading}  {data?.apellidos||"null"}</p>
                     <p>{data?.email||loading}</p>
                     <button 
                         onClick={handlEditarPerfil} 

@@ -20,7 +20,7 @@ export const putSeccion = async(form,id) => {
    try{    
     const respuesta = await fetch(`http://localhost:3001/putSeccion/${id}`,config)
     const res = await respuesta.json();
-    (!res.ok) ? alert("Hubo un error") : alert("Se actualizo correctamente")
+    if (res.ok) return{ok:true}
     }catch{
     console.log();
  }

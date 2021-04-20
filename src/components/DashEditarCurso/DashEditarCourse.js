@@ -11,7 +11,6 @@ export const DashhEditarCourse = () => {
       let {id}= useParams();
       const{dataCursoID:curso}= useFecthCursoID(id)
       const [form, setForm] = useState({});
-      const fd = new FormData();
       const [preview, setPreview] = useState(null);
       const {dataCategoria:categoria}=useFecthGetCategoria();
       const {dataProfesor:profesor} = useFetchGetInstructor();
@@ -20,23 +19,12 @@ export const DashhEditarCourse = () => {
           ...form,
           [e.target.name]:e.target.value
         })
+        
        }
-    console.log("curso id",curso);
+
        const editarCurso =(e)=>{
         e.preventDefault();
-       fd.append("nom_curso",form.nom_curso);
-       fd.append("des_curso",form.des_curso)
-       fd.append("dura_curso",form.dura_curso)
-       fd.append("precio_curso",form.precio_curso)
-       fd.append("lecciones",form.lecciones)
-       fd.append("calificacion",form.calificacion)
-       fd.append("id_categoria",form.id_categoria)
-       fd.append("instructor",form.instructor)
-       fd.append("imagen",form.imagen)	
-        axios.put(`http://localhost:3001/putCurso/${id}`,fd)
-        .then(response=>{
-          console.log(response);
-        })
+        putCurso(form,id)
        }
 
        const handleImagen =(e)=>{
@@ -81,12 +69,12 @@ export const DashhEditarCourse = () => {
                                 /> 
                               </div>
                               <div>
-                              <label for="lecciones">Lecciones: </label>
+                              <label htmlFor="lecciones">Lecciones: </label>
                               <input id="lecciones" name="lecciones" type="number"  className="input_addCategoria" id="lecciones_input"  
                               onChange={handleChange}/>
                             </div>
                             <div>
-                              <label for="calificacion">Numero Calificaciones: </label>
+                              <label htmlFor="calificacion">Numero Calificaciones: </label>
                               <input id="calificacion" name="calificacion" type="number"  className="input_addCategoria" id="lecciones_input"  
                               onChange={handleChange}/>
                             </div>
@@ -110,7 +98,7 @@ export const DashhEditarCourse = () => {
                               </div>     
                            </div>
                            <div>
-                            <label for="instructor">Profesor: </label>
+                            <label htmlFor="instructor">Profesor: </label>
                             <select name="instructor" onClick={handleChange} id="addProfesor_select" >    
                             {profesor?.map((el,pos)=><option key={el.id} value={el.id} name={el.nombre} >{el.nombre} {el.apellidos} </option>)}
                             </select>
@@ -118,13 +106,13 @@ export const DashhEditarCourse = () => {
                           <br/>
                           <div>
                           <img src={curso[0]?.imagen} 
-                                class="img-thumbnail" alt="..." style={{width:"500px", height:"auto"}}/>
+                                className="img-thumbnail" alt="..." style={{width:"500px", height:"auto"}}/>
                           </div>
                          
                         
                            <div>
                                 {preview === null ? null : <img src={preview} 
-                                class="img-thumbnail" alt="..." style={{width:"500px", height:"auto"}}/>}
+                                className="img-thumbnail" alt="..." style={{width:"500px", height:"auto"}}/>}
                               
                                 <br/><br/>
                                   <label htmlFor="imagenCurso">Seleccione una imagen: </label>

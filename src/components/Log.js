@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useContext, useEffect, useState} from 'react';
 import './ComponentStyles/Log.css'
 import Input from './Input'
 import { Link ,useHistory} from 'react-router-dom';
@@ -7,6 +7,8 @@ import { loginUser } from '../hooks/loginUser';
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { UserContext } from '../store/UserContext';
+import { UseFecthUsuario } from '../hooks/useFecthUsuario';
 const useStyles = makeStyles((theme) => ({
     root: {
       "& .MuiTextField-root": {
@@ -21,7 +23,8 @@ export default function Log () {
     const [redirect, setRedirect] = useState(false)
     const [loading, setLoading]= useState(false);
     const [invalidData, setinvalidData] = useState(false)
-     const history = useHistory();
+    const history = useHistory();
+ 
     const handleChange = e =>{
         setForm({
                 ...form,
@@ -58,6 +61,7 @@ export default function Log () {
         }
     }
 
+    
     const classes = useStyles();
     //localStorage solo almacena strings, la otra manera es meterlo dentrod e un json.stringyfy()
     return(       
@@ -99,7 +103,7 @@ export default function Log () {
             <div className="register-down">
                  <p className="google"><a href="Google" className="link-google">Olvide mi contraseña</a></p> 
                  <Link to="register">
-                 <p className="privacy-terms">¿No tienes una cuenta? <a href="#" className="links-terms">Regístrate</a></p> 
+                 <p className="privacy-terms">¿No tienes una cuenta? <span className="links-terms">Regístrate</span></p> 
                  </Link> 
             </div>
 

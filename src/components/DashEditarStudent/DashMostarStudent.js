@@ -1,11 +1,8 @@
 import React, { useMemo, useState } from 'react'
 import {Link, useLocation} from 'react-router-dom'
 import queryString from 'query-string'
-import { searchScreen } from '../Search/searchScreen';
 import { deleteEstudiante } from '../../helpersAdmin/deleteEstudiante';
 import { useFetchGetEstudiante } from '../../hooksAdmin.js/useFetchGetEstudiante';
-import { NavbarRight } from '../../elementos/Navbar-elementos';
-import TituloVideo from '../TituloVideo';
 import { useHistory, useParams } from 'react-router-dom'
 import { getStudientByEmail } from '../../selectors/getStudientByEmail';
 import { useFetchGetLasFiveStudents } from '../../hooksAdmin.js/useFetchGetLasFiveStudents';
@@ -161,7 +158,7 @@ export const DashMostarStudent = () => {
               </TableHead>
               <TableBody>
                 {student?.map((row,pos) => (
-                  <StyledTableRow key={row.nombre}>
+                  <StyledTableRow key={row.id}>
                     <StyledTableCell component="th" scope="row">
                       {pos+1}
                     </StyledTableCell>
@@ -191,30 +188,7 @@ export const DashMostarStudent = () => {
               </TableBody>
             </Table>
           </TableContainer>
-            {/* <div className="Container_categoria">
-              {
-                student?.map(student=>
-                  <>
-                  <div className="categoria_items">
-                      <div className="nombre_Categoria">
-                        <p>{student.nombre}</p>
-                      </div>
-                      <div className="nombre_Categoria">
-                        <p>{student.apellidos || "----"}</p>
-                      </div>
-                      <div className="nombre_Categoria">
-                        <p>{student.email || "----"}</p>
-                      </div>
-                      <div className="botones_categoria">
-                      <Link to={`/admin/estudiante/editar/${student.id}`}><button className="btn_categoria" >Editar</button></Link>   
-                      <button className="btn_categoria" onClick={()=>eliminarStudent(student.id_persona,student.email)}>Eliminar</button>    
-                      </div>
-                  </div>   
-                  </>
-                )
-               }
-            </div>*/}
-      
+           
          </>
     )
 }

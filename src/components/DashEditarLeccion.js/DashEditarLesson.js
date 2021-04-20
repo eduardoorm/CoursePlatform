@@ -4,24 +4,27 @@ import { Formulario } from '../../elementos/Formularios';
 import Input from '../Input';
 import { useFetchVideoID } from '../../hooks/useFetchVideoID';
 import { putVideo } from '../../helpersAdmin/putVideo';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 export const DashEditarLesson = () => {
     let {id}= useParams();
     const [form, setform] = useState({});
     const history= useHistory()
-     const {dataVideo:video} =  useFetchVideoID(id);
-     console.log("videito",video);
+    const {dataVideo:video} =  useFetchVideoID(id);
+    const [loading, setLoading]= useState(false);
+
     const handleChange =(e)=>{
       setform({
         ...form,
         [e.target.name]:e.target.value
       })
      }
-     console.log(video);
-
-     const editarSeccion =(e)=>{
+     
+     const editarSeccion = async(e)=>{
       e.preventDefault();
-       putVideo(form,id);
+      setLoading(true)
+      const response = await putVideo(form,id);
+      if(response.ok) return setLoading(false)
      }
     
     return (
@@ -52,6 +55,9 @@ export const DashEditarLesson = () => {
                            type="number"
                            onChange={handleChange}
                            /> 
+                           <br/>
+                           {loading &&  <LinearProgress />} 
+                           <br/>
            <button type="submit" className="btn-default" onClick={editarSeccion}>Actualizar</button>
         </Formulario>
       </div>

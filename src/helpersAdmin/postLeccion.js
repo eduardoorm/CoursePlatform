@@ -1,20 +1,16 @@
 import React from 'react'
-
+import {convertToUrl} from '../functions/ConvertToUrl'
 export const postLeccion = async(form,id) => {
     const moduloID = form.id_modulo;
     const regex= /[0-9]\w*/g;
     const found= moduloID.match(regex);
     const id_modulo = Number(found[0]);
 
-    //ELIMINANDO ESPACIOS EN NOM_VIDEO Y COLOCANDO "-"
-    const text_sin_format= form.nom_video;
-    const ruta_video= text_sin_format.trim().replace(/ /g,"-");
-    
     const enviarCampos={
         ...form,
         ruta_curso:id,
         id_modulo,
-        ruta_video,
+        ruta_video:convertToUrl(form.nom_video),
         id_curso:form?.id_curso,
     }
 

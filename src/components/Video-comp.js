@@ -18,7 +18,7 @@ import { TitleNavVideo } from './TitleNavVideo';
 import './ComponentStyles/Navbar.css'
 import './ComponentStyles/Video-comp.css'
 import './Comentario'
-// en este componente se administra todo esto
+
 export default function VideoComp() {
   /* COMENTARIOS STADO */ 
 

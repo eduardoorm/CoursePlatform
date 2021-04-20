@@ -10,8 +10,8 @@ export const AnswerWrite = ({handleChange,respuestaTXT,cancelarRespuesta,enviarR
                     <input
                         type="text" 
                         placeholder="Escribe una respuesta..."
-                        value={respuestaTXT.respuestaTXT}
                         name="respuesta" 
+                        id="inputAnswer"
                         onChange={handleChange} 
                         className="inputComentario"
                     /> 

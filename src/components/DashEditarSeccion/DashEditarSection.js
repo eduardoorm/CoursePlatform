@@ -4,12 +4,13 @@ import { Formulario } from '../../elementos/Formularios';
 import Input from '../Input';
 import { useFetchGetSeccionPorID } from '../../hooksAdmin.js/useFetchGetSeccionPorID';
 import { putSeccion } from '../../helpersAdmin/putSeccion';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 export const DashEditarSection = () => {
     let {id}= useParams();
     const [form, setform] = useState({});
     const history= useHistory()
-
+    const [loading, setLoading]= useState(false);
     const handleChange =(e)=>{
       setform({
         ...form,
@@ -20,8 +21,11 @@ export const DashEditarSection = () => {
     const {dataSeccion:seccion} = useFetchGetSeccionPorID(id)
 
      const editarSeccion =(e)=>{
+      setLoading(true)
       e.preventDefault();
-      putSeccion(form,id)
+      const response =  putSeccion(form,id)
+      if(response.ok) return setLoading(false)
+      
      }
     
   return (
@@ -34,9 +38,9 @@ export const DashEditarSection = () => {
                            id="nombre"
                            name="nombre"
                            type="text"
-                           
                            onChange={handleChange}
                            /> 
+                           {loading &&  <LinearProgress />} <br/><br/>
            <button type="submit" className="btn-default" onClick={editarSeccion}>Actualizar</button>
         </Formulario>
       </div>

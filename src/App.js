@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import NavBar from './components/Navbar'
 import Footer from './components/Footer'
 import {BrowserRouter as Router, Switch,Route, Redirect} from 'react-router-dom';
@@ -8,11 +9,9 @@ import Collections from './pages/Collections'
 import Course_Page from './pages/Courses-Page'
 import Checkout from './pages/Checkout'
 import Video from './pages/Video'
-import PublicarCurso from './pages/Publicar'
 import Perfil from './pages/Perfil'
 import { Certificado } from './pages/Certificado';
 import { Dashboard } from './pages/Dashboard';
-import { DashDashboard } from './components/DashDashboard';
 import { DashCategoria } from './pages/DashCategoria';
 import { DashCursos } from './pages/DashCursos';
 import { DashEstudiantes } from './pages/DashEstudiantes';
@@ -28,14 +27,22 @@ import { DashEditarCategoria } from './components/DashEditarCategoria/DashEditar
 import { DashProfesor } from './pages/DashProfesor';
 import { DashEditarProfesor } from './pages/DashEditarProfesor';
 import { DashAddCertificado } from './components/DashEditarCertificados/DashAddCertificado';
-import { DashMostrarReportes } from './components/DashSuscripciones/DashMostrarReportes';
 import { DashReportes } from './pages/DashReportes';
 import { PurchaseMade } from './components/PurchaseMade';
 import { Upload } from './components/Upload';
 import { MisCursos } from './pages/MisCursos';
-import {Provider} from './store/UseContextComment'
+
+import {UserContext} from './store/UserContext'
+
 function App() {
+  const [user, setUser] = useState({})
+ 
   return (
+    <UserContext.Provider
+     value={
+       {user,setUser}
+     }
+    >
    <Router>    
         <Switch> 
               <Route path='/' exact ><NavBar /><Home/><Footer/></Route>
@@ -56,7 +63,7 @@ function App() {
               <Route path='/uploadVideos' exact ><Upload/></Route>
               <Route path='/aprender' exact ><MisCursos/></Route>
               
-              <Route path='/admin/dashboard' exact ><DashDashboard/></Route>
+              <Route path='/admin/dashboard' exact ><Dashboard/></Route>
 
               <Route path='/admin/categorias' exact ><DashCategoria/></Route>
               <Route path='/admin/categorias/editar/:id' exact ><DashEditarCategoria/></Route>
@@ -89,7 +96,7 @@ function App() {
           
           </Switch>
    </Router>
-  
+   </UserContext.Provider>
   );
 }
 

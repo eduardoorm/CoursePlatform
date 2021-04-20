@@ -1,29 +1,23 @@
-import React, {useState,useEffect} from 'react';
-import {Link,useHistory, useParams} from 'react-router-dom';
-import {Btn} from './Button.js'
-import {TitleIntesla,NavbarRight} from '../elementos/Navbar-elementos'
+import React, {useState,useEffect, useContext} from 'react';
+import {Link,useHistory} from 'react-router-dom';
 import { Oferta } from './Oferta';
-import {countdown,getFecha} from './Reloj'
 import { UseFecthUsuario } from '../hooks/useFecthUsuario';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 //del logueado
 import { fade, makeStyles } from "@material-ui/core/styles";
-import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import './ComponentStyles/Navbar.css'
-import { NavbarLogueado } from './NavbarLogueado.js';
+import { UserContext } from '../store/UserContext';
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -99,30 +93,25 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function NavBar() {
-    const classes = useStyles();
+     const classes = useStyles();
      const[sesion,setSesion] = useState(false);
-     const[clickPerfil,setClickPerfil] = useState(false);
      const history = useHistory();
-     const{data}= UseFecthUsuario();
-     const handlPerfil = () =>{
-         (clickPerfil) ?   setClickPerfil(false) : setClickPerfil(true);
-     }
+     const {user} = useContext(UserContext);
 
      useEffect(()=>{
         if(localStorage.getItem("token")){
             return setSesion(true);
-        }
-        countdown(getFecha(), "Feliz cumpleaños");
-        
+        }   
      })
+
      const handleCerrarSesion =()=>{
          localStorage.clear();
          setAnchorEl(null);
          handleMobileMenuClose();
-         setClickPerfil(false);
          history.replace("/login");
          return setSesion(false);
      }
+
   //DEL LOGUEADO:
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -157,7 +146,7 @@ export default function NavBar() {
       onClose={handleMenuClose}
     >
       <Link to ="/perfil"><MenuItem onClick={handleMenuClose}>Mi perfil</MenuItem></Link>
-      <Link to={`/certificados/${data?.id_persona}`}>
+      <Link to={`/certificados/${user?.id_persona}`}>
           <MenuItem onClick={handleMenuClose}>Mis certificados</MenuItem>
       </Link>
       <Link to="/aprender"><MenuItem onClick={handleMenuClose}>Mis cursos</MenuItem></Link>
@@ -190,7 +179,7 @@ export default function NavBar() {
           <i className="fas fa-certificate"></i>
           </Badge>
         </IconButton>
-        <Link to={`/certificados/${data?.id_persona}`}><p>Certificados</p></Link>
+        <Link to={`/certificados/${user?.id_persona}`}><p>Certificados</p></Link>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -204,13 +193,15 @@ export default function NavBar() {
           Perfil
       </MenuItem>
     </Menu>
-  );
-       return(
+   );
 
+       return(
        <>
+
         <Oferta/>
         
         {/* NAVBAR PARA USUARIO NO REGISTRADOS */}
+
         {
            (!sesion) && 
             <div className={classes.root}>
@@ -226,119 +217,55 @@ export default function NavBar() {
         }
         
        {/* NAVBAR PARA USUARIOS REGISTRADOS*/}
+
        {    
-        
         sesion
         &&
        <div className={classes.grow}>
-       <AppBar position="static">
-         <Toolbar>
-         <Link to='/'> 
-             Intesla Education 
-           </Link>
-           <div className={classes.grow} />
-           <div className={classes.sectionDesktop}>
-             <IconButton aria-label="show 4 new mails" color="inherit">
-               Enseña en Intesla
-             </IconButton>
-             <IconButton aria-label="show 17 new notifications" color="inherit">
-            <Link to="/collections">Cursos </Link>   
-             </IconButton>
-             <IconButton
-               edge="end"
-               aria-label="account of current user"
-               aria-controls={menuId}
-               aria-haspopup="true"
-               onClick={handleProfileMenuOpen}
-               color="inherit"
-             >
-               <AccountCircle />
-             </IconButton>
-           </div>
-           <div className={classes.sectionMobile}>
-             <IconButton
-               aria-label="show more"
-               aria-controls={mobileMenuId}
-               aria-haspopup="true"
-               onClick={handleMobileMenuOpen}
-               color="inherit"
-             >
-               <MoreIcon />
-             </IconButton>
-           </div>
-         </Toolbar>
-       </AppBar>
-       {renderMobileMenu}
-       {renderMenu}
-     </div>
-       }
-        
-        {/* <nav id={"navBar"}>
-        <div className="row">
-            <Link to='/'><TitleIntesla><span className="li_navbar">Intesla Education</span></TitleIntesla></Link>
-                <ul className="main-nav">  
-                <Link ><li id="li_navbar">Enseña en Intesla</li> </Link>
-                <Link to='/collections'><li id="li_navbar">Cursos</li> </Link>          
-                    {sesion ? 
-                       <NavbarRight>
-                           <li>
-                               <div className="contain__showPefil">           
-                                  <Btn 
-                                  onClick={handlPerfil} 
-                                  value={
-                                  <>
-                                  <img src="/assets/img/perfil.png" 
-                                  className="img__perfil"
-                                  /> 
-                                  <i className="fas fa-chevron-down" id="buton__perfil"></i>
-                                  </>
-                                  }
-                                  style="btn_mostrarPerfil"/>
-                               </div>
-
-                               {clickPerfil &&
-                                <ul className="lista__miPerfil">
-                                  <li>
-                                    <Link
-                                     to="/Perfil">
-                                     <button className="btn_verPerfil" onClick={()=>setClickPerfil(false)}>Mi perfil</button> 
-                                     </Link>
-                                  </li>
-                                  <li id="id_liNav">
-                                    <Link to={`/certificados/${data?.id_persona}`}>Mis Certificados </Link> 
-                                  </li> 
-                                  <li id="id_liNav">
-                                      <Link>Mis Cursos </Link> 
-                                  </li>
-                                  <li id="li__cerrarSesion">
-                                    <Btn 
-                                        value={<><i className="fas fa-sign-out-alt"></i><span>Cerrar Sesión</span></>} 
-                                        style="btn__cerrarSesion"  
-                                        onClick={handleCerrarSesion}/>
-                                  </li> 
-                                </ul>    
-                               }     
-                           </li>          
-                        </NavbarRight>
-                   :
-                        <NavbarRight>
-                            <li>
-                                <Link to='/login'>
-                                <Btn value="Iniciar Sesión" style="iniciar-sesion"/>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/register'>
-                                <Btn value="Regístrate" style="registrarse"/>
-                                </Link>
-                            </li>    
-                        </NavbarRight>
-                }      
- 
-                </ul> 
+          <AppBar position="static">
+            <Toolbar>
+            <Link to='/'> 
+                Intesla Education 
+              </Link>
+              <div className={classes.grow} />
+              <div className={classes.sectionDesktop}>
+                <IconButton aria-label="show 4 new mails" color="inherit">
+                  Enseña en Intesla
+                </IconButton>
+                
+                <IconButton aria-label="show 17 new notifications" color="inherit">
+                <Link to="/collections">Cursos </Link> 
+                </IconButton>
+               
+                <IconButton
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
               </div>
-            </nav> */}
-          </>
+              <div className={classes.sectionMobile}>
+                <IconButton
+                  aria-label="show more"
+                  aria-controls={mobileMenuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                  color="inherit"
+                >
+                  <MoreIcon />
+                </IconButton>
+              </div>
+            </Toolbar>
+          </AppBar>
+          {renderMobileMenu}
+          {renderMenu}
+       </div>
+       }
+       </>
        )
 }
 

@@ -469,3 +469,9 @@ li{
     border: 1px solid  #BBBBBB;
     border-radius: 5px;
 }
+
+
+/*CURSO*/
+.MuiCard-root{
+   margin-bottom: 1em;
+}

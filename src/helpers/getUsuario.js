@@ -1,4 +1,5 @@
 export const getUsuario = async () => {
+
             if(!localStorage.getItem("token")) return alert("logueate");  
             const {token} = JSON.parse(localStorage.getItem("token"));
 
@@ -18,7 +19,8 @@ export const getUsuario = async () => {
               nombre:user.nombre,
               apellido:user.apellidos,
               email:user.email,
-              id_persona:user.id_persona
+              id_persona:user.id_persona,
+              role:user.role
              }
                
      return usuario;

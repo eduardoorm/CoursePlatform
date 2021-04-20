@@ -1,10 +1,9 @@
-import Course from '../components/Course'
+import React from 'react'
 import {Link} from 'react-router-dom'
 import { useFecthCurso } from '../hooks/useFecthCurso';
 import { CursosCollections } from '../components/CursosCollections';
 function Collections(){
     const {dataCurso:cursos} = useFecthCurso()
-    console.log(cursos);
     return(
     <>   
           <h1 className="titulo_Cursos">Todos los Cursos</h1>
@@ -16,9 +15,10 @@ function Collections(){
           cursos.map(curso=>
             <>
             <Link to= {`/course/${curso.ruta}`}>
-            <CursosCollections
-             {...curso}
-               />
+              <CursosCollections
+                key={curso.id}
+                {...curso}
+              />
             </Link>
             </>
           ) 

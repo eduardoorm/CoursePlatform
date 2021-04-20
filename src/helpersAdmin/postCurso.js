@@ -1,15 +1,16 @@
-export const postCurso = async(form,fd) => {
+import {convertToUrl} from '../functions/ConvertToUrl'
 
-    const ruta_con_espacios = form.nom_curso;
-    const regex = / /g;
-    const ruta_curso=ruta_con_espacios.trim().replace(regex, '-');
+export const postCurso = async(form) => {
+
     const data ={ 
         ...form,
-        fd,
-        ruta_curso 
+        fecha_curso: Date.now(),
+        ruta_curso: convertToUrl(form.nom_curso)
     }
+
     if(!localStorage.getItem("token")) return alert ("registrate")
     const {token} = JSON.parse(localStorage.getItem("token"));
+    console.log("token enviado",token);
     const url =`http://localhost:3001/postCurso`;
     let config ={
        method:"POST",

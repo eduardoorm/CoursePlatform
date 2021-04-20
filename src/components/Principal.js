@@ -9,9 +9,18 @@ import {Link} from 'react-router-dom'
 import './ComponentStyles/Course.css'
 import {IdPreguntasfrecuentes} from '../elementos/Preguntas'
 import { useFetchUltimosCurso } from '../hooks/useFetchUltimosCurso';
-
+import { UserContext } from '../store/UserContext';
+import { useContext, useEffect } from 'react'
+import { UseFecthUsuario } from '../hooks/useFecthUsuario'
 function Principal() {
    const {dataCursos:curso} = useFetchUltimosCurso();
+   const {setUser} = useContext(UserContext)
+   const {data} = UseFecthUsuario()
+ 
+   useEffect(() => {
+    setUser(data)
+  }, [data])
+
    return (
     <>
     <Banner>

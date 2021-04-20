@@ -8,9 +8,9 @@ export default function ComentarioEscribir({cantidad,ruta_video,id_curso, dispat
     const {nombre,apellido,id_persona}=usuario;
     const [txtComment, setTxComment] = useState({})
     const [estadoComent,setEstadoComent] = useState(false);
-
- 
-
+    const d = document;
+    const inputComentario= d.getElementById('escribirComent');
+    
     const handleChange =(e)=>{
         setTxComment({
           ...txtComment,
@@ -28,7 +28,7 @@ export default function ComentarioEscribir({cantidad,ruta_video,id_curso, dispat
    
       const realizarComentario= async (e)=>{
         e.preventDefault();
-       
+
         const comment = {
           ...txtComment,
           id_persona,
@@ -36,8 +36,8 @@ export default function ComentarioEscribir({cantidad,ruta_video,id_curso, dispat
           ruta_video,
           fecha_comentario: Date.now()
         }
+
         const {id_comentario} = await postComentario(comment);
-        
         const date = new Date(Number(Date.now())); 
         const fecha = convertirFecha(date);
 
@@ -52,6 +52,9 @@ export default function ComentarioEscribir({cantidad,ruta_video,id_curso, dispat
         dispatch({
           type: 'ADD_COMMENT', payload
         })
+
+        inputComentario.value="";
+        setEstadoComent(false);
        }
        
        const cancelarComentario =()=>{

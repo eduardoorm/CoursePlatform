@@ -48,7 +48,7 @@ export const DashMostrarReportes = () => {
       const history= useHistory()
       const {dataSuscripciones:subs} = useFetchGetSubsByCursoID(id);
       const classes = useStyles();
-
+     
     return (
         <div className="Container_categoria">
         <button className="btn-Volver" onClick={()=>{history.push(`/admin/suscripciones`)}}>volver</button>
@@ -74,7 +74,7 @@ export const DashMostrarReportes = () => {
                 </TableHead>
                 <TableBody>
                    {  subs?.map((row,pos) => (
-                    <StyledTableRow key={row.nombre}>
+                    <StyledTableRow key={row.email}>
                       <StyledTableCell component="th" scope="row">
                         {pos+1}
                       </StyledTableCell>
@@ -87,26 +87,7 @@ export const DashMostrarReportes = () => {
               </Table>
             </TableContainer>
            }
-        {/* { subs?.length !==0 && subs?.map((item,pos)=>
-        <>  
-        
-       
-            <div className="categoria_items" >
-                <div className="ID_Categoria">
-                  <p>{pos+1}</p>
-                </div>
-                <div className="nombre_Categoria">
-                  <p>{item.email|| "----"}</p>
-                </div>
-                <div className="nombre_Categoria">
-                  <p>{item.nombre}</p>
-                </div>
-                <div className="nombre_Categoria">
-                  <p>{item.apellidos}</p>
-                </div>
-            </div> 
-        </>
-        )} */}
+     
   </div>
     )
 }

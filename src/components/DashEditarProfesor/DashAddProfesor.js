@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { getCategoria } from '../../helpersAdmin/getCategoria'
 import { postProfesor } from '../../helpersAdmin/postProfesor'
-import {useFecthGetCategoria} from '../../hooksAdmin.js/useFecthGetCategoria'
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 export const DashAddProfesor = () => {
@@ -25,9 +23,9 @@ export const DashAddProfesor = () => {
     return (
         <div className="Agregar_categoria_container">
             <form className="form_categoria">
-                <label for="nombre" >Nombre Profesor</label>
+                <label htmlFor="nombre" >Nombre Profesor</label>
                 <input id="nombre" name="nombre" className="input_categoria" type="text" onChange={handleSubmit}/>
-                <label for="apellidos" >Apellido Profesor</label>
+                <label htmlFor="apellidos" >Apellido Profesor</label>
                 <input id="apellidos" name="apellidos" className="input_categoria" type="text" onChange={handleSubmit}/>
                 {loading &&  <LinearProgress />} <br/>
                 <button className="btn_agregar" type="submit" onClick={AddProfesor}>Agregar</button>

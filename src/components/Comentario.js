@@ -15,6 +15,8 @@ export default function Comentario(props) {
     const [respuestaTXT,setRespuestaTXT] = useState({});
     const {data:usuario} =UseFecthUsuario();
     const {nombre,apellido,id_persona}=usuario;
+    const d= document;
+    const inputAnswer= d.getElementById('inputAnswer')
       /*¨RESPUESTAS ESTADO*/
      const [answers_list, dispatchAnswer] = useReducer((state,action)=>{
     switch (action.type) {
@@ -35,8 +37,6 @@ export default function Comentario(props) {
      })
   
     useFetchRespuestas(props.id_comentario,dispatchAnswer)
-
-
     const [elipsi, setElipsi] = useState(false);
     const hanldeResponder=()=>setResponder(true);
     const cancelarRespuesta =()=> setResponder(false);
@@ -56,7 +56,7 @@ export default function Comentario(props) {
         const {id_respuesta} = await postRespuesta(respuestaTXT)
         const date = new Date(Number(Date.now())); 
         const fecha = convertirFecha(date);
-
+        
         const payload ={
             respuesta:respuestaTXT.respuesta,
             id_respuesta,
@@ -68,6 +68,8 @@ export default function Comentario(props) {
         dispatchAnswer({
             type:'ADD_ANSWERS',payload
         })
+        inputAnswer.value=""
+        setResponder(false)
     }
 
     const clickElipsi = ()=>{

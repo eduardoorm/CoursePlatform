@@ -59,7 +59,7 @@ export const DashSubs = () => {
                 </TableHead>
                 <TableBody>
                   {curso?.map((row,pos) => (
-                    <StyledTableRow key={row.nombre}>
+                    <StyledTableRow key={row.id}>
                       <StyledTableCell component="th" scope="row">
                         {pos+1}
                       </StyledTableCell>
@@ -77,15 +77,7 @@ export const DashSubs = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-        {/* <div className="suscripciones_container">
-            {curso.map((el,pos)=>
-                <div className="suscripciones_item">
-                  <p>{pos+1}</p>
-                  <p>{el.nombre}</p>
-                 <Link to={`suscripciones/${el.ruta}`}><button className="btn_header" >Ver Reportes</button></Link> 
-                </div>  
-                )}
-        </div> */}
+
         </>
     )
 }

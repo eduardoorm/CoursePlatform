@@ -24,7 +24,7 @@ import profesorImg from '../assets/img/profesor1.jpg'
                      <TextBannerCurso>
                          <h3>{nombre}</h3> <br/>
                         <p>{descripcion}</p>
-                        <Link onClick={checkout}><EmpezarYa>Empezar ya</EmpezarYa> </Link>
+                         <EmpezarYa onClick={checkout}>Empezar ya</EmpezarYa> 
                      </TextBannerCurso>
                      <ImgBannerCurso>
                         <ImgBanner src="../assets/img/profesor1.jpg" alt=""/>

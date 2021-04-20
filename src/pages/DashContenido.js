@@ -21,8 +21,7 @@ export const DashContenido = () => {
      const {dataSeccion:secciones}=useFetchgetSeccionPorCursoID(id);
      const clickAddSecciones =()=>{
      return (setclickAddSeccion(!clickAddSeccion))
-     }
-     
+     }     
      const clickAddLecciones =()=>{
       return (setclickAddLecciones(!clickAddLeccion))
      }
@@ -44,7 +43,7 @@ export const DashContenido = () => {
                         {/* /*DASHBOARD HEADER*/}
                         <div className="Dashboard-Preview">
                             <DashHeader 
-                            icono={<i class="fas fa-book"></i>}
+                            icono={<i className="fas fa-book"></i>}
                             nombre="Cursos"
                             btn="+ Agregar Categoria"
                             />
@@ -69,7 +68,7 @@ export const DashContenido = () => {
                             <DashAddLeccion/>
                             :               
                             secciones?.map((el,pos)=>
-                                <div className="Container_Secciones"> 
+                                <div className="Container_Secciones" key={el.id_modulo}> 
                                   <div className="header_secciones">
                                     <h3>Sección {pos+1}</h3>
                                     <p>{el.nombre}</p>                               

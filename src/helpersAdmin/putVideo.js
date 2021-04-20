@@ -1,10 +1,12 @@
 import React from 'react'
+import {convertToUrl} from '../functions/ConvertToUrl'
 
 export const putVideo = async(form,id) => {
     const enviarCampos ={
         nom_video:form.nombre,
         dura_video:form.duracion,
         des_video: form.descripcion,
+        ruta_video:convertToUrl(form.nombre),
     }
 
     if(!localStorage.getItem("token")) return alert ("registrate")
@@ -18,11 +20,13 @@ export const putVideo = async(form,id) => {
         },
         body: JSON.stringify(enviarCampos)
      }
-   console.log(enviarCampos);
+   
    try{    
     const respuesta = await fetch(`http://localhost:3001/putLeccion/${id}`,config)
     const res = await respuesta.json();
-    (!res.ok) ? alert("Hubo un error") : alert("Se actualizo correctamente")
+    if(res.ok) return {
+        ok:true
+    }
     }catch{
     console.log();
  }

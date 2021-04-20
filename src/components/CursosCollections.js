@@ -3,7 +3,7 @@ import './ComponentStyles/MiCurso.css'
 export const CursosCollections = ({nombre,descripcion,precio}) => {
     return (
         <>
-         <div className="container-MisCursos">
+         <div className="container-MisCursos" >
             <div className="contenedor_imgMisCursos">
               <img className="img_MisCursos" src="./assets/img/profesor1.jpg"/>
             </div>

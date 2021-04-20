@@ -1,14 +1,11 @@
 import React, { useMemo, useState } from 'react'
 import { postCertificado } from '../../helpersAdmin/postCertificado'
 import { useFetchGetEstudiante } from '../../hooksAdmin.js/useFetchGetEstudiante'
-import {Link, useLocation} from 'react-router-dom'
+import { useLocation} from 'react-router-dom'
 import queryString from 'query-string'
-import { searchScreen } from '../Search/searchScreen';
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory} from 'react-router-dom'
 import { getStudientByEmail } from '../../selectors/getStudientByEmail';
 import LinearProgress from '@material-ui/core/LinearProgress';
-
-import { DashNav } from '../DashNav'
 export const DashAddCertificado = () => {
     const [clickBuscar, setClickBuscar] = useState(false)
     const location = useLocation();
@@ -17,13 +14,12 @@ export const DashAddCertificado = () => {
     const [form, setForm] = useState({
       searchText:q,
     })
-
     const history = useHistory();
     const {dataEstudiante:estudiante} =useFetchGetEstudiante()
     const {searchText} = form;
     const studentFiltered=useMemo(() =>  getStudientByEmail(q,estudiante), [q]);
     const id_persona = studentFiltered[0]?.id_persona;
-
+   
     const handleSearch = (e)=>{
         e.preventDefault();
          setForm({
@@ -31,7 +27,6 @@ export const DashAddCertificado = () => {
            id_persona,
            [e.target.name] : e.target.value,
          })
-         console.log("formulario",form);
     }
 
     const handleSubmit = (e) =>{
@@ -91,7 +86,7 @@ export const DashAddCertificado = () => {
              {
                 studentFiltered?.map(student=>
                 <>
-                    <div className="categoria_items">
+                    <div className="categoria_items" key={student.id}>
                         <div className="nombre_Categoria">
                         <p>{student.nombre}</p>
                         </div>
@@ -110,9 +105,9 @@ export const DashAddCertificado = () => {
      {
        (clickBuscar && studentFiltered.length!==0 )&&
         <form>
-            <label for="nom_curso">Nombre del Curso</label>
+            <label htmlFor="nom_curso">Nombre del Curso</label>
             <input id="nom_curso" name="nombre_curso" type="text" onChange={handleSearch}/>
-            <label for="des_curso">Certificado</label>
+            <label htmlFor="des_curso">Certificado</label>
             <input id="des_curso" name="nombre_archivo" type="text" onChange={handleSearch}/>
                 <br/>
                 {loading &&  <LinearProgress />} 
