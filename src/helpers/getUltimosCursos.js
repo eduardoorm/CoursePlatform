@@ -18,6 +18,8 @@ export const getUltimosCursos = async () => {
           ruta:curso.ruta_curso,
           imagen:curso.imagen,
           instructor:curso.instructor,
+          nombreInstructor: curso.nombre,
+          apellidoInstructor: curso.apellidos,
         }
     })
     return cursos;

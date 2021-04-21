@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 export const DashMostrarCurso = () => {
      const classes = useStyles();
      const {dataCurso:cursos}= useFecthCurso();
-     const [file, setFile] = useState()
+      console.log("cursitos",cursos);
 
      const eliminarCurso =(nombre,id)=>{
       if(window.confirm(`¿Seguro que quieres eliminar al curso: "${nombre}"?`)){
@@ -28,35 +28,7 @@ export const DashMostrarCurso = () => {
         return deleteCurso(id);
       }
      }
-
-     const selecteHandler = e=>{
-       setFile(e.target.files[0]);
-     }
-
-     const sendHandler = (e)=>{
-       e.preventDefault();
-       if(!file){
-         alert("you must upload file")
-         return
-       }
-      const formdata = new FormData();
-     
-      formdata.append('imagenCurso',file);
  
-      fetch('http://localhost:3001/files',{
-        method: 'POST',
-        body: formdata,
-      })
-      .then(res=> res.text())
-      .then(res=>console.log(res))
-      .catch(err=>{
-       console.log(err);
-      })
-      document.getElementById('fileinput').value=null;
-
-      setFile(null);
-     }
-     
     return (
       <>
         <div className="Container_curso">
@@ -89,7 +61,10 @@ export const DashMostrarCurso = () => {
                           <><span className="negr_curso">Duración:</span>  {el.duracion || "----"}</>
                           </Typography>
                           <Typography variant="body2" color="textSecondary" component="p">
-                          <><span className="negr_curso">Profesor: </span> {el.profesor|| "----"}</>
+                          <><span className="negr_curso">Profesor: </span> {el.nombreInstructor|| "----"} {el.apellidoInstructor|| "----"}</>
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary" component="p">
+                          <><span className="negr_curso">Lecciones: </span> {el.lecciones|| "----"} </>
                           </Typography>
                       </CardContent>
                       

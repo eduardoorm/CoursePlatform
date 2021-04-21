@@ -9,6 +9,6 @@ export const useFetchComentariosPorVideo = (id, dispatch) => {
                 type: 'LOAD_COMMENTS', payload
             })
         })
-       },[])
+       },[id])
 
 }

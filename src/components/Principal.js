@@ -16,7 +16,6 @@ function Principal() {
    const {dataCursos:curso} = useFetchUltimosCurso();
    const {setUser} = useContext(UserContext)
    const {data} = UseFecthUsuario()
- 
    useEffect(() => {
     setUser(data)
   }, [data])
@@ -57,6 +56,8 @@ function Principal() {
                 tituloCurso={curso?.nombre}
                 lecciones={curso?.lecciones}
                 imagen={curso?.imagen}
+                nombreInstructor={curso?.nombreInstructor}
+                apellidoInstructor={curso?.apellidoInstructor}
                 />
             </Link>     
             </>

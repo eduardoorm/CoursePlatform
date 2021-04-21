@@ -2,7 +2,6 @@
 import './ComponentStyles/Perfil-comp.css'
 import React from 'react';
 export default function Course (props){
-      
       return(    
        <div className={props.style}>
           <div className="curso-img">
@@ -14,7 +13,7 @@ export default function Course (props){
             <p>{props.tituloCurso}</p>
           </div>
           <div className="curso-profesor">
-            <p>Erick Romucho</p> 
+            <p>{props.nombreInstructor} {props.apellidoInstructor}</p> 
           </div>
           <div className="curso-acreditado">
             <i className="fa fa-check-circle yt-card-bt"></i><p> Profesor acreditado</p> 

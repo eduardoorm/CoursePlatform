@@ -10,6 +10,8 @@ export const putCurso = async (form,id) => {
         precio_curso:form.precio_curso,
         id_categoria: form.id_categoria,
         ruta_curso:convertToUrl(form.nom_curso),
+        instructor: form.instructor,
+        lecciones: form.lecciones,
     }
 
     if(!localStorage.getItem("token")) return alert ("registrate")

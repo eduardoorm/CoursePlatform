@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { useMemo } from 'react';
 import {Link, useHistory, useLocation} from 'react-router-dom'
 import { deleteCertificado } from '../../helpersAdmin/deleteCertificado';
-import { deleteEstudiante } from '../../helpersAdmin/deleteEstudiante';
 import { useFetchGetCertificado } from '../../hooksAdmin.js/useFetchGetCertificado';
-import { useFetchGetEstudiante } from '../../hooksAdmin.js/useFetchGetEstudiante';
+import {useFecthGetLastFiveCertificate} from '../../hooksAdmin.js/useFecthGetLastFiveCertificate'
 import queryString from 'query-string'
 import { getCertificateByEmail } from '../../selectors/getCertificateByEmail';
 // MATERIAL UI TABLE
@@ -49,8 +48,8 @@ import Button from '@material-ui/core/Button';
   }));
 export const DashMostrarCertificados = () => {
     const classes = useStyles();
-    const [editar, setEditar] = useState(true);   
-    const {dataCertificado:certificados}= useFetchGetCertificado()
+    const {dataCertificate:certificados}= useFecthGetLastFiveCertificate()
+    
     const location = useLocation();
     const {q=''}=queryString.parse(location.search);
     const [form, setForm] = useState({
@@ -144,7 +143,7 @@ export const DashMostrarCertificados = () => {
           </div>
 
           <br/>
-          <h4>Certificados:</h4> 
+          <h4>Certificados Recientes:</h4> <br/>
          <hr/>
          <TableContainer component={Paper}>
               <Table className={classes.table} aria-label="customized table">

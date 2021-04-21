@@ -12,7 +12,7 @@ export const useFetchVideoID = (id_video) => {
                  dataVideo:item
              })
          })
-    },[])
+    },[id_video])
 
     return video;
 }

@@ -12,6 +12,8 @@ export const DashhEditarCourse = () => {
       const{dataCursoID:curso}= useFecthCursoID(id)
       const [form, setForm] = useState({});
       const [preview, setPreview] = useState(null);
+
+      console.log(form);
       const {dataCategoria:categoria}=useFecthGetCategoria();
       const {dataProfesor:profesor} = useFetchGetInstructor();
       const handleChange =(e)=>{
