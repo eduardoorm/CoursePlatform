@@ -110,16 +110,19 @@ export default function Register (){
                 <div>
                 <TextField
                     required
+                    id="standard-required"
                     label="Nombres"
                     name="nombre"
                     />
                     <TextField
-                    required 
+                    required
+                    id="standard-required"
                     label="Apellidos"
                     name="apellidos"
                     />
                     <TextField
                     required
+                    id="standard-required"
                     label="Email"
                     name="email"
                     />

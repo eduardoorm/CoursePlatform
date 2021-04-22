@@ -6,15 +6,15 @@ import {ContInstructor, BtnEmpiezaEnseniar, TextContInstructor, ImgContInstructo
 from '../elementos/Banner-Instructor'
 import Preguntas from './PreguntasFrecuentes'
 import {Link} from 'react-router-dom'
-import './ComponentStyles/Course.css'
 import {IdPreguntasfrecuentes} from '../elementos/Preguntas'
 import { useFetchUltimosCurso } from '../hooks/useFetchUltimosCurso';
 import { UserContext } from '../store/UserContext';
 import { useContext, useEffect } from 'react'
 import { UseFecthUsuario } from '../hooks/useFecthUsuario'
+import './ComponentStyles/Course.css'
 function Principal() {
    const {dataCursos:curso} = useFetchUltimosCurso();
-   const {setUser} = useContext(UserContext)
+   const {user,setUser} = useContext(UserContext)
    const {data} = UseFecthUsuario()
    useEffect(() => {
     setUser(data)
@@ -40,6 +40,12 @@ function Principal() {
     </Banner>
 
   <Section>
+    
+    { (user) &&
+      <div className="boxWelcome">
+      <h2 className="welcomeUser">Bienvenido <span className="user-Upper"> {user.nombre} </span></h2>
+      </div>}
+  
    <TituloSeccionUltimos>Últimos cursos publicados</TituloSeccionUltimos>
 
       <div id="container-flex-cursos">

@@ -13,9 +13,7 @@ export const postEstudiante =async (form) => {
        },
        body: JSON.stringify(form)
     };
-    console.log("antes del await");
     const res = await fetch(url,config);
-    console.log("despues del await");
     if(res.ok){
         return {ok:true}
     }
