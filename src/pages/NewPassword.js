@@ -5,7 +5,7 @@ import { useHistory, useParams } from 'react-router'
 import NavBar from '../components/Navbar'
 import { makeStyles } from "@material-ui/core/styles";
 import LinearProgress from '@material-ui/core/LinearProgress';
-
+import '../components/ComponentStyles/New-Password.css'
 export const NewPassword = () => {
     const {token} = useParams();
     const [loading, setLoading]= useState(false);
@@ -39,11 +39,14 @@ export const NewPassword = () => {
     return (
         <div>
            <NavBar/>
-           <div>
+           <div className="container_NewPassword">
+             <div className='title_NewPassword'>
+               <h1>Actualize su contraseña</h1>
+             </div>
                <form onSubmit={HandleSubmit}>
-                   <input type="password" name="newPassword" placeholder="Ingrese aqui su nueva contraseña" onChange={handleChange}/>
+                   <input type="password" name="newPassword" placeholder="Ingrese aquí su nueva contraseña" onChange={handleChange}/>
                    <p>{message}</p>
-                   <button type="submit">Reestablecer</button>
+                   <button type="submit">Actualizar</button>
                </form>
                {loading && <LinearProgress/>}
            </div>

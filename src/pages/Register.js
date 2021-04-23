@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, { useState} from 'react';
 import {Btn} from '../components/Button'
 import {Redirect} from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
@@ -110,19 +110,19 @@ export default function Register (){
                 <div>
                 <TextField
                     required
-                    id="standard-required"
+                    id="nombre-required"
                     label="Nombres"
                     name="nombre"
                     />
                     <TextField
                     required
-                    id="standard-required"
+                   
                     label="Apellidos"
                     name="apellidos"
                     />
                     <TextField
                     required
-                    id="standard-required"
+                    id="email-required"
                     label="Email"
                     name="email"
                     />
