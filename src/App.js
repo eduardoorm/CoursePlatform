@@ -33,6 +33,8 @@ import { Upload } from './components/Upload';
 import { MisCursos } from './pages/MisCursos';
 
 import {UserContext} from './store/UserContext'
+import { NewPassword } from './pages/NewPassword';
+import { ForgotMyPassword } from './pages/ForgotMyPassword';
 
 function App() {
   const [user, setUser] = useState({})
@@ -50,8 +52,8 @@ function App() {
               <Route path='/register' exact ><NavBar/><Register/> <Footer/></Route>
               <Route path='/perfil' exact ><NavBar/><Perfil/></Route>
               <Route path='/collections' exact ><NavBar /><Collections/> <Footer/></Route>
-             
-
+              <Route path='/new-password/:token' exact ><NewPassword/></Route>
+              <Route path='/forgotMyPassword' exact ><ForgotMyPassword/></Route>
               <Route path='/video' exact ><Video/>  </Route>
             
 

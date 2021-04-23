@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import './ComponentStyles/Log.css'
 import Input from './Input'
 import { Link ,useHistory} from 'react-router-dom';
@@ -7,13 +7,11 @@ import { loginUser } from '../hooks/loginUser';
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { UserContext } from '../store/UserContext';
-import { UseFecthUsuario } from '../hooks/useFecthUsuario';
+
 const useStyles = makeStyles((theme) => ({
     root: {
       "& .MuiTextField-root": {
-        margin: theme.spacing(1),
-       
+        margin: theme.spacing(1),     
       }
     }
   }));
@@ -101,7 +99,7 @@ export default function Log () {
             </form>
 
             <div className="register-down">
-                 <p className="google"><a href="Google" className="link-google">Olvide mi contraseña</a></p> 
+                <Link to="/forgotMyPassword" className="link-google"><span className="google">Olvide mi contraseña</span> </Link>
                  <Link to="register">
                  <p className="privacy-terms">¿No tienes una cuenta? <span className="links-terms">Regístrate</span></p> 
                  </Link> 
