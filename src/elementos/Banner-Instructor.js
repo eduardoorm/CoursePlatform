@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 const ContInstructor = styled.div `
     width: 100%;
     max-width: 1350;
@@ -8,6 +9,7 @@ const ContInstructor = styled.div `
     padding-right: 10em;
     display: flex;
     justify-content: flex-end;
+    margin:15em 0em;
     @media (max-width: 1130px) {
         padding:0px;
          height:auto;
@@ -31,7 +33,7 @@ const TextContInstructor = styled.div `
     @media (max-width: 1130px) {
         padding:2em;
      }
-`   ;
+`;
 
 const ImgContInstructor = styled.div `
     width: 400px;

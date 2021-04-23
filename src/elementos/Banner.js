@@ -5,8 +5,8 @@ const colores ={
 }
 
 const Banner =styled.div `
+
     width: 100%;
-    max-width : 1340px;
     height: 60vh;
     background-image: url("/assets/img/bannerIntesla2.jpg") ;
     background-repeat: no-repeat;
@@ -15,6 +15,30 @@ const Banner =styled.div `
     @media (max-width: 1000px) {
       display:none
   }
+`;
+
+const ImgScroll =styled.div `
+
+    width: 100%;
+    margin:auto;
+    margin-bottom:2em;
+    height: 100vh;
+    background-image: url("/assets/img/imgScroll.jpg") ;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-attachment: fixed; 
+  
+`;
+
+const ImgStatic =styled.div `
+    width: 100%;
+    
+    margin:auto;
+    height: 100vh;
+    background-image: url("/assets/img/cafeImg.jpg") ;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+  
 `;
 
 const TitleBanner= styled.p `
@@ -41,5 +65,5 @@ font-size: 95%;
 color:#3c3b37;
 `;
 
-export {Banner,TitleBanner,ContTextBanner,TextBanner};
+export {Banner,TitleBanner,ContTextBanner,TextBanner,ImgScroll,ImgStatic};
 

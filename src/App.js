@@ -35,6 +35,8 @@ import { MisCursos } from './pages/MisCursos';
 import {UserContext} from './store/UserContext'
 import { NewPassword } from './pages/NewPassword';
 import { ForgotMyPassword } from './pages/ForgotMyPassword';
+import { CoundtDown } from './components/CoundtDown';
+import {TeachesIntesla} from './pages/TeachesIntesla';
 
 function App() {
   const [user, setUser] = useState({})
@@ -47,7 +49,7 @@ function App() {
     >
    <Router>    
         <Switch> 
-              <Route path='/' exact ><NavBar /><Home/><Footer/></Route>
+              <Route path='/' exact >  <NavBar /><Home/><Footer/></Route>
               <Route path='/login' exact ><NavBar/><Login/> <Footer/></Route>
               <Route path='/register' exact ><NavBar/><Register/> <Footer/></Route>
               <Route path='/perfil' exact ><NavBar/><Perfil/></Route>
@@ -56,7 +58,7 @@ function App() {
               <Route path='/forgotMyPassword' exact ><ForgotMyPassword/></Route>
               <Route path='/video' exact ><Video/>  </Route>
             
-
+              <Route path='/teaches' exact ><TeachesIntesla/></Route>
               <Route path='/course' exact ><NavBar/><Course_Page/> <Footer/></Route>
               <Route path='/course/:id' exact><NavBar/><Course_Page/><Footer/></Route>
               <Route path='/course/:id/:id_video' exact ><Video/></Route>
@@ -64,7 +66,7 @@ function App() {
               <Route path='/purchasemade' exact ><PurchaseMade/></Route>
               <Route path='/uploadVideos' exact ><Upload/></Route>
               <Route path='/aprender' exact ><MisCursos/></Route>
-              
+
               <Route path='/admin/dashboard' exact ><Dashboard/></Route>
 
               <Route path='/admin/categorias' exact ><DashCategoria/></Route>

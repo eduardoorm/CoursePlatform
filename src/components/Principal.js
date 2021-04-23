@@ -1,4 +1,4 @@
-import {Banner,TitleBanner,ContTextBanner,TextBanner} from '../elementos/Banner'
+import {Banner,TitleBanner,ContTextBanner,TextBanner,ImgScroll,ImgStatic} from '../elementos/Banner'
 import {Btn} from './Button'
 import {Section,TituloSeccionUltimos } from '../elementos/Section'
 import Course from './Course'
@@ -12,6 +12,8 @@ import { UserContext } from '../store/UserContext';
 import { useContext, useEffect } from 'react'
 import { UseFecthUsuario } from '../hooks/useFecthUsuario'
 import './ComponentStyles/Course.css'
+import './ComponentStyles/ImgScroll.css'
+
 function Principal() {
    const {dataCursos:curso} = useFetchUltimosCurso();
    const {user,setUser} = useContext(UserContext)
@@ -22,6 +24,7 @@ function Principal() {
 
    return (
     <>
+     
     <Banner>
         <ContTextBanner> 
         <TitleBanner>Aprende algo nuevo cada día</TitleBanner>
@@ -91,12 +94,15 @@ function Principal() {
                 a miles de estudiantes en Intesla. Proporcionamos las herramientas y
                 las habilidades para que enseñes lo que te apasiona.
                 </ParrafoContInstructor>
-                <BtnEmpiezaEnseniar>Empieza a enseñar hoy mismo</BtnEmpiezaEnseniar>
+                <Link to="/teaches"><BtnEmpiezaEnseniar>Empieza a enseñar hoy mismo</BtnEmpiezaEnseniar> </Link>
           </TextContInstructor>
 
     </ContInstructor>
-  
+
+    <ImgScroll/>
+
         <IdPreguntasfrecuentes>
+          <div className="containerPF">
           <h2>Preguntas frecuentes</h2> <br/><br/>
           <Preguntas
           id="pregunta1"
@@ -134,7 +140,12 @@ function Principal() {
           labelText="¿Puedo hacer más de un curso a la vez?"
            for= "pregunta6"
           /> 
-        </IdPreguntasfrecuentes> 
+      
+
+          </div>
+   </IdPreguntasfrecuentes> 
+
+        <ImgStatic/>
     </>
   );
 }

@@ -1,7 +1,6 @@
 import React, {useState,useEffect, useContext} from 'react';
 import {Link,useHistory} from 'react-router-dom';
 import { Oferta } from './Oferta';
-import { UseFecthUsuario } from '../hooks/useFecthUsuario';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -230,7 +229,7 @@ export default function NavBar() {
               <div className={classes.grow} />
               <div className={classes.sectionDesktop}>
                 <IconButton aria-label="show 4 new mails" color="inherit">
-                  Enseña en Intesla
+                  <Link to="/teaches">Enseña en Intesla</Link>
                 </IconButton>
                 
                 <IconButton aria-label="show 17 new notifications" color="inherit">

@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 const IdPreguntasfrecuentes = styled.div `
-    width: 560px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 100%;
      margin:auto;
+     height:100vh;
      margin-bottom:50px;
      color:#3C3B37;
      padding:1em;

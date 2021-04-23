@@ -14,6 +14,7 @@ import { ReproductorLeft } from './ReproductorLeft';
 import { ReproductorVideo } from './ReproductorVideo';
 import { ComentarioBox } from './ComentarioBox';
 import { TitleNavVideo } from './TitleNavVideo';
+import {Oferta}  from '../elementos/Navbar-elementos'
 
 import './ComponentStyles/Navbar.css'
 import './ComponentStyles/Video-comp.css'

@@ -1,8 +1,6 @@
-import React , {useEffect, useState} from 'react'
-import { UseFecthUsuario } from '../hooks/useFecthUsuario'
+import React , {useState} from 'react'
 import { useFecthPersonaCurso } from '../hooks/useFetchPersonaCurso'
 import { MiCurso } from './MiCurso';
-import PerfilEditar from './PerfilEditar'
 import {Link} from 'react-router-dom'
 import './ComponentStyles/Perfil-comp.css'
 import Input from './Input';
