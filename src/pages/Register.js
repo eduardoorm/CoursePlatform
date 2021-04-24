@@ -59,7 +59,6 @@ export default function Register (){
          }
 
          let res = await fetch('http://localhost:3001/postUser',config)
-         console.log("la respuestita",res);
          if(res.ok){
             setRegister(true)
             setLoading(false)

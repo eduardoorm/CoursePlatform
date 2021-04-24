@@ -8,13 +8,11 @@ import { useFetchModulo } from '../hooks/useFetchModulo';
 import { useFetchVideoID } from '../hooks/useFetchVideoID';
 import { UseFecthUsuario } from '../hooks/useFecthUsuario';
 import { useFetchGetVideosPorCurso } from '../hooks/useFetchGetVideosPorCurso';
-
 import { SimpleMenu } from './SimpleMenu';
 import { ReproductorLeft } from './ReproductorLeft';
 import { ReproductorVideo } from './ReproductorVideo';
 import { ComentarioBox } from './ComentarioBox';
 import { TitleNavVideo } from './TitleNavVideo';
-import {Oferta}  from '../elementos/Navbar-elementos'
 
 import './ComponentStyles/Navbar.css'
 import './ComponentStyles/Video-comp.css'

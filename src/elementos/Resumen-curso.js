@@ -35,7 +35,7 @@ const TituloCenter = styled.h2 `
 `
 const NumeroTitulo = styled.span `
    margin-right: 1em;
-    font-size: 85%;
+   font-size:14px;
 `
 
 const BtnModulo  = styled.label `
