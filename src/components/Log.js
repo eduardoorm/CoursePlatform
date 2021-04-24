@@ -31,6 +31,7 @@ export default function Log () {
     }
 
     const respuestaGoogle = async(response)=>{
+        console.log(response.profileObj);
        const dataUser= response.profileObj;
        if(dataUser){
         const { email,googleId} = dataUser;
@@ -38,6 +39,7 @@ export default function Log () {
          email,
          password:googleId,
         }
+        console.log("SEND",sendDataUser);
         const log = await loginUser(sendDataUser)
          if(log?.ok){
              setRedirect(true)
@@ -108,7 +110,7 @@ export default function Log () {
             <br/>
             
             <GoogleLogin
-                clientId="593174414261-1gu1nc4svuu26erj483ptivnt56i5ab2.apps.googleusercontent.com"
+                clientId="593174414261-1gu1nc4svuu26erj483ptivnt56i5ab2"
                 buttonText="Ingresar"
                 onSuccess={respuestaGoogle}
                 onFailure={respuestaGoogle}

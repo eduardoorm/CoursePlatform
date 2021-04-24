@@ -35,7 +35,6 @@ export default function Register (){
     const handleSubmit = async(e) =>{
        e.preventDefault()
        setLoading(true);
-       
        const {nombre,apellidos,email,password} = form;
        let ckeckEmail=
         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(email)
@@ -75,9 +74,11 @@ export default function Register (){
     }
     
     const respuestaGoogle =(response)=>{
+        
         const dataUser= response.profileObj;
         //el data user trae email,familyName,givenName,googleId,imageUrl y el name
         const { email,familyName,givenName,googleId} = dataUser;
+        console.log(email);
         const sendDataUser = {
             email,
             apellidos:familyName,
