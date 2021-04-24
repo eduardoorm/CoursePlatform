@@ -16,6 +16,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import '../ComponentStyles/Dashboard.css'
 
    //Boton material ui
    const StyledTableCell = withStyles((theme) => ({
@@ -167,13 +168,14 @@ export const DashMostarStudent = () => {
                     <StyledTableCell align="left">{row.email}</StyledTableCell>
                     <StyledTableCell align="right">
                     <Link to={`/admin/estudiante/editar/${row.id}`}>
-                    <Button variant="contained" color="primary">
+                    <Button id="btn_Editar" variant="contained" color="primary">
                         Editar
                     </Button>
                       </Link>
                     </StyledTableCell>
                     <StyledTableCell align="right">
                       <Button
+                        id="btn_Eliminar"
                         variant="contained"
                         color="secondary"
                         className={classes.button}

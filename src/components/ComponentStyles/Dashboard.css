@@ -475,3 +475,10 @@ li{
 .MuiCard-root{
    margin-bottom: 1em;
 }
+
+/*BTN EDITAR*/
+#btn_Editar,#btn_Eliminar{
+   padding: 0.8em;
+   width: 9em;
+   font-size: 0.8em;
+}

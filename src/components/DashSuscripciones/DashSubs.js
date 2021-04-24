@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useFecthCurso } from '../../hooks/useFecthCurso';
-import { useFetchGetSuscripciones } from '../../hooksAdmin.js/useFetchGetSuscripciones'
 // MATERIAL UI TABLE
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -12,6 +11,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import '../ComponentStyles/Dashboard.css'
 
    //Boton material ui
    const StyledTableCell = withStyles((theme) => ({
@@ -66,7 +66,7 @@ export const DashSubs = () => {
                       <StyledTableCell align="left">{row.nombre}</StyledTableCell>
                       <StyledTableCell align="right">
                       <Link to={`suscripciones/${row.ruta}`}>
-                      <Button variant="contained" color="primary">
+                      <Button id="btn_Editar" variant="contained" color="primary">
                           Ver Reportes
                       </Button>
                         </Link>
