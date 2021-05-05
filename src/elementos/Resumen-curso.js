@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const ContainerModulos = styled.div `
     width: 650px;
     margin:  0.5em auto ;
-    
+    margin-bottom: 5em;
     @media (max-width: 768px) {
     width: auto;
   }

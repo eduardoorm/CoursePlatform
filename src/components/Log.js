@@ -31,7 +31,6 @@ export default function Log () {
     }
 
     const respuestaGoogle = async(response)=>{
-        console.log(response.profileObj);
        const dataUser= response.profileObj;
        if(dataUser){
         const { email,googleId} = dataUser;
@@ -39,7 +38,6 @@ export default function Log () {
          email,
          password:googleId,
         }
-        console.log("SEND",sendDataUser);
         const log = await loginUser(sendDataUser)
          if(log?.ok){
              setRedirect(true)
@@ -101,7 +99,7 @@ export default function Log () {
             </form>
 
             <div className="register-down">
-                <Link to="/forgotMyPassword" className="link-google"><span className="google">Olvide mi contraseña</span> </Link>
+                 <Link to="/forgotMyPassword" className="link-google"><span className="google">Olvide mi contraseña</span> </Link>
                  <Link to="register">
                  <p className="privacy-terms">¿No tienes una cuenta? <span className="links-terms">Regístrate</span></p> 
                  </Link> 

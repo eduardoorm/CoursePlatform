@@ -1,21 +1,24 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 
-export const useFetchPerfil = (state) => {
+export const useFetchPerfil = async (state) => {
 
 const [user,setUser]=useState({loading:true,error:null,data:null});
  
-useEffect(() => {
-  //let token = localStorage.getItem("demo",state) 
-  const token = state ||JSON.parse(localStorage.getItem("token")).token
-
-      fetch('http://localhost:3001/Usuario',{
+useEffect(async() => {
+  const token = state || JSON.parse(localStorage.getItem("token")).token;
+  
+    let config={
           headers:{
             "Content-Type":"application/json",
-            "Authorization":`${token}`
+            "Authorization":`${token}`,
           }
-      })
-      .then(res=>res.json())
-      .then(json=>setUser({loading:false,data:json}))
+    }
+
+     const {data} = await axios.get('http://localhost:3001/Usuario',config)
+     const {user}= data;
+     setUser(user)
+     console.log("respuesta",user);
   
   }, [state]);
 

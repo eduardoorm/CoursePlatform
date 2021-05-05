@@ -83,6 +83,11 @@
 .img__perfil{
   width: 34px;
   margin-right: 0.6em;
+  border-radius: 20px;
+}
+.containerMenu{
+    display:flex;
+    align-items: center;
 }
 .lista__miPerfil{
     background-color:#F4F4F4 ;

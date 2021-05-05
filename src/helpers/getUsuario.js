@@ -13,14 +13,14 @@ export const getUsuario = async () => {
              
             if(!response.ok) return localStorage.clear();
           
-            const user = await response.json();
-          
+            const {user} = await response.json();
             const usuario = {
               nombre:user.nombre,
               apellido:user.apellidos,
               email:user.email,
               id_persona:user.id_persona,
-              role:user.role
+              role:user.role,
+              imageUrl: user.imageUrl,
              }
                
      return usuario;

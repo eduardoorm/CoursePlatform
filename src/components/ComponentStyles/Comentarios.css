@@ -51,13 +51,13 @@
 
 .hacer-comentario{
     display: flex;
-    align-items: center;
 }
 
 .perfil-comentario{
     width:2em;
     height: 2em;
     margin-right: 0.5em;
+    border-radius: 30px;
 }
 
 .btn{

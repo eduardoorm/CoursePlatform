@@ -17,7 +17,9 @@ import './ComponentStyles/ImgScroll.css'
 function Principal() {
    const {dataCursos:curso} = useFetchUltimosCurso();
    const {user,setUser} = useContext(UserContext)
+   console.log(user);
    const {data} = UseFecthUsuario()
+
    useEffect(() => {
     setUser(data)
   }, [data])

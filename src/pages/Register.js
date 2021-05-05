@@ -76,13 +76,15 @@ export default function Register (){
         
         const dataUser= response.profileObj;
         //el data user trae email,familyName,givenName,googleId,imageUrl y el name
-        const { email,familyName,givenName,googleId} = dataUser;
-        console.log(email);
+        const { email,familyName,givenName,googleId,imageUrl} = dataUser;
+        console.log(response.profileObj);
+        console.log(imageUrl);
         const sendDataUser = {
             email,
             apellidos:familyName,
             password:googleId,
             nombre:givenName,
+            imageUrl,
         }
         postEstudiante(sendDataUser)
     }

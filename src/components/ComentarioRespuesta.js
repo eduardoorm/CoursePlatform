@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { deleteRespuesta } from "../helpers/deleteRespuesta";
 
-export default function ComentarioRespuesta (props){
+export default function ComentarioRespuesta ({id_respuesta,imageUrl,dispatchAnswer,nombre,apellido,fecha,id_persona,id_persona_actual,respuesta}){
      const [elipsi, setElipsi] = useState(false);
      const eliminarRespuesta =()=>{
-        deleteRespuesta(props.id_respuesta)
-        props.dispatchAnswer({
-          type: 'DEL_ANSWERS', payload: props.id_respuesta
+        deleteRespuesta(id_respuesta)
+        dispatchAnswer({
+          type: 'DEL_ANSWERS', payload:id_respuesta
         })
      }
      const clickElipsi = ()=>{
@@ -17,15 +17,15 @@ export default function ComentarioRespuesta (props){
     <div className="contenedor_respuesta">
           <div className="comentario-realizado">
                <div className="datos_comentario">
-                  <img src="/assets/img/perfil.png" alt="img-perfil"className="perfil-comentario"/>
+                  <img src={ imageUrl||' /assets/img/perfil.png'} alt="img-perfil"className="perfil-comentario"/>
                   <div>
-                    <p>{props.nombre} {props.apellido}</p>
-                    <p className="hace-dias">{props.fecha}</p>
+                    <p>{nombre} {apellido}</p>
+                    <p className="hace-dias">{fecha}</p>
                   </div>  
                 </div>  
 
                  <div className="eliminar_container">
-                {(props.id_persona === props.id_persona_actual) &&
+                {(id_persona === id_persona_actual) &&
                   <button className="btn_elipsi" onClick={clickElipsi}><i className="fas fa-ellipsis-v"></i></button> 
                   }
                  
@@ -39,7 +39,7 @@ export default function ComentarioRespuesta (props){
     </div>
 
         <div className="comentario-realizado-txt">
-            <p className="text-coment">{props.respuesta}</p>
+            <p className="text-coment">{respuesta}</p>
         </div>
      
     </div>

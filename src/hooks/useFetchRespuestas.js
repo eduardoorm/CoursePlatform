@@ -14,6 +14,5 @@ export const useFetchRespuestas = (id,dispatchAnswer) => {
                })
              })
        },[])
-
     return respuesta; 
 }

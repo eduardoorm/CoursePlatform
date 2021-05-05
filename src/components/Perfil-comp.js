@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useEffect, useState} from 'react'
 import { useFecthPersonaCurso } from '../hooks/useFetchPersonaCurso'
 import { MiCurso } from './MiCurso';
 import {Link} from 'react-router-dom'
@@ -12,17 +12,20 @@ import LinearProgress from '@material-ui/core/LinearProgress'
 import './ComponentStyles/Perfil-comp.css'
 import {useFetchPerfil} from '../hooks/useFetchPerfil'
 
-export default function PerfilComp () {
+export default  function PerfilComp () {
    const[clickEditarPerfil,setEditarPerfil]=useState(false);
-   //const {data:user} = UseFecthUsuario();
    const [token,setToken]=useState();
-
-   
-    const {data} = useFetchPerfil(token)
+   const [data,setData]= useState();
+   useEffect(() => {
+     const {token} =JSON.parse(localStorage.getItem("token"))
+    setToken(token);
+   }, [])
+  
+    useFetchPerfil(token).then(data=>setData(data))
+ 
    const {dataCurso:cursos}= useFecthPersonaCurso();
    const handlEditarPerfil = ()=>(clickEditarPerfil) ? setEditarPerfil(false) : setEditarPerfil (true);
    const [changePass,setchangePass] = useState(false);
-  /// let {data}= UseFecthUsuario();
    const [usuario, setUsuario] = useState({});
    const [loading, setLoading]= useState(false);
    const handleChange =(e)=>{
@@ -65,18 +68,21 @@ export default function PerfilComp () {
 
             <div className="perfil-estudiante-header">
                 <div className="estudiante-header-item">
-                    <img src="assets/img/perfil.png" alt="img-perfil"/>
+                    <img src={ data?.imageUrl || "assets/img/perfil.png"} alt="img-perfil"/>
                 </div>
                 <div className="estudiante-header-item">
-                    <p>{data?.nombre||loading}  {data?.apellidos||"null"}</p>
-                    <p>{data?.email||loading}</p>
-                    <button 
-                        onClick={handlEditarPerfil} 
-                        className="btn_editarPerfil">
-                        {
-                        (!clickEditarPerfil) && <p>Editar Perfil</p> 
-                        }
-                    </button>
+                  <div>
+                    <p>{data?.nombre||loading}   {data?.apellidos||"null"}</p>
+                      <p>{data?.email||loading}</p>
+                      <button 
+                          onClick={handlEditarPerfil} 
+                          className="btn_editarPerfil">
+                          {
+                          (!clickEditarPerfil) && <p>Editar Perfil</p> 
+                          }
+                      </button>
+                  </div>
+                   
                 </div>
             </div>
             {(clickEditarPerfil)

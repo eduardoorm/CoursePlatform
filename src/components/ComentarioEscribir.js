@@ -46,7 +46,8 @@ export default function ComentarioEscribir({cantidad,ruta_video,id_curso, dispat
           nombre,
           apellido,
           id_comentario,
-          fecha
+          fecha,
+          imageUrl:usuario?.imageUrl,
         }
         
         dispatch({
@@ -66,9 +67,10 @@ export default function ComentarioEscribir({cantidad,ruta_video,id_curso, dispat
         <div className="comentarios-video">
                <h3 className="comentario-titulo">Comentarios <span className="cantComentarios">({cantidad})</span></h3>
            <div className="hacer-comentario">
-                <img src="/assets/img/perfil.png" className="perfil-comentario"/>
+                <img src={usuario?.imageUrl || "/assets/img/perfil.png"} className="perfil-comentario"/>
                 <form className="formulario-comentario" id="miForm" >
                     <input 
+                       autoComplete= "off"
                       type="text" 
                       placeholder="Escribe un comentario..."
                       id="escribirComent" 

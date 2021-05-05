@@ -17,6 +17,7 @@ export const getRespuestas =async (id) => {
             comentarioID: r.id_comentario,
             id_persona: r.id_persona,
             id_respuesta: r.id_respuesta,
+            imageUrl: r.imageUrl,
         }
     })
     return respuestaID;

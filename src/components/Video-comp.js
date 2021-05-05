@@ -13,6 +13,7 @@ import { ReproductorLeft } from './ReproductorLeft';
 import { ReproductorVideo } from './ReproductorVideo';
 import { ComentarioBox } from './ComentarioBox';
 import { TitleNavVideo } from './TitleNavVideo';
+import ModalWindow from './ModalWindow';
 
 import './ComponentStyles/Navbar.css'
 import './ComponentStyles/Video-comp.css'
@@ -30,6 +31,7 @@ export default function VideoComp() {
         const newState = state.filter(el => el.id_comentario !== id) 
         return newState;
       }
+
       case 'ADD_COMMENT': {
         return [...state, action.payload] 
       }
@@ -38,10 +40,8 @@ export default function VideoComp() {
     }
   }, []);
  
-
   const {id,id_video}=useParams(); 
   useFetchComentariosPorVideo(id_video, dispatch);
-
   const {dataCursoID:curso} =useFecthCursoID(id);
   const {dataModulos:modulos}= useFetchModulo(id);
   const {data:usuario} =UseFecthUsuario();
@@ -93,12 +93,12 @@ export default function VideoComp() {
 
               <div className="reproductor-right">
                    <ReproductorVideo/>
-                  
+                
                    <DescripcionVideo 
                       {...video[0]} 
                       videosCurso={array}
                     />
-                
+                  
                           <ComentarioEscribir 
                              cantidad={comments_list.length} 
                              ruta_video={video[0]?.ruta_video}

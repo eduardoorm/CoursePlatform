@@ -3,13 +3,19 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import {Link} from 'react-router-dom';
+import ModalWindow from './ModalWindow';
 export const SimpleMenu = ({handleClose,handleCerrarSesion,handleClick,data,anchorEl}) => {
+
     return (
-      <div className="contain__showPefil">           
-                <div>
+      <div className="contain__showPefil">    
+            <div>
+              <ModalWindow/>     
+            </div>
+      
+                <div className="containerMenu">
 
                 <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                    <img src="/assets/img/perfil.png" 
+                    <img src={data?.imageUrl ||"/assets/img/perfil.png" }
                     className="img__perfil"
                     /> 
                     <i className="fas fa-chevron-down" id="buton__perfil"></i>

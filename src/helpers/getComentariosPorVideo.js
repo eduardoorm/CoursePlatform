@@ -23,6 +23,7 @@ export const getComentariosPorVideo =async (id) => {
             likes: r.likes_coment,
             nombre: r.nombre,
             apellido:r.apellidos,
+            imageUrl: r.imageUrl,
         }
     })
     return respuestaID;

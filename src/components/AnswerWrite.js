@@ -1,13 +1,14 @@
 import React from 'react'
 
-export const AnswerWrite = ({handleChange,respuestaTXT,cancelarRespuesta,enviarRespuesta}) => {
+export const AnswerWrite = ({handleChange,cancelarRespuesta,enviarRespuesta,imageUrl}) => {
     return (
         <div className="comentarios-video">
             <div className="hacer-comentario">
                
-                <img src="/assets/img/perfil.png" className="perfil-comentario"/>
+                <img src={imageUrl||"/assets/img/perfil.png"} className="perfil-comentario"/>
                 <form className="formulario-comentario" id="miForm" >
                     <input
+                        autoComplete="off"
                         type="text" 
                         placeholder="Escribe una respuesta..."
                         name="respuesta" 

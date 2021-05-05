@@ -14,6 +14,7 @@ export default function Comentario(props) {
     const [showRpta,setShowRpta]         = useState(false);
     const [respuestaTXT,setRespuestaTXT] = useState({});
     const {data:usuario} =UseFecthUsuario();
+
     const {nombre,apellido,id_persona}=usuario;
     const d= document;
     const inputAnswer= d.getElementById('inputAnswer')
@@ -35,8 +36,9 @@ export default function Comentario(props) {
         return state
     }
      })
+
   
-    useFetchRespuestas(props.id_comentario,dispatchAnswer)
+    useFetchRespuestas(props.id_comentario,dispatchAnswer);
     const [elipsi, setElipsi] = useState(false);
     const hanldeResponder=()=>setResponder(true);
     const cancelarRespuesta =()=> setResponder(false);
@@ -64,6 +66,7 @@ export default function Comentario(props) {
             apellido,
             nombre,
             fecha,
+            imageUrl:usuario?.imageUrl,
         }
         dispatchAnswer({
             type:'ADD_ANSWERS',payload
@@ -89,9 +92,9 @@ export default function Comentario(props) {
             <div className="comentario-realizado">
                 <div className="datos_comentario">
                     <img 
-                    src="/assets/img/perfil.png" 
-                    alt="img-perfil" 
-                    className="perfil-comentario"/>
+                      src={props.imageUrl||"/assets/img/perfil.png"}
+                      alt="img-perfil" 
+                      className="perfil-comentario"/>
                     <div className="">
                         <p>{props.nombre} {props.apellido}</p>
                         <p className="hace-dias">{props.fecha}</p>
@@ -121,6 +124,7 @@ export default function Comentario(props) {
         {(responder) &&
            <AnswerWrite 
            handleChange ={handleChange}
+           imageUrl= {usuario?.imageUrl}
            respuestaTXT={respuestaTXT}
            cancelarRespuesta={cancelarRespuesta}
            enviarRespuesta={enviarRespuesta}
