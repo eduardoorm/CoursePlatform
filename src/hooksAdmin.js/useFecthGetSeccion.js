@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { getSeccion } from '../helpersAdmin/getSeccion'
 
 export const useFecthGetSeccion = () => {
-    const [secciones, setSeccion] = useState({
-        dataSecciones:[],
+    const [lessons, setLessons] = useState({
+        dataLessons:[],
     })
     
     useEffect(()=>{
         getSeccion().then(item=>{
-          setSeccion({
-              dataSecciones:item,
+          setLessons({
+              dataLessons:item,
           }
          )
        }) 
     },[]
     )
-    return secciones;
+    return lessons;
 }

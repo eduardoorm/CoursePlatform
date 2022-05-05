@@ -7,11 +7,11 @@ export const getLecciones =async () => {
     const video = res.map(item=>{
         return{
            id_video  :  item.id_video,
-           nombre    :  item.nom_video,
-           duracion  :  item.dura_video,
-           id_modulo :  item.id_modulo,
-           id_curso  :  item.id_curso,
-           descripcion: item.des_video
+           name    :  item.name_video,
+           duration  :  item.duration_video,
+           id_module :  item.id_module,
+           id_course  :  item.id_course,
+           description: item.description_video
         }
     })
     return video

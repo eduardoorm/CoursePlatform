@@ -8,17 +8,17 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 export const DashAddLeccion = () => {
     const [form, setForm] = useState({})
     const {id} = useParams();
-    const {dataCursoID:curso} =  useFecthCursoID(id);
+    const {dataCursoID:course} =  useFecthCursoID(id);
     const [loading, setLoading]= useState(false);
 
     const handleSubmit =(e)=>{
        setForm({
-           ...form,id_curso:curso[0]?.id,
+           ...form,id_course:course[0]?.id,
           [e.target.name]:e.target.value,
        })
     }
 
-    const {dataSeccion:seccion}=useFetchgetSeccionPorCursoID(id);
+    const {dataSeccion:section}=useFetchgetSeccionPorCursoID(id);
      
     const AddLeccion = async (e)=>{
         e.preventDefault();
@@ -33,24 +33,24 @@ export const DashAddLeccion = () => {
     }
     return (
         <div >
-            <p className="titulo_AddLeccion">Agregar Lección</p>
+            <p className="titulo_addLesson">Add Lesson</p>
             <form>
-                <label htmlFor="nom_video">Título</label>
-                <input id="nom_video" name="nom_video" type="text" onChange={handleSubmit}/>
+                <label htmlFor="name_video">Title</label>
+                <input id="name_video" name="name_video" type="text" onChange={handleSubmit}/>
 
-                <label htmlFor="dura_video">Duración</label>
-                <input id="dura_video" name="dura_video" type="number" onChange={handleSubmit}/>
+                <label htmlFor="duration_video">Duration</label>
+                <input id="duration_video" name="duration_video" type="number" onChange={handleSubmit}/>
 
-                <label htmlFor="des_video">Descripción </label>
-                <input id="des_video" name="des_video" type="text" onChange={handleSubmit}/>
-                <select name="id_modulo" id="selectModulo" onClick={handleSubmit}>
-                    {seccion.map(el=><option key={el.id_modulo} name="id_modulo">{el.id_modulo} : {el.nombre} </option>)}
+                <label htmlFor="desctiption_video">Description</label>
+                <input id="desctiption_video" name="desctiption_video" type="text" onChange={handleSubmit}/>
+                <select name="id_module" id="selectModule" onClick={handleSubmit}>
+                    {section.map(el=><option key={el.id_module} name="id_module">{el.id_module} : {el.name} </option>)}
                 </select>
                  <br/>
                  {loading &&  <LinearProgress />} 
                  <br/>
-                <button type="submit" className="btn-default" id="btn_AddLeccion" onClick={AddLeccion}>Agregar</button>
-                <button type="submit" className="btn-default" id="btn_AddVolver" onClick={AddVolver}>volver</button>
+                <button type="submit" className="btn-default" id="btn_addLesson" onClick={AddLeccion}>Add</button>
+                <button type="submit" className="btn-default" id="btn_addBackTo" onClick={AddVolver}>Back to</button>
             </form>
         </div>
     )

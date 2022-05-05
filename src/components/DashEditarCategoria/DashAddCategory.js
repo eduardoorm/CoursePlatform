@@ -11,7 +11,7 @@ export const DashAddCategory = () => {
           [e.target.name]:e.target.value,
        })
     }
-    const AddCategoria =async (e)=>{
+    const AddCategory =async (e)=>{
        e.preventDefault();
        setLoading(true)
       const response = await postCategoria(form);
@@ -21,11 +21,11 @@ export const DashAddCategory = () => {
     }
     return (
         <div className="Agregar_categoria_container">
-            <form className="form_categoria">
-                <label htmlFor="categoria" >Name Category</label>
-                <input id="categoria" name="nom_cate" className="input_categoria" type="text" onChange={handleSubmit}/>
+            <form className="form__category">
+                <label htmlFor="category" >Name Category</label>
+                <input id="category" name="name_cate" className="input__category" type="text" onChange={handleSubmit}/>
                 {loading &&  <LinearProgress />}
-                <button className="btn_agregar" type="submit" onClick={AddCategoria}>Add</button>
+                <button className="btn_add" type="submit" onClick={AddCategory}>Add</button>
             </form>
             
         </div>

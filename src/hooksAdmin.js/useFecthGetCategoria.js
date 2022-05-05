@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { getCategoria } from '../helpersAdmin/getCategoria'
 
 export const useFecthGetCategoria = () => {
-      const [categoria, setCategoria] = useState({
-          dataCategoria:[],
+      const [category, setCategory] = useState({
+          dataCategory:[],
       })
       
       useEffect(()=>{
           getCategoria().then(item=>{
-            setCategoria({
-                dataCategoria:item,
+            setCategory({
+                dataCategory:item,
             }
            )
          }) 
       },[]
       )
-      return categoria;
+      return category;
 }

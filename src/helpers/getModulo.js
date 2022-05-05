@@ -1,15 +1,15 @@
 
 export const getModulo = async (id) => {
     const url = `http://localhost:3001/getModulo/${id}`;
-   
-    const respuesta = await fetch(url);
-    const res = await respuesta.json();
-    const modulo = res.map(item=>{
+    const response = await fetch(url);
+    const res = await response.json();
+    
+    const module = res.map(item=>{
         return{
-           id_modulo :  item.id_modulo,
-           nombre    :  item.nom_modulo,
-           id_curso  :  item.id_curso
+           id_module :  item.id_module,
+           name    :  item.name_module,
+           id_course  :  item.id_course
         }
     })
-    return modulo
+    return module
 }

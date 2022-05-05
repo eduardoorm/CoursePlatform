@@ -44,7 +44,7 @@ import '../ComponentStyles/Dashboard.css'
   }));
 
 export const DashSubs = () => {
-    const {dataCurso:curso} = useFecthCurso();
+    const {dataCurso:course} = useFecthCurso();
     const classes = useStyles();
     return (
         <>
@@ -53,21 +53,21 @@ export const DashSubs = () => {
                 <TableHead>
                   <TableRow>
                     <StyledTableCell>Pos</StyledTableCell>
-                    <StyledTableCell align="left">Nombres</StyledTableCell>
+                    <StyledTableCell align="left">Name</StyledTableCell>
                     <StyledTableCell align="right"></StyledTableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {curso?.map((row,pos) => (
+                  {course?.map((row,pos) => (
                     <StyledTableRow key={row.id}>
                       <StyledTableCell component="th" scope="row">
                         {pos+1}
                       </StyledTableCell>
-                      <StyledTableCell align="left">{row.nombre}</StyledTableCell>
+                      <StyledTableCell align="left">{row.name}</StyledTableCell>
                       <StyledTableCell align="right">
-                      <Link to={`suscripciones/${row.ruta}`}>
-                      <Button id="btn_Editar" variant="contained" color="primary">
-                          Ver Reportes
+                      <Link to={`suscripciones/${row.url}`}>
+                      <Button id="btn__edit" variant="contained" color="primary">
+                          View Reports
                       </Button>
                         </Link>
                       </StyledTableCell>

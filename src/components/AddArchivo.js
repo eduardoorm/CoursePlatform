@@ -10,7 +10,6 @@ export default function AddArchivo(props) {
     return(
         <>
          <div className="publicar-seccion-contenido">
-            
             <div className="publicar-seccion-contenido-item">
                 <i className="fas fa-check-circle"></i> <p>Archivo {props.numModulo}.{props.pos}:</p>
                 <input type="text" placeholder="Ingrese nombre del archivo" name={"nom_video"+props.numModulo+"."+props.pos}  onChange={props.onChange}/>

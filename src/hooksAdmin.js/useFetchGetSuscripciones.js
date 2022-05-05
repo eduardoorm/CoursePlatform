@@ -3,16 +3,16 @@ import { useEffect,useState } from 'react'
 import { getSuscripciones } from '../helpersAdmin/getSuscripciones'
 
 export const useFetchGetSuscripciones = () => {
-    const [suscripciones, setSuscripciones] = useState({
-        dataSuscripciones:[],
+    const [subscriptions, setSubscriptions] = useState({
+        dataSubscriptions:[],
     })
     
     useEffect(()=>{
        getSuscripciones().then(user=>{
-           setSuscripciones({
-               dataSuscripciones:user,
+           setSubscriptions({
+               dataSubscriptions:user,
            })
        })
     },[])
-    return suscripciones; 
+    return subscriptions; 
 }

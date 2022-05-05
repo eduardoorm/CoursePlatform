@@ -3,19 +3,19 @@ import { getCategoriaPorID } from '../helpersAdmin/getCategoriaPorID'
 
 export const useFetchGetCategoriaID = (id) => {
     
-    const [categoria, setCategoria] = useState({
-        dataCategoria:[],
+    const [category, setCategory] = useState({
+        dataCategory:[],
     })
      
    useEffect(()=>{
-    getCategoriaPorID(id).then(categoria=>{
-        setCategoria(
+    getCategoriaPorID(id).then(category=>{
+        setCategory(
             {
-            dataCategoria:categoria
+            dataCategoria:category
            }
         )
     })
    },[])
    
-    return categoria;
+    return category;
 }

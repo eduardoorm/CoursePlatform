@@ -43,11 +43,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export const DashMostrarCategoria = () => {
-    const {dataCategoria:categorias}=useFecthGetCategoria();
-    const eliminarCate=(nombre,id_categoria)=>{
-      if(window.confirm(`¿Seguro que quieres eliminar la categoria : "${nombre}"?`)){
+    const {dataCategoria:categories}=useFecthGetCategoria();
+    const removeCategory=(name,id_category)=>{
+      if(window.confirm(`¿Are you sure you want to delete the category : "${name}"?`)){
         window.location.reload();
-         return deleteCategoria(id_categoria)
+         return deleteCategoria(id_category)
       }
     }
 
@@ -59,34 +59,34 @@ export const DashMostrarCategoria = () => {
               <TableHead>
                 <TableRow>
                   <StyledTableCell>Pos</StyledTableCell>
-                  <StyledTableCell align="center">Categoria</StyledTableCell>
+                  <StyledTableCell align="center">Category</StyledTableCell>
                   <StyledTableCell align="right"></StyledTableCell>
                   <StyledTableCell align="right"></StyledTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {categorias?.map((row,pos) => (
-                  <StyledTableRow key={row.nombre}>
+                {categories?.map((row,pos) => (
+                  <StyledTableRow key={row.name}>
                     <StyledTableCell component="th" scope="row">
                       {pos+1}
                     </StyledTableCell>
-                    <StyledTableCell align="center">{row.nombre}</StyledTableCell>
+                    <StyledTableCell align="center">{row.name}</StyledTableCell>
                     <StyledTableCell align="right">
                     <Link to={`/admin/categorias/editar/${row.id}`}>
                       <Button id="btn_Editar" variant="contained" color="primary">
-                        Editar
+                        Edit
                     </Button></Link>   
                     </StyledTableCell>
                     <StyledTableCell align="right">
                       <Button
-                      id="btn_Eliminar"
+                      id="btn_delete"
                         variant="contained"
                         color="secondary"
                         className={classes.button}
-                        onClick={()=>eliminarCate(row.nombre,row.id)}
+                        onClick={()=>removeCategory(row.name,row.id)}
                         // startIcon={<DeleteIcon />}
                       >
-                        Eliminar
+                        Remove
                       </Button>
                     </StyledTableCell>
                   </StyledTableRow>
@@ -94,25 +94,7 @@ export const DashMostrarCategoria = () => {
               </TableBody>
             </Table>
           </TableContainer>
-        {/* <div className="Container_categoria">
-                { categorias?.map((categoria,pos)=>
-                <>  
-                <div className="categoria_items">
-                        <div className="ID_Categoria">
-                          <p>{pos+1}</p>
-                        </div>
-
-                        <div className="nombre_Categoria">
-                          <p>{categoria.nombre}</p>
-                        </div>
-                        <div className="botones_categoria">
-                         <Link to={`/admin/categorias/editar/${categoria.id}`}><button className="btn_categoria" >Editar</button></Link>   
-                         <button className="btn_categoria" onClick={()=>eliminarCate(categoria.nombre,categoria.id)}>Eliminar</button>    
-                        </div>
-                    </div> 
-                </>
-                )}
-             </div> */}
+      
          </>    
     )
 }

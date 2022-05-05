@@ -35,43 +35,43 @@ export const DashAddCurso = () => {
     return (
         <div  >
             <form>
-                <label htmlFor="nom_curso">Título </label>
-                <input  id="nom_curso" name="nom_curso" type="text" className="input_addCategoria" onChange={handleChange}/>
-                <label htmlFor="des_curso">Descripción</label>
-                <input id="des_curso" name="des_curso" type="text" className="input_addCategoria"  onChange={handleChange}/>
-                <div className="item_input_addCategoria">
+                <label htmlFor="name_course">Title </label>
+                <input  id="name_course" name="name_course" type="text" className="input_addCategory" onChange={handleChange}/>
+                <label htmlFor="des_course">Description</label>
+                <input id="des_course" name="des_course" type="text" className="input_addCategory"  onChange={handleChange}/>
+                <div className="item__input__addCategory">
                   <div>
-                    <label htmlFor="dura_curso">Horas: </label>
-                    <input id="dura_curso" name="dura_curso" type="number" className="input_addCategoria" id="duracion_input" 
+                    <label htmlFor="duration_course">Hours: </label>
+                    <input id="duration_course" name="duration_course" type="number" className="input__AddCategory"
                     onChange={handleChange}/>
                   </div> 
                    <div>
-                     <label htmlFor="cate_curso">Precio: </label>
-                     <input id="cate_cursoe" name="precio_curso" type="number" className="input_addCategoria" id="precio_input"
+                     <label htmlFor="category_course">Price: </label>
+                     <input id="category_course" name="price_course" type="number" className="input__AddCategory" 
                       onChange={handleChange}/>
                     </div>
                    <div>
-                    <label htmlFor="lecciones">Lecciones: </label>
-                    <input id="lecciones" name="lecciones" type="number"  className="input_addCategoria" id="lecciones_input"  
+                    <label htmlFor="lessons">Lessons: </label>
+                    <input id="lessons" name="lessons" type="number"  className="input__AddCategory" 
                     onChange={handleChange}/>
                    </div>
                    <div>
-                    <label htmlFor="calificacion">Numero Calificaciones: </label>
-                    <input id="calificacion" name="calificacion" type="number"  className="input_addCategoria" id="lecciones_input"  
+                    <label htmlFor="calification">Number Qualifications: </label>
+                    <input id="calification" name="calification" type="number"  className="input__AddCategory"  
                     onChange={handleChange}/>
                    </div>
                    <div>
-                      <label htmlFor="id_categoria">Categoría: </label>
-                      <select name="id_categoria" onClick={handleChange} id="addCategoria_select" >    
-                      {categoria?.map((el,pos)=><option key={el.id} value={el.id} name={el.nombre} >{el.nombre} </option>)}
+                      <label htmlFor="id_categoria">Category: </label>
+                      <select name="id_categoria" onClick={handleChange} id="addCategory_select" >    
+                      {categoria?.map((el,pos)=><option key={el.id} value={el.id} name={el.name} >{el.name} </option>)}
                       </select>
                       
                     </div>
                 </div>
                 <div>
-                      <label htmlFor="id_profesor">Profesor: </label>
-                      <select name="id_profesor" onClick={handleChange} id="addProfesor_select" >    
-                      {profesor?.map((el,pos)=><option key={el.id} value={el.id} name={el.nombre} >{el.nombre} {el.apellidos} </option>)}
+                      <label htmlFor="id_Teacher">Teacher: </label>
+                      <select name="id_Teacher" onClick={handleChange} id="addProfesor_select" >    
+                      {profesor?.map((el,pos)=><option key={el.id} value={el.id} name={el.name} >{el.name} {el.lastname} </option>)}
                       </select>
                     </div>
                
@@ -81,11 +81,11 @@ export const DashAddCurso = () => {
                   className="img-thumbnail" alt="..." style={{width:"500px", height:"auto"}}/>}
                  
                   <br/><br/>
-                    <label htmlFor="imagenCurso">Seleccione una imagen: </label>
-                    <input id="imagenCurso" name="imagenCurso" type="file" onChange={handleImagen}/>
+                    <label htmlFor="imagen_course">Select an image: </label>
+                    <input id="imagen_course" name="imagen_course" type="file" onChange={handleImagen}/>
                 </div>    
                
-                <button type="submit" className="btn_agregar" onClick={AddCurso}>Agregar</button>
+                <button type="submit" className="btn_add" onClick={AddCurso}>Add</button>
            </form>       
                </div>
     )

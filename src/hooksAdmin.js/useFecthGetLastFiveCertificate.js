@@ -16,7 +16,6 @@ export const useFecthGetLastFiveCertificate = () => {
            }) 
         },[]
         )
-       console.log(certificates);
         return certificates;
     
 }

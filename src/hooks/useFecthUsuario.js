@@ -16,5 +16,5 @@ export const UseFecthUsuario = () => {
            })
        })
     },[])
-    return state; //{data:[] , loading:true}
+    return state; 
 }

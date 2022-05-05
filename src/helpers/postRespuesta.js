@@ -1,13 +1,13 @@
 import React from 'react'
 
-export const postRespuesta = async (respuestaTXT) => {
+export const postRespuesta = async (responseData) => {
       const url= `http://localhost:3001/respuesta`;
-      const enviarCampos={
-          ...respuestaTXT,
-          fecha_respuesta: Date.now(),
+      const sendFields={
+          ...responseData,
+          date_response: Date.now(),
       }
 
-      if(!localStorage.getItem("token")) return alert("Registrate")
+      if(!localStorage.getItem("token")) return alert("Sign up")
       const {token} = JSON.parse(localStorage.getItem("token"));
       let config={
         method:'POST',
@@ -16,10 +16,10 @@ export const postRespuesta = async (respuestaTXT) => {
         'Content-Type': 'application/json',
         'Authorization': `${token}`
         },
-        body: JSON.stringify(enviarCampos)
+        body: JSON.stringify(sendFields)
       } 
       
       const res = await fetch(url,config);
-      const respuesta = await res.json()
-      return respuesta;
+      const response = await res.json()
+      return response;
 }

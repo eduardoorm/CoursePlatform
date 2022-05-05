@@ -11,9 +11,9 @@ export const deleteRespuesta = async(id) => {
         },
      }
     try{    
-     const respuesta = await fetch(`http://localhost:3001/deleteRespuesta/${id}`,config)
-     const res = await respuesta.json();
-     (!res.ok) ? alert("Hubo un error") : alert("Se Elimino Correctamente")
+     const response = await fetch(`http://localhost:3001/deleteRespuesta/${id}`,config)
+     const res = await response.json();
+     (!res.ok) ? alert("There was an error") : alert("It was successfully deleted")
     }catch{
      console.log();
 }

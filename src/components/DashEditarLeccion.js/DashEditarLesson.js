@@ -20,7 +20,7 @@ export const DashEditarLesson = () => {
       })
      }
      
-     const editarSeccion = async(e)=>{
+     const editarLesson = async(e)=>{
       e.preventDefault();
       setLoading(true)
       const response = await putVideo(form,id);
@@ -29,36 +29,36 @@ export const DashEditarLesson = () => {
     
     return (
         <div>
-        <button className="btn-Volver" onClick={()=>{history.goBack()}}>volver</button>
+        <button className="btn__backTo" onClick={()=>{history.goBack()}}>Back To</button>
         <Formulario id="form">
-                            <label htmlFor="nombre">Nombre</label>
+                            <label htmlFor="name">Name</label>
                             <Input
-                           placeholder={video[0]?.nombre}
-                           id="nombre"
-                           name="nombre"
+                           placeholder={video[0]?.name}
+                           id="name"
+                           name="name"
                            type="text"
                            onChange={handleChange}
                            /> 
-                            <label htmlFor="nombre">Descripción</label>
+                            <label htmlFor="name">Desctiption</label>
                             <Input
-                           placeholder={video[0]?.descripcion}
-                           id="descripcion"
-                           name="descripcion"
+                           placeholder={video[0]?.description}
+                           id="description"
+                           name="description"
                            type="text"
                            onChange={handleChange}
                            /> 
-                           <label htmlFor="nombre">Duración</label>
+                           <label htmlFor="name">Duración</label>
                             <Input
-                           placeholder={video[0]?.duracion }
-                           id="duracion"
-                           name="duracion"
+                           placeholder={video[0]?.duration }
+                           id="duration"
+                           name="duration"
                            type="number"
                            onChange={handleChange}
                            /> 
                            <br/>
                            {loading &&  <LinearProgress />} 
                            <br/>
-           <button type="submit" className="btn-default" onClick={editarSeccion}>Actualizar</button>
+           <button type="submit" className="btn-default" onClick={editarLesson}>Update</button>
         </Formulario>
       </div>
     )

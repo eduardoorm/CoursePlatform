@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const deleteCertificado =  async(id) => {
-    if(!localStorage.getItem("token")) return alert ("registrate")
+    if(!localStorage.getItem("token")) return alert ("Sign up")
     const {token} = JSON.parse(localStorage.getItem("token"));
 
      let config ={
@@ -13,9 +13,9 @@ export const deleteCertificado =  async(id) => {
         },
      }
    try{    
-    const respuesta = await fetch(`http://localhost:3001/deleteCertificado/${id}`,config)
-    const res = await respuesta.json();
-    (!res.ok) ? alert("Hubo un error") : alert("Se Elimino Correctamente")
+    const response = await fetch(`http://localhost:3001/deleteCertificado/${id}`,config)
+    const res = await response.json();
+    (!res.ok) ? alert("There was a mistake") : alert("It was deleted correctly")
     }catch{
     console.log();
   }

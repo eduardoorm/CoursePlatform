@@ -12,7 +12,7 @@ export const DashEditarTeacher = () => {
     const [form, setform] = useState({});
     const history= useHistory()
     const [loading, setLoading]= useState(false);
-    const {dataProfesor:profesor}=useFecthGetProfesorID(id);
+    const {dataProfesor:teacher}=useFecthGetProfesorID(id);
     
     const handleChange =(e)=>{
       setform({
@@ -21,7 +21,7 @@ export const DashEditarTeacher = () => {
       })
      }
 
-    const editarProfesor =async(e)=>{
+    const editTeacher =async(e)=>{
       e.preventDefault();
       setLoading(true)
       const response = await putProfesor(form,id);
@@ -32,26 +32,26 @@ export const DashEditarTeacher = () => {
      
     return (
         <div>
-        <button className="btn-Volver" onClick={()=>{history.goBack()}}>volver</button>
+        <button className="btn__BackTo" onClick={()=>{history.goBack()}}>Back To</button>
         <Formulario id="form">
-                            <label htmlFor="nombre">Nombres</label>
+                            <label htmlFor="name">Name</label>
                             <Input
-                           placeholder={profesor[0]?.nombre|| "----" }
-                           id="nombre"
-                           name="nombre"
+                           placeholder={teacher[0]?.name|| "----" }
+                           id="name"
+                           name="name"
                            type="text"
                            onChange={handleChange}
                            /> 
-                            <label htmlFor="apellidos">Apellidos</label>
+                            <label htmlFor="lastname">Lastname</label>
                             <Input
-                           placeholder={profesor[0]?.apellidos|| "----" }
-                           id="apellidos"
-                           name="apellidos"
+                           placeholder={teacher[0]?.lastname|| "----" }
+                           id="lastname"
+                           name="lastname"
                            type="text"
                            onChange={handleChange}
                            />
                            {loading &&  <LinearProgress />} <br/><br/>
-           <button type="submit" className="btn-default" onClick={editarProfesor}>Actualizar</button>
+           <button type="submit" className="btn-default" onClick={editTeacher}>Update</button>
         </Formulario>
       </div>
     )

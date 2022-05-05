@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { getEstudianteID } from '../helpersAdmin/getEstudianteID'
 
 export const useFetchGetEstudianteID = (id) => {
-    const [estudiante, setEstudiante] = useState({
-        dataEstudiante:[],
+    const [student, setStudent] = useState({
+        dataStudent:[],
     })
    
    useEffect(()=>{
     getEstudianteID(id).then(item=>{
-        setEstudiante(
+        setStudent(
             {
-           dataEstudiante:item
+           dataStudent:item
            }
         )
     })
    },[])
    
-    return estudiante;
+    return student;
 
 }

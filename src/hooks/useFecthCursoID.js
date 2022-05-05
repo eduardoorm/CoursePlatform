@@ -3,20 +3,20 @@ import { getCursoID } from '../helpers/getCursoID'
 
 export const useFecthCursoID = (id) => {
     
-    const [curso, setCurso] = useState({
-        dataCursoID:[],
+    const [course, setCourse] = useState({
+        dataCourseID:[],
     })
    
    useEffect(()=>{
-    getCursoID(id).then(curso=>{
-        setCurso(
+    getCursoID(id).then(course=>{
+        setCourse(
             {
-            dataCursoID:curso
+            dataCourseID:course
            }
         )
     })
    },[])
    
-    return curso;
+    return course;
 
 }

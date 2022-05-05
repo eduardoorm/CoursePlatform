@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { getCertificadoPordID } from '../helpersAdmin/getCertificadoPordID'
 
 export const useFetchGetCertificadoPorID = (id) => {
-    const [certificado, setCertificado] = useState({
-        dataCertificado:[],
+    const [certificate, setCertificate] = useState({
+        dataCertificate:[],
     })
-   
+
    useEffect(()=>{
     getCertificadoPordID(id).then(item=>{
-        setCertificado(
+        setCertificate(
             {
            dataCertificado:item
            }
@@ -16,5 +16,5 @@ export const useFetchGetCertificadoPorID = (id) => {
     })
    },[])
    
-    return certificado;
+    return certificate;
 }

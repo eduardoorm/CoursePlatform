@@ -18,7 +18,7 @@ export const DashEditarSection = () => {
       })
      }
      
-    const {dataSeccion:seccion} = useFetchGetSeccionPorID(id)
+    const {dataSeccion:section} = useFetchGetSeccionPorID(id)
 
      const editarSeccion =(e)=>{
       setLoading(true)
@@ -30,18 +30,18 @@ export const DashEditarSection = () => {
     
   return (
       <div>
-        <button className="btn-Volver" onClick={()=>{history.goBack()}}>volver</button>
+        <button className="btn__backTo" onClick={()=>{history.goBack()}}>Back To</button>
         <Formulario id="form">
-                            <label htmlFor="nombre">Nombre</label>
+                            <label htmlFor="name">Name</label>
                             <Input
-                           placeholder={seccion[0]?.nombre }
-                           id="nombre"
-                           name="nombre"
+                           placeholder={section[0]?.name }
+                           id="name"
+                           name="name"
                            type="text"
                            onChange={handleChange}
                            /> 
                            {loading &&  <LinearProgress />} <br/><br/>
-           <button type="submit" className="btn-default" onClick={editarSeccion}>Actualizar</button>
+           <button type="submit" className="btn__default" onClick={editarSeccion}>Update</button>
         </Formulario>
       </div>
    )

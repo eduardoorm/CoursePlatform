@@ -2,17 +2,17 @@
 import { useEffect,useState } from 'react'
 import { getModulo } from '../helpers/getModulo'
 export const useFetchModulo = (id) => {
-    const [modulos, setModulos] = useState({
-        dataModulos:[],
+    const [modules, setModules] = useState({
+        dataModules:[],
     })
     
     useEffect(()=>{
-       getModulo(id).then(modulos=>{
-           setModulos({
-               dataModulos:modulos,
+       getModulo(id).then(modules=>{
+           setModules({
+               dataModules:modules,
            })
        })
     },[])
 
-    return modulos; //{data:[] , loading:true}
+    return modules; //{data:[] , loading:true}
 }

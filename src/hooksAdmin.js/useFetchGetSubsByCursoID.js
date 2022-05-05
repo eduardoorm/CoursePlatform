@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { getSubsByCursoID } from '../helpersAdmin/getSubsByCursoId'
 export const useFetchGetSubsByCursoID = (id) => {
-    const [suscripciones, setSuscripciones] = useState({
-        dataSuscripciones:[],
+    const [subcriptions, setSubscriptions] = useState({
+        dataSubscriptions:[],
     })
      
    useEffect(()=>{
     getSubsByCursoID(id).then(item=>{
-        setSuscripciones(
+        setSubscriptions(
             {
-            dataSuscripciones:item
+            dataSubscriptions:item
            }
         )
     })
    },[])
    
-    return suscripciones;
+    return subcriptions;
 }

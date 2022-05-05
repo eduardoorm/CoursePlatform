@@ -38,7 +38,7 @@ li{
     padding: 2.6em 1em;
 }
 
-.Dashboard-Column_2{
+.dashboard__column2{
     width: 80%;
     height: 90vh;
     padding: 2em;
@@ -46,7 +46,7 @@ li{
     flex-wrap: wrap;
     align-items:center;
 }
-.Dashboard-Preview{
+.dashboard__preview{
     width: 100%;
     height: 15%;
     display: flex;
@@ -54,7 +54,7 @@ li{
     background-color: white;
     border-radius: 0.2em;
 }
-.Dashboard-Contenido{
+.dashboard__content{
     width: 100%;
     min-height: 80%;
     background-color: #EAEDED;
@@ -73,7 +73,7 @@ li{
     text-align: center;
     margin-top: 15%;
 }
-.Dashaboard_Container{
+.dashboard__container{
     display: flex;
     height: 200vh;
     border:1px solid black;
@@ -205,10 +205,10 @@ li{
     margin-top: 15%;
 }
 /*Dash add categoria*/
-.Container_categoria{
+.category__items{
   
 }
-.input_addCategoria{
+.input__AddCategory{
     margin-top: 0.5em;
     border-radius: 5px;
 }
@@ -219,7 +219,7 @@ li{
     border: 1px solid #BBBBBB;
     margin-bottom: 0.5em;
 }
-.item_input_addCategoria{
+.item__input__addCategory{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -278,12 +278,12 @@ li{
     padding-left: 0.4em;
 }
 
-.input_categoria{
+.input__category{
     border-radius: 5px;
     margin-top: 1.2em;
     margin-bottom: 2em;
 }
-.form_categoria{
+.form__category{
     margin-top: 1em;
 }
  /*Cursos*/
@@ -350,7 +350,7 @@ li{
     height: 1.7em;
 }
 
-.Container_curso{
+.container__course{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -387,27 +387,27 @@ li{
     margin-right: 10px;
  }
  
- .botones_Secciones .btn-default:nth-child(1){
+ .botones_Secciones .btn__default:nth-child(1){
    background-color: #21A9D5;
    padding: 0.7em;
  }
- .botones_Secciones .btn-default:nth-child(2){
+ .botones_Secciones .btn__default:nth-child(2){
     background-color: #D52121;
     padding: 0.7em;
  }
- .titulo_AddSeccion,.titulo_AddLeccion{
+ .titulo__addSection,.titulo_addLesson{
      text-align: center;
      margin: 1em 0em;
  }
- #btn_AddSeccion,#btn_AddLeccion{
+ #btn_AddSeccion,#btn_addLesson{
    margin-right: 1em;
  }
- #btn_AddVolver{
+ #btn_addBackTo{
      background-color: white;
      color:#3F69FF;
      border:1px solid #3F69FF;
  }
- .btn-Volver{
+ .btn__backTo{
      border:1px solid;
      width: 6em;
      padding: 0.6em;
@@ -477,7 +477,7 @@ li{
 }
 
 /*BTN EDITAR*/
-#btn_Editar,#btn_Eliminar{
+#btn__edit,#btn__delete{
    padding: 0.8em;
    width: 9em;
    font-size: 0.8em;

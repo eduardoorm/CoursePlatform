@@ -3,16 +3,16 @@ import React from 'react'
 export const getUserID = async(id) => {
     const url=`http://localhost:3001/getUserId/${id}`;
     const response = await fetch(url);
-    const personaData = await response.json();
-    const persona = personaData.map(student=>{
+    const personData = await response.json();
+    const person = personData.map(student=>{
         return {
-            nombre: student.nombre,
-            apellido: student.apellidos,
+            name: student.name,
+            lastname: student.lastname,
             email: student.email,
             role: student.role,
-            id_persona: student.id_persona
+            id_person: student.id_person
            }   
     }) 
 
-    return persona;
+    return person;
 }

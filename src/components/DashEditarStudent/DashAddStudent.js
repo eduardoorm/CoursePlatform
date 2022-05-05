@@ -22,18 +22,18 @@ export const DashAddStudent = () => {
     }
     return (
         <div >
-            <p>Agregar Estudiante</p>
+            <p>Add Student</p>
             <form>
-                <label htmlFor="estudiante">Nombre </label>
-                <input id="estudiante" name="nombre" type="text" onChange={handleSubmit}/>
-                <label htmlFor="estudiante">Apellido</label>
-                <input id="estudiante" name="apellidos" type="text" onChange={handleSubmit}/>
-                <label htmlFor="estudiante">Email</label>
-                <input id="estudiante" name="email" type="email" onChange={handleSubmit}/>
-                <label htmlFor="estudiante">Contraseña</label>
-                <input id="estudiante" name="password" type="text" onChange={handleSubmit}/>
+                <label htmlFor="student">Name </label>
+                <input id="student" name="name" type="text" onChange={handleSubmit}/>
+                <label htmlFor="student">Lastname</label>
+                <input id="student" name="lastname" type="text" onChange={handleSubmit}/>
+                <label htmlFor="student">Email</label>
+                <input id="student" name="email" type="email" onChange={handleSubmit}/>
+                <label htmlFor="student">Contraseña</label>
+                <input id="student" name="password" type="text" onChange={handleSubmit}/>
                 {loading &&  <LinearProgress />} <br/>
-                <button type="submit" className="btn-default" onClick={AddStudent}>Agregar</button>
+                <button type="submit" className="btn__default" onClick={AddStudent}>Add</button>
             </form>
         </div>
     )

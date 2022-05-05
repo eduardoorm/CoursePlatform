@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { getPorfesorID } from '../helpersAdmin/getProfesorID'
 export const useFecthGetProfesorID = (id) => {
    
-    const [profesor, setProfesor] = useState({
-        dataProfesor:[],
+    const [teacher, setTeacher] = useState({
+        dataTeacher:[],
     })
      
    useEffect(()=>{
     getPorfesorID(id).then(item=>{
-        setProfesor(
+        setTeacher(
             {
-            dataProfesor:item
+            dataTeacher:item
            }
         )
     })
    },[])
    
-    return profesor;
+    return teacher;
 }

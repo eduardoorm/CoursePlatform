@@ -9,16 +9,16 @@ export const DashEditarCategoria = () => {
     return (
         <>
         <DashNav/>
-         <div className="Dashaboard_Container">
+         <div className="dashboard__container">
                         <DashColumnLeft/>
-                    <div className="Dashboard-Column_2">
-                        <div className="Dashboard-Preview">
+                    <div className="dashboard__column2">
+                        <div className="dashboard__preview">
                             <DashHeader 
                             icono={<i className="fas fa-puzzle-piece"></i>}
-                            nombre="Cursos"
+                            nombre="Courses"
                             />
                         </div>
-                        <div className="Dashboard-Contenido">
+                        <div className="dashboard__content">
                             <DashEditarCate/>
                         </div>
                     </div>

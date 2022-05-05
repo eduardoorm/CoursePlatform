@@ -50,15 +50,15 @@ export const DashMostrarReportes = () => {
       const classes = useStyles();
      
     return (
-        <div className="Container_categoria">
-        <button className="btn-Volver" onClick={()=>{history.push(`/admin/suscripciones`)}}>volver</button>
+        <div className="container__category">
+        <button className="btn__backTo" onClick={()=>{history.push(`/admin/suscripciones`)}}>Back To</button>
             {
                 (subs?.length===0) &&
-                <h4>Este curso aún no cuenta con estudiantes registrados </h4>
+                <h4>This course has no registered students yet </h4>
             }
-             <h3>{subs[0]?.nombre_curso}</h3>
+             <h3>{subs[0]?.name_course}</h3>
              <br/>
-             <p>Cantidad de estudiantes: {subs?.length}</p>
+             <p>Number of students: {subs?.length}</p>
              <br/>
              {subs?.length !==0 &&
              <TableContainer component={Paper}>
@@ -66,9 +66,9 @@ export const DashMostrarReportes = () => {
                 <TableHead>
                   <TableRow>
                     <StyledTableCell>Pos</StyledTableCell>
-                    <StyledTableCell align="left">Nombres</StyledTableCell>
-                    <StyledTableCell align="left">Apellidos</StyledTableCell>
-                    <StyledTableCell align="left">EMAIL</StyledTableCell>
+                    <StyledTableCell align="left">Name</StyledTableCell>
+                    <StyledTableCell align="left">LastName</StyledTableCell>
+                    <StyledTableCell align="left">Email</StyledTableCell>
                     <StyledTableCell align="left"></StyledTableCell>
                   </TableRow>
                 </TableHead>
@@ -78,7 +78,7 @@ export const DashMostrarReportes = () => {
                       <StyledTableCell component="th" scope="row">
                         {pos+1}
                       </StyledTableCell>
-                      <StyledTableCell align="left">{row.nombre}</StyledTableCell>
+                      <StyledTableCell align="left">{row.name}</StyledTableCell>
                       <StyledTableCell align="left">{row.apellidos}</StyledTableCell>
                       <StyledTableCell align="left"> {row.email} </StyledTableCell>
                     </StyledTableRow>

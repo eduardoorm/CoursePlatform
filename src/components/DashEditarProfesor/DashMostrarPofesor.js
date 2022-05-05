@@ -45,12 +45,12 @@ import '../ComponentStyles/Dashboard.css'
 
 export const DashMostrarPofesor = () => {
     // const {dataCategoria:categorias}=useFecthGetCategoria();
-      const {dataProfesor:profesor}=useFetchGetInstructor();
+      const {dataProfesor:teacher}=useFetchGetInstructor();
 
-      const eliminarCate=(nombre,id_profesor)=>{
-          if(window.confirm(`¿Seguro que quieres eliminar al profesor : "${nombre}"?`)){
+      const deleteCategory=(name,id_teacher)=>{
+          if(window.confirm(`Are you sure you want to eliminate the teacher : "${name}"?`)){
             window.location.reload();
-            return deleteProfesor(id_profesor)
+            return deleteProfesor(id_teacher)
           }
         }
 
@@ -62,37 +62,37 @@ export const DashMostrarPofesor = () => {
                 <TableHead>
                   <TableRow>
                     <StyledTableCell>Pos</StyledTableCell>
-                    <StyledTableCell align="left">Nombres</StyledTableCell>
-                    <StyledTableCell align="left">Apellidos</StyledTableCell>
+                    <StyledTableCell align="left">Name</StyledTableCell>
+                    <StyledTableCell align="left">LastName</StyledTableCell>
                     <StyledTableCell align="left"></StyledTableCell>
                     <StyledTableCell align="left"></StyledTableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {profesor?.map((row,pos) => (
-                    <StyledTableRow key={row.nombre}>
+                  {teacher?.map((row,pos) => (
+                    <StyledTableRow key={row.name}>
                       <StyledTableCell component="th" scope="row">
                         {pos+1}
                       </StyledTableCell>
-                      <StyledTableCell align="left">{row.nombre}</StyledTableCell>
-                      <StyledTableCell align="left">{row.apellidos}</StyledTableCell>
+                      <StyledTableCell align="left">{row.name}</StyledTableCell>
+                      <StyledTableCell align="left">{row.lastname}</StyledTableCell>
                       <StyledTableCell align="right">
                       <Link to={`/admin/profesor/editar/${row.id}`}>
                       <Button id="btn_Editar" variant="contained" color="primary" >
-                          Editar
+                          Edit
                       </Button>
                         </Link>
                       </StyledTableCell>
                       <StyledTableCell align="right">
                         <Button
-                          id="btn_Eliminar"
+                          id="btn__delete"
                           variant="contained"
                           color="secondary"
                           className={classes.button}
-                          onClick={()=>eliminarCate(row.nombre,row.id)}
+                          onClick={()=>deleteCategory(row.name,row.id)}
                           // startIcon={<DeleteIcon />}
                         >
-                          Eliminar
+                          Delete
                         </Button>
                       </StyledTableCell>
                     </StyledTableRow>
@@ -100,26 +100,7 @@ export const DashMostrarPofesor = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-        {/* <div className="Container_categoria">
-                { profesor?.map((profesor,pos)=>
-                <>  <div className="categoria_items">
-                        <div className="ID_Categoria">
-                          <p>{pos+1}</p>
-                        </div>
-
-                        <div className="nombre_Categoria">
-                          <p>{profesor.nombre} {profesor.apellidos}</p>
-                        </div>
-
-                        <div className="botones_categoria">
-                         <Link to={`/admin/profesor/editar/${profesor.id}`}><button className="btn_categoria" >Editar</button></Link>   
-                         <button className="btn_categoria" onClick={()=>eliminarCate(profesor.nombre,profesor.id)}>Eliminar</button>    
-                        </div>
-                    </div> 
-                </>
-                )}
-             </div> */}
-
+      
       </>
     )
 }

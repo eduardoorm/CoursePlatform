@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getRespuestas } from '../helpers/getRespuestas'
 
 export const useFetchRespuestas = (id,dispatchAnswer) => {
-     const [respuesta, setRespuesta] = useState(
+     const [response, setResponse] = useState(
          {
              dataRespuesta:[],
          })
@@ -14,5 +14,5 @@ export const useFetchRespuestas = (id,dispatchAnswer) => {
                })
              })
        },[])
-    return respuesta; 
+    return response; 
 }

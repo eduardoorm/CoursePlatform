@@ -21,7 +21,6 @@ export const DashAddSection = () => {
        setLoading(true)
        const response= await postSection(form,id);
        if(response.ok) return setLoading(false)
-      
     }
 
     const AddVolver =(e)=>{
@@ -30,13 +29,13 @@ export const DashAddSection = () => {
     }
     return (
         <div >
-            <p className="titulo_AddSeccion" >Agregar Sección</p>
+            <p className="titulo__addSection" >Add Section</p>
             <form className="form_addSeccion">
-                <label htmlFor="nom_modulo">Título</label>
-                <input id="nom_modulo" name="nombre" type="text" onChange={handleSubmit}/>
+                <label htmlFor="name_module">Title</label>
+                <input id="name_module" name="name" type="text" onChange={handleSubmit}/>
                 {loading &&  <LinearProgress />} <br/><br/>
-                <button className="btn-default" id="btn_AddSeccion" type="submit" onClick={AddSeccion}>Agregar</button>
-                <button className="btn-default" id="btn_AddVolver" type="submit" onClick={AddVolver}>volver</button>
+                <button className="btn-default" id="btn__addSection" type="submit" onClick={AddSeccion}>Add</button>
+                <button className="btn-default" id="btn_addBackTo" type="submit" onClick={AddVolver}>Back To</button>
             </form>
         </div>
     )

@@ -1,6 +1,6 @@
 
 export const getPersonaCurso = async () => {
-    if(!localStorage.getItem("token")) return alert("logueate");  
+    if(!localStorage.getItem("token")) return alert("Sign Up");  
     const {token} = JSON.parse(localStorage.getItem("token"));
     const url="http://localhost:3001/personaCurso";
     let config = {headers: {
@@ -15,12 +15,12 @@ export const getPersonaCurso = async () => {
     }
     
     const res= await response.json();
-    const cursos = res?.map(curso=>{
+    const courses = res?.map(course=>{
         return{    
-        nombre:curso.nom_curso,
-        descripcion:curso.des_curso,
-        duracion:curso.duracion,   
+        name:course.name_course,
+        description:course.des_course,
+        duration:course.duration,   
         }
     })
-    return cursos;
+    return courses;
 }

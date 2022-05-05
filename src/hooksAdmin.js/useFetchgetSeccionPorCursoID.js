@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { getSeccionPorCursoID } from '../helpersAdmin/getSeccionPorCursoID'
 
 export const useFetchgetSeccionPorCursoID = (id) => {
-    const [seccion, setSeccion] = useState({
-        dataSeccion:[],
+    const [lesson, setLesson] = useState({
+        dataLesson:[],
     })
    
    useEffect(()=>{
     getSeccionPorCursoID(id).then(item=>{
-        setSeccion(
+        setLesson(
             {
-           dataSeccion:item
+           dataLesson:item
            }
         )
     })
    },[])
    
-    return seccion;
+    return lesson;
 }

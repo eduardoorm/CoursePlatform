@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { getInstructor } from '../helpersAdmin/getInstructor'
 
 export const useFetchGetInstructor = () => {
-    const [profesor, setProfesor] = useState({
-        dataProfesor:[],
+    const [teacher, setTeacher] = useState({
+        dataTeacher:[],
     })
     
     useEffect(()=>{
         getInstructor().then(item=>{
-          setProfesor({
-              dataProfesor:item,
+            setTeacher({
+              dataTeacher:item,
           }
          )
        }) 
     },[]
     )
-    return profesor;
+    return teacher;
 }

@@ -4,13 +4,13 @@ import { getPersonaCurso } from '../helpers/getPersonaCurso'
 import { getUsuario } from '../helpers/getUsuario'
 export const useFecthPersonaCurso = () => {
     const [state, setstate] = useState({
-        dataCurso:[],
+        dataCourse:[],
     })
     
     useEffect(()=>{  
-        getPersonaCurso().then(curso=>{
+        getPersonaCurso().then(course=>{
            setstate({
-               dataCurso:curso
+               dataCourse:course
            })
        })
     },[])

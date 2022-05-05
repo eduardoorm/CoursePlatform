@@ -18,7 +18,6 @@ useEffect(async() => {
      const {data} = await axios.get('http://localhost:3001/Usuario',config)
      const {user}= data;
      setUser(user)
-     console.log("respuesta",user);
   
   }, [state]);
 

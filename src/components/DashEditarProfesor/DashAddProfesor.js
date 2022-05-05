@@ -22,15 +22,14 @@ export const DashAddProfesor = () => {
     }
     return (
         <div className="Agregar_categoria_container">
-            <form className="form_categoria">
-                <label htmlFor="nombre" >Nombre Profesor</label>
-                <input id="nombre" name="nombre" className="input_categoria" type="text" onChange={handleSubmit}/>
-                <label htmlFor="apellidos" >Apellido Profesor</label>
-                <input id="apellidos" name="apellidos" className="input_categoria" type="text" onChange={handleSubmit}/>
+            <form className="form_category">
+                <label htmlFor="name" >Name Teacher</label>
+                <input id="name" name="name" className="input_category" type="text" onChange={handleSubmit}/>
+                <label htmlFor="lastname" >LastName Teacher</label>
+                <input id="lastname" name="lastname" className="input_category" type="text" onChange={handleSubmit}/>
                 {loading &&  <LinearProgress />} <br/>
-                <button className="btn_agregar" type="submit" onClick={AddProfesor}>Agregar</button>
+                <button className="btn_agregar" type="submit" onClick={AddProfesor}>Add</button>
             </form>
-            
         </div>
     )
     }

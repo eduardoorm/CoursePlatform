@@ -2,14 +2,12 @@ import {ContainBannerCurso,BannerCurso,TextBannerCurso,EmpezarYa,ImgBannerCurso,
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
- export default function BannerCourse ({descripcion,nombre}){
+ export default function BannerCourse ({description,name}){
     const history = useHistory();
     const checkout  = ()=>{
           axios.post("http://localhost:3001/create-payment")
           .then(({data})=>{
             window.open(`${data.data.links[1].href}`)
-            console.log("data",data);
-            console.log(data.data.links[1].href);
           }
           
           )
@@ -21,9 +19,9 @@ import {useHistory} from 'react-router-dom'
              <ContainBannerCurso>
                  <BannerCurso>
                      <TextBannerCurso>
-                         <h3>{nombre}</h3> <br/>
-                        <p>{descripcion}</p>
-                         <EmpezarYa onClick={checkout}>Empezar ya</EmpezarYa> 
+                         <h3>{name}</h3> <br/>
+                        <p>{description}</p>
+                         <EmpezarYa onClick={checkout}>Start Now</EmpezarYa> 
                      </TextBannerCurso>
                      <ImgBannerCurso>
                         <ImgBanner src="../../public/assets/img/teacher-course" alt=""/>

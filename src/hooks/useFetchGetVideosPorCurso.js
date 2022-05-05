@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getVideosPorCurso } from '../helpers/getVideosPorCurso'
 export const useFetchGetVideosPorCurso = (id) => {
-    const [videosCurso, setVideos] = useState({
+    const [videosCourse, setVideos] = useState({
         dataVideosCurso:[],
     })
     
@@ -13,5 +13,5 @@ export const useFetchGetVideosPorCurso = (id) => {
        })
     },[])
 
-    return videosCurso; //{data:[] , loading:true}
+    return videosCourse; //{data:[] , loading:true}
 }

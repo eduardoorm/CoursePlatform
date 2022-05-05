@@ -49,8 +49,6 @@ import '../ComponentStyles/Dashboard.css'
   }));
 
 export const DashMostarStudent = () => {
-    const {dataEstudiante:estudiante}= useFetchGetEstudiante();
-    const [editar, setEditar] = useState(true);
     const {dataStudent:student}= useFetchGetLasFiveStudents();
     const location = useLocation();
     const {q=''}=queryString.parse(location.search);
@@ -60,15 +58,15 @@ export const DashMostarStudent = () => {
     const classes = useStyles();
     
     const history = useHistory();
-    const eliminarStudent=(id_persona,email)=>{
-      if(window.confirm(`¿Seguro que quieres eliminar al estudiante con email : ${email}?`)){
+    const deleteStudent=(id_person,email)=>{
+      if(window.confirm(`¿Are you sure you want to remove the student with email : ${email}?`)){
         window.location.reload();
-         return deleteEstudiante(id_persona);
+         return deleteEstudiante(id_person);
       }
     }
     const {searchText} = form;
    
-    const studentFiltered=useMemo(() =>  getStudientByEmail(q,estudiante), [q]);
+    const studentFiltered=useMemo(() =>  getStudientByEmail(q,student), [q]);
 
     const handleSubmit = (e) =>{
       e.preventDefault();
@@ -87,18 +85,18 @@ export const DashMostarStudent = () => {
       <>
         
        <div>
-         <p>Total de estudiantes: {estudiante?.length}</p>
+         <p>Total de students: {student?.length}</p>
          <br/>
-         <p>Busar por email  </p>
+         <p>Search by email  </p>
          <form onSubmit={handleSubmit}>
            <input
             type="email"
             name="searchText"
-            placeholder="Ingresa el email"
+            placeholder="Enter email address"
             value={searchText}
             onChange={handleSearch}
            />
-           <button type="submit" className="btn-default">Buscar</button>
+           <button type="submit" className="btn__default">Search</button>
          </form>
        </div>
        <br/>
@@ -113,28 +111,28 @@ export const DashMostarStudent = () => {
          {(q !=='' && studentFiltered.length===0 )
            &&
             <div>
-             No se encontro el estudiante con email {q}
+             No student found with email {q}
            </div>
 
          }
       </div>
-           <div className="Container_categoria">
+           <div className="container__category">
               {
                 studentFiltered?.map(student=>
                   <>
-                  <div className="categoria_items">
-                      <div className="nombre_Categoria">
-                        <p>{student.nombre}</p>
+                  <div className="category__items">
+                      <div className="category__name">
+                        <p>{student.name}</p>
                       </div>
-                      <div className="nombre_Categoria">
-                        <p>{student.apellidos || "----"}</p>
+                      <div className="category__name">
+                        <p>{student.lastname || "----"}</p>
                       </div>
-                      <div className="nombre_Categoria">
+                      <div className="category__name">
                         <p>{student.email || "----"}</p>
                       </div>
-                      <div className="botones_categoria">
-                      <Link to={`/admin/estudiante/editar/${student.id}`}><button className="btn_categoria" >Editar</button></Link>   
-                      <button className="btn_categoria" onClick={()=>eliminarStudent(student.id_persona,student.email)}>Eliminar</button>    
+                      <div className="buttons__category">
+                      <Link to={`/admin/estudiante/editar/${student.id}`}><button className="btn__category" >Edit</button></Link>   
+                      <button className="btn__category" onClick={()=>deleteStudent(student.id_person,student.email)}>Delete</button>    
                       </div>
                   </div>  
                   </>
@@ -143,15 +141,15 @@ export const DashMostarStudent = () => {
             </div>
             {/* ULTIMOS ESTUDIANTES */}
             <br/><br/>
-            <h3>Ultimos 5 estudiantes registrados</h3>
+            <h3>Last 5 students registered</h3>
             <br/>
             <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="customized table">
               <TableHead>
                 <TableRow>
                   <StyledTableCell>Pos</StyledTableCell>
-                  <StyledTableCell align="left">Nombres</StyledTableCell>
-                  <StyledTableCell align="left">Apellidos</StyledTableCell>
+                  <StyledTableCell align="left">Name</StyledTableCell>
+                  <StyledTableCell align="left">Lastname</StyledTableCell>
                   <StyledTableCell align="left">Email</StyledTableCell>
                   <StyledTableCell align="left"></StyledTableCell>
                   <StyledTableCell align="left"></StyledTableCell>
@@ -163,26 +161,25 @@ export const DashMostarStudent = () => {
                     <StyledTableCell component="th" scope="row">
                       {pos+1}
                     </StyledTableCell>
-                    <StyledTableCell align="left">{row.nombre}</StyledTableCell>
-                    <StyledTableCell align="left">{row.apellidos}</StyledTableCell>
+                    <StyledTableCell align="left">{row.name}</StyledTableCell>
+                    <StyledTableCell align="left">{row.lastname}</StyledTableCell>
                     <StyledTableCell align="left">{row.email}</StyledTableCell>
                     <StyledTableCell align="right">
                     <Link to={`/admin/estudiante/editar/${row.id}`}>
-                    <Button id="btn_Editar" variant="contained" color="primary">
-                        Editar
+                    <Button id="btn__edit" variant="contained" color="primary">
+                        Edit
                     </Button>
                       </Link>
                     </StyledTableCell>
                     <StyledTableCell align="right">
                       <Button
-                        id="btn_Eliminar"
+                        id="btn__delete"
                         variant="contained"
                         color="secondary"
                         className={classes.button}
-                        onClick={()=>eliminarStudent(row.id_persona,row.email)}
-                        // startIcon={<DeleteIcon />}
+                        onClick={()=>deleteStudent(row.id_person,row.email)}
                       >
-                        Eliminar
+                        Delete
                       </Button>
                     </StyledTableCell>
                   </StyledTableRow>

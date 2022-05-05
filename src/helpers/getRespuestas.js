@@ -1,24 +1,20 @@
 import React from 'react'
 export const getRespuestas =async (id) => {
     const url = `http://localhost:3001/getRespuestas/${id}`;
-    const respuesta =  await fetch(url);
-    const res = await respuesta.json();
-    const convertirFecha=(date)=>{
-        const fecha= new Date(date)
-        const fecha_respuesta= `${fecha.getUTCFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()} ${fecha.getHours()}:${fecha.getMinutes()}h`
-        return fecha_respuesta;
-     }
-    const respuestaID = res.map(r=>{
+    const response =  await fetch(url);
+    const res = await response.json();
+
+    const responseID = res.map(r=>{
         return{
-            nombre: r.nombre,
-            apellido:r.apellidos,
-            respuesta: r.respuesta,
-            fecha: convertirFecha(r.fecha_respuesta),
-            comentarioID: r.id_comentario,
-            id_persona: r.id_persona,
-            id_respuesta: r.id_respuesta,
+            name: r.name,
+            lastname:r.lastname,
+            response: r.response,
+            date: '12,12,12',
+            commentID: r.id_comment,
+            id_person: r.id_person,
+            id_response: r.id_response,
             imageUrl: r.imageUrl,
         }
     })
-    return respuestaID;
+    return responseID;
 }

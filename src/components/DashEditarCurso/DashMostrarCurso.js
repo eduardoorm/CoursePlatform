@@ -19,11 +19,10 @@ const useStyles = makeStyles({
 
 export const DashMostrarCurso = () => {
      const classes = useStyles();
-     const {dataCurso:cursos}= useFecthCurso();
-      console.log("cursitos",cursos);
+     const {dataCurso:courses}= useFecthCurso();
 
-     const eliminarCurso =(nombre,id)=>{
-      if(window.confirm(`¿Seguro que quieres eliminar al curso: "${nombre}"?`)){
+     const deleteCourse =(name,id)=>{
+      if(window.confirm(`¿Surely you want to eliminate the course: "${name}"?`)){
         window.location.reload();
         return deleteCurso(id);
       }
@@ -31,9 +30,8 @@ export const DashMostrarCurso = () => {
  
     return (
       <>
-        <div className="Container_curso">
-       { cursos?.map(el=> 
-        
+        <div className="container__course">
+       { courses?.map(el=> 
           <Card className={classes.root} key={el.id}>
                 <CardActionArea>
                       <CardMedia
@@ -46,25 +44,25 @@ export const DashMostrarCurso = () => {
 
                       <CardContent>
                           <Typography gutterBottom variant="h5" component="h2">
-                          {el.nombre}
+                          {el.name}
                           </Typography>
                           <Typography variant="body2" color="textSecondary" component="p">
-                          <><span className="negr_curso">Descripción</span> : {el.descripcion || "----"}</>
+                          <><span className="negr_curso">Description</span> : {el.description || "----"}</>
                           </Typography>
                           <Typography variant="body2" color="textSecondary" component="p">
-                          <><span className="negr_curso">Categoria: </span> {el.categoria || "----"}</>
+                          <><span className="negr_curso">Category: </span> {el.category || "----"}</>
                           </Typography>
                           <Typography variant="body2" color="textSecondary" component="p">
-                          <><span className="negr_curso">Precio: </span> {el.precio || "----"}</>
+                          <><span className="negr_curso">Price: </span> {el.price || "----"}</>
                           </Typography>
                           <Typography variant="body2" color="textSecondary" component="p">
-                          <><span className="negr_curso">Duración:</span>  {el.duracion || "----"}</>
+                          <><span className="negr_curso">Duration:</span>  {el.duration || "----"}</>
                           </Typography>
                           <Typography variant="body2" color="textSecondary" component="p">
-                          <><span className="negr_curso">Profesor: </span> {el.nombreInstructor|| "----"} {el.apellidoInstructor|| "----"}</>
+                          <><span className="negr_curso">Teacher: </span> {el.nameTeacher|| "----"} {el.lastnameTeacher|| "----"}</>
                           </Typography>
                           <Typography variant="body2" color="textSecondary" component="p">
-                          <><span className="negr_curso">Lecciones: </span> {el.lecciones|| "----"} </>
+                          <><span className="negr_curso">Lessons: </span> {el.lessons|| "----"} </>
                           </Typography>
                       </CardContent>
                       
@@ -72,19 +70,19 @@ export const DashMostrarCurso = () => {
 
                 <CardActions>
 
-                  <Link to={`/admin/cursos/contenido/${el.ruta}`}>
+                  <Link to={`/admin/cursos/contenido/${el.url}`}>
                     <Button size="small" color="primary">
-                    +Contenido
+                    +Content
                     </Button>
                   </Link>
-                  <Link to={`/admin/cursos/editar/${el.ruta}`}>
+                  <Link to={`/admin/cursos/editar/${el.url}`}>
                     <Button size="small" color="primary">
-                      Editar
+                      Edit
                     </Button>
                   </Link>
                   
-                  <Button size="small" color="secondary" onClick={()=>eliminarCurso(el.nombre,el.id)}>
-                    Eliminar
+                  <Button size="small" color="secondary" onClick={()=>deleteCourse(el.name,el.id)}>
+                    Delete
                   </Button>
                 </CardActions>
               </Card>

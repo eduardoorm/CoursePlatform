@@ -1,6 +1,6 @@
 export const getUsuario = async () => {
 
-            if(!localStorage.getItem("token")) return alert("logueate");  
+            if(!localStorage.getItem("token")) return alert("Sign Up");  
             const {token} = JSON.parse(localStorage.getItem("token"));
 
             const url="http://localhost:3001/Usuario";
@@ -13,15 +13,15 @@ export const getUsuario = async () => {
              
             if(!response.ok) return localStorage.clear();
           
-            const {user} = await response.json();
-            const usuario = {
-              nombre:user.nombre,
-              apellido:user.apellidos,
-              email:user.email,
-              id_persona:user.id_persona,
-              role:user.role,
-              imageUrl: user.imageUrl,
+            const {userData} = await response.json();
+            const user = {
+              name:userData.name,
+              lastname:userData.lastname,
+              email:userData.email,
+              id_person:userData.id_person,
+              role:userData.role,
+              imageUrl: userData.imageUrl,
              }
                
-     return usuario;
+     return user;
 }

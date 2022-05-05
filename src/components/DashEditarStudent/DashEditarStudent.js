@@ -8,8 +8,8 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 export const DashEditarStudent = () => {
       let {id}= useParams();
-      const{dataEstudiante:estudiante}  = useFetchGetEstudianteID(id);
-      const id_persona = estudiante[0]?.id_persona;
+      const{dataEstudiante:student}  = useFetchGetEstudianteID(id);
+      const id_persona = student[0]?.id_persona;
       const [form, setform] = useState({});
       const [loading, setLoading]= useState(false);
 
@@ -21,7 +21,7 @@ export const DashEditarStudent = () => {
         })
        }
 
-       const editarStudent = async(e)=>{
+       const ediStudent = async(e)=>{
         e.preventDefault();
         setLoading(true)
         const response = await  putEstudiante(form,id_persona);
@@ -31,36 +31,36 @@ export const DashEditarStudent = () => {
        }
     return (
         <div>
-          <p>Actualizar Estudiante</p><br/>
+          <p>Update Student</p><br/>
           
-          <Link to="/admin/estudiantes"><button className="btn-Volver">volver</button></Link>  
+          <Link to="/admin/estudiantes"><button className="btn__backTo">Back To</button></Link>  
           <Formulario id="form">
-                            <label htmlFor="nombre">Nombre </label>
+                            <label htmlFor="name">Name</label>
                              <Input
-                             placeholder={estudiante[0]?.nombre || "---" }
-                             id="nombre"
-                             name="nombre"
+                             placeholder={student[0]?.name || "---" }
+                             id="name"
+                             name="name"
                              type="text"
                              onChange={handleChange}
                              /> 
-                              <label htmlFor="apellido">Apellido</label>
+                              <label htmlFor="lastname">Lastname</label>
                               <Input
-                             placeholder={estudiante[0]?.apellido || "----" }
-                             id="apellido"
-                             name="apellido"
+                             placeholder={student[0]?.lastname || "----" }
+                             id="lastname"
+                             name="lastname"
                              type="text"
                              onChange={handleChange}
                              /> 
                              <label htmlFor="email">Email</label>
                               <Input
-                             placeholder={estudiante[0]?.email|| "---" }
+                             placeholder={student[0]?.email|| "---" }
                              id="email"
                              name="email"
                              type="email"
                              onChange={handleChange}
                              disabled={true}
                              /> 
-                             <label htmlFor="email">Nueva Contraseña</label>
+                             <label htmlFor="email">New Password</label>
                              <Input
                              id="password"
                              name="password"
@@ -69,7 +69,7 @@ export const DashEditarStudent = () => {
                              /> 
                        {loading &&  <LinearProgress />} <br/>
 
-             <button type="submit" onClick={editarStudent} className="btn-default">Actualizar</button>
+             <button type="submit" onClick={ediStudent} className="btn__default">Update</button>
           </Formulario>
         </div>
      )
