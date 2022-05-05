@@ -18,8 +18,8 @@ export const putSeccion = async(form,id) => {
      }
    console.log(enviarCampos);
    try{    
-    const respuesta = await fetch(`http://localhost:3001/putSeccion/${id}`,config)
-    const res = await respuesta.json();
+    const response = await fetch(`http://localhost:3001/putSeccion/${id}`,config)
+    const res = await response.json();
     if (res.ok) return{ok:true}
     }catch{
     console.log();

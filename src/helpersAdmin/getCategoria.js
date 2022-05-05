@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const getCategoria = async() => {
-    if(!localStorage.getItem("token")) return alert ("registrate")
+    if(!localStorage.getItem("token")) return alert ("Sign up")
     const {token} = JSON.parse(localStorage.getItem("token"));
     
     const url = "http://localhost:3001/getCategorias";
@@ -13,14 +13,14 @@ export const getCategoria = async() => {
         'Authorization': `${token}`
         },
      }
-    const respuesta =await fetch(url,config);
-    const categorias = await respuesta.json();
-    const categoria = categorias.map(item=>{
+    const response =await fetch(url,config);
+    const categories = await response.json();
+    const category = categories.map(item=>{
        return { 
-           id : item.id_categoria,
-          nombre: item.nom_cate
+           id : item.id_category,
+          name: item.name_cate
        }
     })
-    return categoria
+    return category
 
 }

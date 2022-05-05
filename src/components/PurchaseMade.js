@@ -8,7 +8,7 @@ export const PurchaseMade = () => {
     // axios.get("http://localhost:3001/execute-payment")
     return (
         <div>
-          <p> HOLA HAS REALIZADO EL PAGO CON EXITO :D</p>
+          <p> HELLO YOU HAVE MADE THE PAYMENT SUCCESSFULLY :D</p>
         </div>
     )
 }

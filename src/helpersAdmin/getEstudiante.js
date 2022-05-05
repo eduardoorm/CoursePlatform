@@ -13,16 +13,16 @@ export const getEstudiante = async() => {
      }
     const url = "http://localhost:3001/getEstudiante";
     const res =await fetch(url,config);
-    const estudiantes = await res.json();
-    const estudiante = estudiantes.map(item=>{
+    const students = await res.json();
+    const student = students.map(item=>{
        return { 
-           id : item.id_estudiante,
-           nombre: item.nombre,
-           apellidos:item.apellidos,
+           id : item.id_student,
+           name: item.name,
+           lastname:item.lastname,
            email:item.email,
            role:item.role,
-           id_persona:item.id_persona,
+           id_person:item.id_person,
        }
     })
-    return estudiante
+    return student
 }

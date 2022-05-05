@@ -13,15 +13,15 @@ export const getCertificados = async () => {
     }
     const url = "http://localhost:3001/getCertificado";
     const respuesta =await fetch(url,config);
-    const certificados = await respuesta.json();
-    const certificado = certificados.map(item=>{
+    const certificates = await respuesta.json();
+    const certificate = certificates.map(item=>{
        return { 
-           id_certificado : item.id_certificado,
-           id_persona: item.id_persona,
-           nombre_curso: item.nombre_curso,
-           nombre_persona: item.nombre,
+           id_certificate : item.id_certificate,
+           id_person: item.id_person,
+           name_curso: item.name_curso,
+           name_person: item.name,
            email:item.email,
        }
     })
-    return certificado
+    return certificate
 }

@@ -2,11 +2,11 @@ import React from 'react'
 import {convertToUrl} from '../functions/ConvertToUrl'
 
 export const putVideo = async(form,id) => {
-    const enviarCampos ={
-        nom_video:form.nombre,
-        dura_video:form.duracion,
-        des_video: form.descripcion,
-        ruta_video:convertToUrl(form.nombre),
+    const sendFields ={
+        name_video:form.name,
+        dura_video:form.duration,
+        des_video: form.description,
+        url_video:convertToUrl(form.name),
     }
 
     if(!localStorage.getItem("token")) return alert ("registrate")
@@ -18,12 +18,12 @@ export const putVideo = async(form,id) => {
         'Content-Type': 'application/json',
         'Authorization': `${token}`
         },
-        body: JSON.stringify(enviarCampos)
+        body: JSON.stringify(sendFields)
      }
    
    try{    
-    const respuesta = await fetch(`http://localhost:3001/putLeccion/${id}`,config)
-    const res = await respuesta.json();
+    const response = await fetch(`http://localhost:3001/putLeccion/${id}`,config)
+    const res = await response.json();
     if(res.ok) return {
         ok:true
     }

@@ -13,11 +13,11 @@ export const getSuscripciones = async () => {
      }
     const url = "http://localhost:3001/getSuscripciones";
     const res =await fetch(url,config);
-    const suscripciones = await res.json();
-    const suscripcion = suscripciones.map(item=>{
+    const subcriptions = await res.json();
+    const subscription = subcriptions.map(item=>{
        return { 
-           nombre_persona: item.nombre,
+           name_person: item.name,
        }
     })
-    return suscripcion
+    return subscription
 }

@@ -13,14 +13,14 @@ export const getSubsByCursoID = async(id) => {
      }
     const url=`http://localhost:3001/getSubsPorCurso/${id}`;
     const response = await fetch(url,config);
-    const suscripciones = await response.json();
+    const subscriptions = await response.json();
    
-    const subs = suscripciones.map(item=>{
+    const subs = subscriptions.map(item=>{
         return {
             email: item.email,  
-            nombre: item.nombre,
-            apellidos: item.apellidos,
-            nombre_curso: item.nom_curso,
+            name: item.name,
+            lastname: item.lastname,
+            name_course: item.name_course,
            }   
     }) 
 

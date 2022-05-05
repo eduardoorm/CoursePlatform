@@ -17,7 +17,7 @@ export const postImgCurso = async (fd) => {
    try{    
     const respuesta = await fetch(`http://localhost:3001/uploadImgCurso`,config)
     const res = await respuesta.json();
-    (!res.ok) ? alert("Hubo un error") : alert("Se Agrego la Imagen")
+    (!res.ok) ? alert("There was a mistake") : alert("Added Image")
     }catch{
   console.log(); 
   }

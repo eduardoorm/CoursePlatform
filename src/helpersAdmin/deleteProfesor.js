@@ -13,9 +13,9 @@ export const deleteProfesor = async(id) => {
         },
      }
    try{    
-    const respuesta = await fetch(`http://localhost:3001/deleteInstructor/${id}`,config)
-    const res = await respuesta.json();
-    (!res.ok) ? alert("Hubo un error") : alert("Se Elimino Correctamente")
+    const response = await fetch(`http://localhost:3001/deleteInstructor/${id}`,config)
+    const res = await response.json();
+    (!res.ok) ? alert("There was a mistake") : alert("It was deleted correctly")
     }catch{
     console.log();
   }

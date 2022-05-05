@@ -13,17 +13,17 @@ export const getEstudianteID =async (id) => {
      }
     const url=`http://localhost:3001/getEstudiantePorID/${id}`;
     const response = await fetch(url,config);
-    const estudiantes = await response.json();
-    const estudiante = estudiantes.map(student=>{
+    const students = await response.json();
+    const student = students.map(student=>{
         return {
-            id: student.id_estudiante,  
-            nombre: student.nombre,
-            apellido: student.apellidos,
+            id: student.id_student,  
+            name: student.name,
+            lastaname: student.lastanames,
             email: student.email,
             role: student.role,
-            id_persona: student.id_persona
+            id_person: student.id_person
            }   
     }) 
 
-    return estudiante;
+    return student;
 }

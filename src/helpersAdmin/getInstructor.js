@@ -2,13 +2,13 @@ import React from 'react'
 
 export const getInstructor = async () => {
     const url = "http://localhost:3001/getInstructor";
-    const respuesta =await fetch(url);
-    const instructores = await respuesta.json();
-    const instructor = instructores.map(item=>{
+    const response =await fetch(url);
+    const instructors = await response.json();
+    const instructor = instructors.map(item=>{
        return { 
            id : item.id_instructor,
-          nombre: item.nombre,
-          apellidos:item.apellidos,
+          name: item.name,
+          lastname:item.lastname,
        }
     })
     return instructor

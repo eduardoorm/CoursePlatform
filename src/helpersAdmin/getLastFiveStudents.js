@@ -16,9 +16,9 @@ export const getLastFiveStudents = async() => {
     const students= await response.json();
     const student = students.map(item=>{
         return {
-            id : item.id_estudiante,
-            nombre: item.nombre,
-            apellidos:item.apellidos,
+            id : item.id_student,
+            name: item.name,
+            lastname:item.lastname,
             email:item.email,
             role:item.role,
             id_persona:item.id_persona,
