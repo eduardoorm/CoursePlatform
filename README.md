@@ -1,3 +1,3 @@
-# Proyecto Web App 
-Esta es la aplicación web de una pagina de cursos online.
+# Web App Project 
+This is the web application of an online courses website.
 
