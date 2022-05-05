@@ -12,7 +12,7 @@ export const postEstudiante =async (form) => {
        body: JSON.stringify(form)
     };
     const res = await fetch(url,config);
-    console.log("resepuesta",res);
+    console.log("response",res);
     if(res.ok){
         return {ok:true}
     }

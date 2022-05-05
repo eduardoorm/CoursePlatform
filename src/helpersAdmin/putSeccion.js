@@ -2,8 +2,8 @@ import React from 'react'
 
 export const putSeccion = async(form,id) => {
 
-    const enviarCampos ={
-        nom_modulo:form.nombre,
+    const sendFields ={
+        name_module:form.name,
     }
     if(!localStorage.getItem("token")) return alert ("registrate")
     const {token} = JSON.parse(localStorage.getItem("token"));
@@ -14,9 +14,8 @@ export const putSeccion = async(form,id) => {
         'Content-Type': 'application/json',
         'Authorization': `${token}`
         },
-        body: JSON.stringify(enviarCampos)
+        body: JSON.stringify(sendFields)
      }
-   console.log(enviarCampos);
    try{    
     const response = await fetch(`http://localhost:3001/putSeccion/${id}`,config)
     const res = await response.json();

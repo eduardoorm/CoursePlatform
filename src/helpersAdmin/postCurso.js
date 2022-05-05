@@ -4,8 +4,8 @@ export const postCurso = async(form) => {
 
     const data ={ 
         ...form,
-        fecha_curso: Date.now(),
-        ruta_curso: convertToUrl(form.nom_curso)
+        course_date: Date.now(),
+        url_course: convertToUrl(form.nom_curso)
     }
 
     if(!localStorage.getItem("token")) return alert ("registrate")

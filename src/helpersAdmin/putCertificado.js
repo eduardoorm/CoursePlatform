@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const putCertificado = async({nombre_curso},id_persona,id_certificado) => {
-    const url =`http://localhost:3001/putCertificado/${id_certificado}`;
-    const enviarCampos= {
-       nombre_curso,
-       id_persona,
+export const putCertificado = async({name_course},id_person,id_certificate) => {
+    const url =`http://localhost:3001/putCertificado/${id_certificate}`;
+    const sendFields= {
+       name_course,
+       id_person,
     } 
     if(!localStorage.getItem("token")) return alert ("registrate")
     const {token} = JSON.parse(localStorage.getItem("token"));
@@ -17,7 +17,7 @@ export const putCertificado = async({nombre_curso},id_persona,id_certificado) =>
        'Authorization': `${token}`
 
        },
-       body: JSON.stringify(enviarCampos)
+       body: JSON.stringify(sendFields)
     };
     const res = await fetch(url,config);
     if(res.ok){

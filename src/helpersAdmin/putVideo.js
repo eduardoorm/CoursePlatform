@@ -4,7 +4,7 @@ import {convertToUrl} from '../functions/ConvertToUrl'
 export const putVideo = async(form,id) => {
     const sendFields ={
         name_video:form.name,
-        dura_video:form.duration,
+        duration_video:form.duration,
         des_video: form.description,
         url_video:convertToUrl(form.name),
     }

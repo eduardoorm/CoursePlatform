@@ -3,15 +3,15 @@ import {convertToUrl} from '../functions/ConvertToUrl'
 
 export const putCurso = async (form,id) => {
   
-    const enviarCampos ={
-        nom_curso:form.nom_curso,
-        des_curso:form.des_curso,
-        dura_curso:form.dura_curso,
-        precio_curso:form.precio_curso,
-        id_categoria: form.id_categoria,
-        ruta_curso:convertToUrl(form.nom_curso),
-        instructor: form.instructor,
-        lecciones: form.lecciones,
+    const sendFields ={
+        name_course:form.name_course,
+        des_course:form.des_course,
+        duration_course:form.duration_course,
+        prince_course:form.prince_course,
+        id_category: form.id_category,
+        url_course:convertToUrl(form.name_course),
+        course_path: form.course_path,
+        lessons: form.lessons,
     }
 
     if(!localStorage.getItem("token")) return alert ("registrate")
@@ -25,12 +25,12 @@ export const putCurso = async (form,id) => {
         'Content-Type': 'application/json',
         'Authorization': `${token}`
         },
-        body: JSON.stringify(enviarCampos)
+        body: JSON.stringify(sendFields)
      }
    
       try{    
-          const respuesta = await fetch(`http://localhost:3001/putCurso/${id}`,config)
-          const res = await respuesta.json();
+          const response = await fetch(`http://localhost:3001/putCurso/${id}`,config)
+          const res = await response.json();
           if(res.ok){
             return {ok:true}
           }

@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const putCategoria =async ({nombre},id) => {
+export const putCategoria =async ({name},id) => {
      const url =`http://localhost:3001/putCategoria`;
-     const enviarCampos= {
-        nombre,
+     const sendFields= {
+        name,
         id
      }
      if(!localStorage.getItem("token")) return alert ("registrate")
@@ -15,7 +15,7 @@ export const putCategoria =async ({nombre},id) => {
         'Content-Type': 'application/json',
         'Authorization': `${token}`
         },
-        body: JSON.stringify(enviarCampos)
+        body: JSON.stringify(sendFields)
      };
      const res = await fetch(url,config);
      if(res.ok){

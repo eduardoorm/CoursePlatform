@@ -6,15 +6,15 @@ export const postLeccion = async(form,id) => {
     const found= moduloID.match(regex);
     const id_modulo = Number(found[0]);
 
-    const enviarCampos={
+    const sendFields={
         ...form,
-        ruta_curso:id,
+        url_course:id,
         id_modulo,
-        ruta_video:convertToUrl(form.nom_video),
-        id_curso:form?.id_curso,
+        url_video:convertToUrl(form.nom_video),
+        id_course:form?.id_curso,
     }
 
-    if(!localStorage.getItem("token")) return alert ("registrate")
+    if(!localStorage.getItem("token")) return alert ("Sign up")
     const {token} = JSON.parse(localStorage.getItem("token"));
 
     const url =`http://localhost:3001/postLeccion/${form?.id_curso}`;
@@ -25,7 +25,7 @@ export const postLeccion = async(form,id) => {
        'Content-Type': 'application/json',
        'Authorization': `${token}`
        },
-       body: JSON.stringify(enviarCampos)
+       body: JSON.stringify(sendFields)
     };
     const res = await fetch(url,config);
     if(res.ok){

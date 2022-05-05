@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const getSeccion = async () => {
-    if(!localStorage.getItem("token")) return alert ("registrate")
+    if(!localStorage.getItem("token")) return alert ("Sign up")
     const {token} = JSON.parse(localStorage.getItem("token"));
     let config ={
         method:"GET",

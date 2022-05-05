@@ -2,7 +2,7 @@ import React from 'react'
 
 export const postProfesor =async (profesor) => {
      const url =`http://localhost:3001/addProfesor`;
-     if(!localStorage.getItem("token")) return alert ("registrate")
+     if(!localStorage.getItem("token")) return alert ("Sign up")
     const {token} = JSON.parse(localStorage.getItem("token"));
      let config ={
         method:"POST",

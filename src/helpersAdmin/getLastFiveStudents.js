@@ -21,7 +21,7 @@ export const getLastFiveStudents = async() => {
             lastname:item.lastname,
             email:item.email,
             role:item.role,
-            id_persona:item.id_persona,
+            id_person:item.id_person,
            }   
     }) 
     return student;

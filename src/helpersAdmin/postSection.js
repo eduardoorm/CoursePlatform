@@ -1,10 +1,10 @@
 import React from 'react'
 
 export const postSection = async(form,id) => {
-    const enviarCampos={
-        nom_modulo:form.nombre,
-        id_curso:form.id_curso,
-        ruta_curso: id,
+    const sendFields={
+        name_module:form.name,
+        id_course:form.id_course,
+        url_curso: id,
     }
     const url =`http://localhost:3001/postSeccion`;
     const {token} = JSON.parse(localStorage.getItem("token"));
@@ -15,7 +15,7 @@ export const postSection = async(form,id) => {
        'Content-Type': 'application/json',
        'Authorization': `${token}`
        },
-       body: JSON.stringify(enviarCampos)
+       body: JSON.stringify(sendFields)
     };
     const res = await fetch(url,config);
     if(res.ok){

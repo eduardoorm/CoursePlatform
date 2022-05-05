@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const postCategoria =async (categoria) => {
+export const postCategoria =async (category) => {
      const url =`http://localhost:3001/addCategoria`;
      if(!localStorage.getItem("token")) return alert ("registrate")
      const {token} = JSON.parse(localStorage.getItem("token"));
@@ -12,7 +12,7 @@ export const postCategoria =async (categoria) => {
         'Content-Type': 'application/json',
         'Authorization': `${token}`
         },
-        body: JSON.stringify(categoria)
+        body: JSON.stringify(category)
      };
      const res = await fetch(url,config);
      if(res.ok){

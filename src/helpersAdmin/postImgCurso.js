@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const postImgCurso = async (fd) => {
-    if(!localStorage.getItem("token")) return alert ("registrate")
+    if(!localStorage.getItem("token")) return alert ("Sign up")
     const {token} = JSON.parse(localStorage.getItem("token"));
 
     console.log("fd",fd.get("imagen")); 
