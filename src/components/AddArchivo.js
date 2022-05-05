@@ -6,8 +6,7 @@ export default function AddArchivo(props) {
     const handleContenido=()=>{
         contenido ? setContenido(false) : setContenido(true);   
     }
- 
-    
+
     return(
         <>
          <div className="publicar-seccion-contenido">

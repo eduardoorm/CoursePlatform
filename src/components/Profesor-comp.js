@@ -10,13 +10,13 @@ export default function Profesor(props)  {
            <ContainerBioProfesor>
                <ImgProfileProfesor src="/assets/img/profesorPerfil.png"></ImgProfileProfesor>
                <ContTextBio>
-                 <h3>Erick Romucho</h3>
-                 <Text>Graduado en Diseño y Producción de Videojuegos en la UPF y Desarrollo de Aplicaciones Multiplataforma. 
-                Gran amante de los videojuegos desde que obtuvo su primera Nintendo Gameboy a los 7 años. Cuenta con años
-                de experiencia en el sector de los videojuegos. Ha trabajado en grandes proyectos como el premiado juego
-                "3 Minutes to Midnight" de Scarecrow Studios. Especializado en programación C# y el motor de juegos Unity.
-                Su otra gran afición que le hace despegar los ojos de la pantalla es la música. Actúa profesionalmente 
-                como músico (Guitarrista de Jazz Manouche) en Barcelona principalmente.
+                 <h3>Eduardo Ormeño</h3>
+                 <Text>Graduated in Video Game Design and Production at UPF and Multiplatform Application Development. 
+                Great lover of videogames since he got his first Nintendo Gameboy at the age of 7. He has years
+                of experience in the videogame industry. He has worked on major projects such as the award-winning game
+                "3 Minutes to Midnight" by Scarecrow Studios. He specializes in C# programming and the Unity game engine.
+                His other great hobby that makes him take his eyes off the screen is music. He performs professionally as a musician 
+                as a musician (Jazz Manouche Guitarist) in Barcelona, Spain, mainly.
                 </Text>
                 <a href="#">Email</a>
                </ContTextBio>

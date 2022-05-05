@@ -182,7 +182,7 @@ export const NavbarLogueado = ({stateSesion}) => {
             <AppBar position="static">
               <Toolbar>
               <Link to='/'> <Typography className={classes.title} variant="h6" noWrap>
-                  Intesla Education 
+                  Let's Learn
                 </Typography>
                 </Link>
                 <div className={classes.search}>
@@ -201,7 +201,7 @@ export const NavbarLogueado = ({stateSesion}) => {
                 <div className={classes.grow} />
                 <div className={classes.sectionDesktop}>
                   <IconButton aria-label="show 4 new mails" color="inherit">
-                    Enseña en Intesla
+                    Teach at "Let's learn"
                   </IconButton>
                   <IconButton aria-label="show 17 new notifications" color="inherit">
                     Cursos

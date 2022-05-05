@@ -1,4 +1,4 @@
-.iniciar-sesion, .registrarse{
+.login, .register{
     border: 1px solid  #3256D5;
     border-radius: 5px;
     color:#3256D5;  
@@ -13,13 +13,13 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 } 
 
-li .registrarse { 
+li .register { 
     background-color:#3256D5;
     color: white;
 }
 
 
-.btnBanner-ya,.btnBanner-mas{
+.btnBanner-now,.btnBanner-more{
     border: 1px solid #3F69FF ;
     background-color: #3F69FF;
     border-radius: 0.2em;
@@ -35,7 +35,7 @@ li .registrarse {
     margin: 20px 20px 6px 0px;
 }
 
-.registrarme{
+.register{
     background-color: #3256D5 ;
     padding: 13px;
     color: #fff;
@@ -47,7 +47,7 @@ li .registrarse {
     cursor:pointer;
 }
 
-.btnBanner-mas{
+.btnBanner-more{
     background-color: white;
     color:#3F69FF;  
 }
@@ -62,7 +62,7 @@ li .registrarse {
     font-weight: 600;
     cursor:pointer;
 }
-.btn_guardarCambios{
+/* .btn_guardarCambios{
     background-color: #3F69FF ;
     padding: 17px;
     color: rgb(255, 255, 255);
@@ -74,9 +74,9 @@ li .registrarse {
     display: block;
     width: 100%;
     margin-top: 5em;
-}
+} */
 
-.btn_mostrarPerfil{
+.btn_showProfile{
     background-color: white;
     border:none;
     width: 5em;
@@ -84,19 +84,19 @@ li .registrarse {
     display: flex;
     align-items: center;
 }
-.btn_mostrarPerfil_Video{
+/* .btn_mostrarPerfil_Video{
     background-color: #212429;
     border:none;
     width: 5em;
     height: 3em;
     display: flex;
     align-items: center;
-}
+} */
 #buton__perfil{
  color: #3256D5;
 }
 
-.btn__cerrarSesion{
+.btn__closeSession{
     border:none;
     width: 100%;
     height: 100%;

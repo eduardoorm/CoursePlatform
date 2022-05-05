@@ -5,15 +5,15 @@ export const useFecthCurso = () => {
     const [cursos, setCursos] = useState({
         dataCurso:[],
     })
-   useEffect(()=>{
-    getCursos().then(curso=>{
-        setCursos(
-            {
-                dataCurso:curso,
-            }
-        )
-    })
-   },[])
+//    useEffect(()=>{
+//     getCursos().then(curso=>{
+//         setCursos(
+//             {
+//                 dataCurso:curso,
+//             }
+//         )
+//     })
+//    },[])
    
     return cursos;
 

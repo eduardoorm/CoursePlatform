@@ -9,7 +9,7 @@ const ContInstructor = styled.div `
     padding-right: 10em;
     display: flex;
     justify-content: flex-end;
-    margin:15em 0em;
+    margin:10em 0em 0em 0em;
     @media (max-width: 1130px) {
         padding:0px;
          height:auto;

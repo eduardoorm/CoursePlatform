@@ -2,7 +2,6 @@ import {ContainBannerCurso,BannerCurso,TextBannerCurso,EmpezarYa,ImgBannerCurso,
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
-import profesorImg from '../assets/img/profesor1.jpg'
  export default function BannerCourse ({descripcion,nombre}){
     const history = useHistory();
     const checkout  = ()=>{
@@ -27,7 +26,7 @@ import profesorImg from '../assets/img/profesor1.jpg'
                          <EmpezarYa onClick={checkout}>Empezar ya</EmpezarYa> 
                      </TextBannerCurso>
                      <ImgBannerCurso>
-                        <ImgBanner src="../assets/img/profesor1.jpg" alt=""/>
+                        <ImgBanner src="../../public/assets/img/teacher-course" alt=""/>
                      </ImgBannerCurso>
                  </BannerCurso>
              </ContainBannerCurso>

@@ -8,7 +8,7 @@ const Banner =styled.div `
 
     width: 100%;
     height: 60vh;
-    background-image: url("/assets/img/bannerIntesla2.jpg") ;
+    background-image: url("/assets/img/Banner.jpg") ;
     background-repeat: no-repeat;
     background-size: cover;
     margin:0em auto 3em;
@@ -23,7 +23,7 @@ const ImgScroll =styled.div `
     margin:auto;
     margin-bottom:2em;
     height: 100vh;
-    background-image: url("/assets/img/imgScroll.jpg") ;
+    background-image: url("/assets/img/cafe-img.jpg") ;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     background-attachment: fixed; 
@@ -35,7 +35,7 @@ const ImgStatic =styled.div `
     
     margin:auto;
     height: 100vh;
-    background-image: url("/assets/img/cafeImg.jpg") ;
+    background-image: url("/assets/img/cafe-img.jpg") ;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
   
@@ -65,5 +65,5 @@ font-size: 95%;
 color:#3c3b37;
 `;
 
-export {Banner,TitleBanner,ContTextBanner,TextBanner,ImgScroll,ImgStatic};
+export {Banner,TitleBanner,ContTextBanner,TextBanner,ImgStatic};
 

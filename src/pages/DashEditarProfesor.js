@@ -1,5 +1,4 @@
 import React from 'react'
-import { DashEditarCertificate } from '../components/DashEditarCertificados/DashEditarCertificate'
 import { DashNav } from '../components/DashNav'
 import '../components/ComponentStyles/Dashboard.css'
 import { DashColumnLeft } from '../components/DashColumnLeft'

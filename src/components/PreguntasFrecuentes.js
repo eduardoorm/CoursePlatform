@@ -13,7 +13,7 @@ function LabelPregunta(props){
 }
  
 
-function Preguntas (props) {
+function Question (props) {
 
    const [collapse, setCollapse] = useState(false)
     
@@ -35,4 +35,4 @@ function Preguntas (props) {
 
 }
 
-export default Preguntas;
+export default Question;

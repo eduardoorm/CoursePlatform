@@ -1,6 +1,5 @@
 import React, {useState,useEffect, useContext} from 'react';
 import {Link,useHistory} from 'react-router-dom';
-import { Oferta } from './Oferta';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -197,7 +196,6 @@ export default function NavBar() {
        return(
        <>
 
-        <Oferta/>
         
         {/* NAVBAR PARA USUARIO NO REGISTRADOS */}
 
@@ -207,7 +205,7 @@ export default function NavBar() {
             <AppBar position="static">
             <Toolbar>
             <Typography variant="h6" className={classes.title}>
-            <Link to='/'>Intesla Education </Link> 
+            <Link to='/'>Let's Learn</Link> 
             </Typography>
             <Link to='/login'><Button color="inherit">Login</Button>  </Link>
             </Toolbar>

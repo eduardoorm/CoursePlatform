@@ -66,24 +66,24 @@ export default function PublicarComp () {
     
     return(
      <section className="publicar-curso">
-          <h1 >Publicar curso</h1>
+          <h1 >Publish course</h1>
           <MessagePost/>
         <div className="contenedor-publicarCurso">    
         <h3>Subir imagen de portada</h3>
          <input type="file"/>
-         <h3>Nombre del curso</h3>
+         <h3>Upload cover image</h3>
             <input type="Text" name="nom_curso" placeholder="Nombre del Curso" onChange={handleChange} />
             <br/><br/> 
-         <h3>Descripcion del curso</h3>
+         <h3>Course Description</h3>
             <input type="Text" name="des_curso" placeholder="Nombre del Curso" onChange={handleChange} />
             <br/><br/> 
-         <h3>Precio del curso</h3>
+         <h3>Course price</h3>
             <input type="number" name="precio_curso" placeholder="Precio del curso" onChange={handleChange}/>
             <br/><br/> 
           <h3>Fecha del curso</h3>
             <input type="date" name="fecha_curso" placeholder="Precio del curso" onChange={handleChange} />
             <br/><br/> 
-          <h3>Secciones</h3>
+          <h3>Course date</h3>
             { elemento.map((i,posi)=><AddSeccion pos={posi+1} onChange={handleChangeModulo} cambiar={handleChangeVideo}/>)}
         </div>
           <button className="btn-plus" onClick={addSection}>

@@ -5,8 +5,6 @@ import '../components/ComponentStyles/Dashboard.css'
 import { DashColumnLeft } from '../components/DashColumnLeft'
 import { DashHeader } from '../components/DashHeader'
 import { DashConteDashboard } from '../components/DashConteDashboard'
-import { DashMostrarCertificados } from '../components/DashEditarCertificados/DashMostrarCertificados'
-import { DashAddCertificado } from '../components/DashEditarCertificados/DashAddCertificado'
 import { Link } from 'react-router-dom'
 export const DashCertificado = () => {
     const [clickAddCertificado, setclickAddCertificado] = useState(false)
@@ -42,9 +40,9 @@ export const DashCertificado = () => {
                           </div>
                             {clickAddCertificado
                              ? 
-                             <DashAddCertificado/>
+                             <p> this was delete</p>
                              :
-                             <DashMostrarCertificados/>
+                             <p> this was delete</p>
                              }
 
                         </div>

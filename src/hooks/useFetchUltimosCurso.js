@@ -6,13 +6,13 @@ export const useFetchUltimosCurso = () => {
         dataCursos:[],
     })
 
-     useEffect(()=>{
-        getUltimosCursos().then(curso=>{
-             setultimosCursos({
-                 dataCursos:curso,
-             })
-        })
-     },[])  
+    //  useEffect(()=>{
+    //     getUltimosCursos().then(curso=>{
+    //          setultimosCursos({
+    //              dataCursos:curso,
+    //          })
+    //     })
+    //  },[])  
 
     return ultimosCursos
 }

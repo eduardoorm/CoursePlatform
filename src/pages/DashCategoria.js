@@ -5,8 +5,8 @@ import '../components/ComponentStyles/Dashboard.css'
 import { DashColumnLeft } from '../components/DashColumnLeft'
 import { DashHeader } from '../components/DashHeader'
 import { DashConteDashboard } from '../components/DashConteDashboard'
-import { DashAddCategoria } from '../components/DashEditarCategoria/DashAddCategoria'
-import { DashMostrarCategoria } from '../components/DashEditarCategoria/DashMostrarCategoria'
+import { DashAddCategory } from '../components/DashEditarCategoria/DashAddCategory'
+import { DashMostrarCategoria } from '../components/DashEditarCategoria/DashShowCategory'
 
 export const DashCategoria = () => {
     const [clickAddCate, setclickAddCate] = useState(false)
@@ -42,7 +42,7 @@ export const DashCategoria = () => {
                        </div> 
                             {clickAddCate
                              ? 
-                            <DashAddCategoria/>
+                            <DashAddCategory/>
                              :
                              <>
                              {/* <div className="identi_categoria">

@@ -1,10 +1,10 @@
-import {Banner,TitleBanner,ContTextBanner,TextBanner,ImgScroll,ImgStatic} from '../elementos/Banner'
+import {Banner,TitleBanner,ContTextBanner,TextBanner,ImgStatic} from '../elementos/Banner'
 import {Btn} from './Button'
 import {Section,TituloSeccionUltimos } from '../elementos/Section'
 import Course from './Course'
 import {ContInstructor, BtnEmpiezaEnseniar, TextContInstructor, ImgContInstructor, ImgTeacher, TituloContInstructor,ParrafoContInstructor} 
 from '../elementos/Banner-Instructor'
-import Preguntas from './PreguntasFrecuentes'
+import Question from './PreguntasFrecuentes'
 import {Link} from 'react-router-dom'
 import {IdPreguntasfrecuentes} from '../elementos/Preguntas'
 import { useFetchUltimosCurso } from '../hooks/useFetchUltimosCurso';
@@ -29,17 +29,19 @@ function Principal() {
      
     <Banner>
         <ContTextBanner> 
-        <TitleBanner>Aprende algo nuevo cada día</TitleBanner>
-        <TextBanner>Ambición aceptada. Aprende las últimas habilidades para alcanzar tus objetivos profesionales.</TextBanner>
+        <TitleBanner>Learn something new every day</TitleBanner>
+        <TextBanner>
+          Ambition accepted . Learn the lastest skills tor achieve your career goals.
+        </TextBanner>
        <Link to="/collections">
         <Btn 
-            style="btnBanner-ya"
-            value="¡Aprender YA!"
+            style="btnBanner-now"
+            value="¡Learn Now!"
           />
        </Link> 
         <Btn 
-          style="btnBanner-mas"
-          value="Saber más"
+          style="btnBanner-more"
+          value="More info"
         />
         </ContTextBanner>
     </Banner>
@@ -48,14 +50,14 @@ function Principal() {
     
     { (user) &&
       <div className="boxWelcome">
-      <h2 className="welcomeUser">Bienvenido <span className="user-Upper"> {user.nombre} </span></h2>
+      <h2 className="welcomeUser">¡Welcome<span className="user-Upper"> {user.nombre}!</span></h2>
       </div>}
   
-   <TituloSeccionUltimos>Últimos cursos publicados</TituloSeccionUltimos>
+   <TituloSeccionUltimos>Last Courses published</TituloSeccionUltimos>
 
       <div id="container-flex-cursos">
         {curso?.length === 0 ?
-          <h1>cargando...</h1>
+          <h1>loading...</h1>
           :
           curso?.map(curso =>
             <>
@@ -79,7 +81,7 @@ function Principal() {
     <Link to="/collections">
                 <Btn
                 style="btn-default"
-                value="Ver Todos los Cursos"
+                value="View All Courses"
                 />
     </Link>
 
@@ -91,57 +93,57 @@ function Principal() {
           </ImgContInstructor>
 
           <TextContInstructor>
-               <TituloContInstructor>Conviértete en instructor </TituloContInstructor>
-               <ParrafoContInstructor>Los mejores instructores de todo el mundo enseñan 
-                a miles de estudiantes en Intesla. Proporcionamos las herramientas y
-                las habilidades para que enseñes lo que te apasiona.
+               <TituloContInstructor>Become an instructor</TituloContInstructor>
+               <ParrafoContInstructor>The best instructors from all over word teach thounsands of students at "Let's Learn".
+                We have a great working environment and we provide the tools you need to improve every day.  
                 </ParrafoContInstructor>
-                <Link to="/teaches"><BtnEmpiezaEnseniar>Empieza a enseñar hoy mismo</BtnEmpiezaEnseniar> </Link>
+                <Link to="/teaches"><BtnEmpiezaEnseniar>Start teaching today</BtnEmpiezaEnseniar> </Link>
           </TextContInstructor>
 
     </ContInstructor>
 
-    <ImgScroll/>
 
         <IdPreguntasfrecuentes>
           <div className="containerPF">
-          <h2>Preguntas frecuentes</h2> <br/><br/>
-          <Preguntas
-          id="pregunta1"
-          rpta ="Mínimo uno nuevo cada mes, ¡aunque siempre intentamos hacer más! 😋"
-          labelText="¿Habrá cursos nuevos?"
-           for= "pregunta1"
+          <h2>Frecuent Questions</h2> <br/><br/>
+          <Question
+          id="question1"
+          rpta ="At least one new one every month, although we always try to do more!😋"
+          labelText="Will there be new courses?"
+           for= "question1"
           /> 
-          <Preguntas
-           id="pregunta2"
-           rpta ="No hay problema, aceptamos pagos de todo el mundo y en cualquier tipo de moneda. 😁"
-           labelText="¿Puedo pagar con otra moneda que no sean euros y desde cualquier país?"
-           for= "pregunta2"
+
+          <Question
+           id="question2"
+           rpta ="No problem, we accept payments from all over the world and in any currency. 😁"
+           labelText="Can I pay with other currency than euros and from any country?"
+           for= "question2"
           /> 
-          <Preguntas
-          id="pregunta3"
-          rpta= "De momento solo en unos pocos, ¡pero estamos trabajando como hormiguitas para tenerlos en todos los cursos! 👀"
-          labelText="¿Recibiré algún titulo por acabar los cursos?"
-           for= "pregunta3"
+          <Question
+          id="question3"
+          rpta= "At the moment only in a few, but we are working like little ants to have them in all courses! 👀"
+          labelText="Will I receive any degree for finishing the courses?"
+           for= "question3"
           /> 
-          <Preguntas
-          id="pregunta4"
-          rpta= "Te ayudamos 24/7 en el chat de soporte, abajo a la derecha en cualquier sitio de nuestra web, o enviando un email a _____ 🤖"
-          labelText="¿Donde pido ayuda?"
-           for= "pregunta4"
+          <Question
+          id="question4"
+          rpta= "We help you 24/7 in the support chat, bottom right anywhere on our website, or by sending an email to _____ 🤖"
+          labelText="Where do I ask for help?"
+           for= "question4"
           /> 
-          <Preguntas
-          id="pregunta5"
-          rpta= "Son vídeos, diapositivas, textos ¡y todo lo que necesites para qué aprendas al máximo! 💪"
-          labelText="¿Cómo son los curso de Intesla?"
-           for= "pregunta5"
+          <Question
+          id="question5"
+          rpta= "They are videos, slides, texts and everything you need for you to learn the most! 💪"
+          labelText="What are the Intesla courses like?"
+           for= "question5"
           /> 
-           <Preguntas
-          id="pregunta6"
-          rpta= "Como si quieres hacerlos todos a la vez… si estás muy loco claro. 😆"
-          labelText="¿Puedo hacer más de un curso a la vez?"
-           for= "pregunta6"
+           <Question
+          id="question6"
+          rpta= "Like if you want to do them all at once... if you're really crazy of course. 😆"
+          labelText="Can I do more than one course at a time?"
+           for= "question6"
           /> 
+
       
 
           </div>

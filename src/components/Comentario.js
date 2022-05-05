@@ -7,7 +7,6 @@ import { postRespuesta } from '../helpers/postRespuesta';
 import { deleteComentario } from '../helpers/deleteComentario';
 import { UseFecthUsuario } from '../hooks/useFecthUsuario';
 import { AnswerWrite } from './AnswerWrite';
-import  {convertirFecha} from './convertirFecha'
 
 export default function Comentario(props) {
     const [responder,setResponder]       = useState(false)
@@ -57,7 +56,7 @@ export default function Comentario(props) {
         e.preventDefault();
         const {id_respuesta} = await postRespuesta(respuestaTXT)
         const date = new Date(Number(Date.now())); 
-        const fecha = convertirFecha(date);
+        const fecha = '12/12/12';
         
         const payload ={
             respuesta:respuestaTXT.respuesta,

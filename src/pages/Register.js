@@ -96,7 +96,7 @@ export default function Register (){
         <>
         <div className="formulario-contenedor">
             <div className="form-titulo">
-                    <h1>Inscríbete y comienza a aprender.</h1> 
+                    <h1>Sign up and start learning.</h1> 
             </div>
             <div className="form-post">
 
@@ -140,8 +140,8 @@ export default function Register (){
                  {alert.status &&  <p>{alert.msg}</p>}
                  {loading &&  <LinearProgress />}
                    <Btn
-                    style="registrarme"
-                    value="Registrarme"
+                    style="register"
+                    value="register"
                     type="Submit"
                     />
             </form>

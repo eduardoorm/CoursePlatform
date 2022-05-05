@@ -78,7 +78,7 @@ export default  function PerfilComp () {
                           onClick={handlEditarPerfil} 
                           className="btn_editarPerfil">
                           {
-                          (!clickEditarPerfil) && <p>Editar Perfil</p> 
+                          (!clickEditarPerfil) && <p>Edit Profile</p> 
                           }
                       </button>
                   </div>
@@ -90,7 +90,7 @@ export default  function PerfilComp () {
              <div className="form__actualizar">
              <div className="actualizar__item">
                      <div className="form-titulo">
-                             <h1>Tus datos</h1> 
+                             <h1>Your data</h1> 
                      </div>
                    <div className="form-post">
                        <Formulario id="form">
@@ -123,7 +123,7 @@ export default  function PerfilComp () {
                            <button
                              className="btn_cambiarContraseña"
                              onClick={clickCambiarContraseña} 
-                             type="button">Cambiar Contraseña
+                             type="button">Change Password
                            </button>
                            
                            {loading &&  <LinearProgress />}
@@ -145,15 +145,15 @@ export default  function PerfilComp () {
              :
              (cursos?.length===0)?
               <div className="estudiante-SinCursos-container">
-                <h3>Mis Cursos</h3>
+                <h3>My Courses</h3>
                 <div className="estudiante-misCursos">
-                    <p>Aun no tienes cursos 🙁</p>
-                 <Link to="/collections"><button className="btn-explorarCursos">Explorar Cursos</button></Link>  
+                    <p>No courses yet 🙁</p>
+                 <Link to="/collections"><button className="btn-explorarCursos">Explore Courses</button></Link>  
                 </div>
              </div>
              :
              <>
-             <h2 className="misCursos_Titulo">Mis Cursos</h2>
+             <h2 className="misCursos_Titulo">My Courses</h2>
               <div className="estudiante-misCursos-container">             
                     {cursos?.map(curso=><MiCurso key={curso} {...curso} />) }
                 

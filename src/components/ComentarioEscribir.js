@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { postComentario } from '../helpers/postComentario';
 import { UseFecthUsuario } from '../hooks/useFecthUsuario';
 import './ComponentStyles/Comentarios.css'
-import  {convertirFecha} from './convertirFecha'
 export default function ComentarioEscribir({cantidad,ruta_video,id_curso, dispatch}) {
     const {data:usuario} =UseFecthUsuario();
     const {nombre,apellido,id_persona}=usuario;
@@ -39,7 +38,7 @@ export default function ComentarioEscribir({cantidad,ruta_video,id_curso, dispat
 
         const {id_comentario} = await postComentario(comment);
         const date = new Date(Number(Date.now())); 
-        const fecha = convertirFecha(date);
+        const fecha = '12/12/12'
 
         const payload = {
           ...comment,

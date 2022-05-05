@@ -41,7 +41,7 @@ export const FormTeaches = () => {
 
     return (
         <div className="formulario-contenedor">
-           <h4>No dejes pasar esta oportunidad y forma parte de nuestra plana docente en Intesla</h4> 
+           <h4>Don't miss this opportunity and become part of our teaching staff at Let's Learn</h4> 
 
             <form className={classes.root} noValidate autoComplete="off"
                  onSubmit = {handleSubmit} onChange={handleChange}>

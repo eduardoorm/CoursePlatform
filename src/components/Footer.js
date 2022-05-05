@@ -9,24 +9,24 @@ class Footer extends Component{
              <div className="fo-container">
                 <div className="fo-item-up">
                     <div className="fo-item-up-1">
-                       <p>Contenido</p>
-                        <a href="#">Enseña en Intesla</a> 
-                        <a href="#">¿Quienes somos?</a>
+                       <p>Content.</p>
+                        <a href="#">Teach at Intesla</a> 
+                        <a href="#">Who are we?</a>
                     </div>
                     <div className="fo-item-up-1">
-                       <p>Cursos</p>
-                        <a href="#">Ponte en contacto con nosotros</a>
-                        <a href="#">Política de Privacidad</a>
+                       <p>Courses</p>
+                        <a href="#">Get in touch with us</a>
+                        <a href="#">Privacy Policy</a>
                     </div>    
                     <div className="fo-item-up-1">
                         <p>Legal</p>
-                        <a href="#">Términos y condiciones del servicio</a> 
+                        <a href="#">Terms and conditions of service</a> 
                     </div>       
                 </div>
-                   <div className="fo-item-down">
-                       <h2>INTESLA</h2>
-                       <p>@2021 Intesla, Inc.</p>
-                   </div>
+                <div className="fo-item-down">
+                    <h2>Les't Learn</h2>
+                    <p>@2022 Eduardo Ormeño, Inc.</p>
+                </div>
               </div>
         </footer>
         )
