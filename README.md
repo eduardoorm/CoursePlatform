@@ -1,7 +1,7 @@
-<h1 align="center"> <img src="./images/LOGOS.png" width=180px height=180px>
+<h1 align="center"> EdLearning
 </h1>
  <p align="left">
-   EdLearning
+  
 </p>
 <p></p>
 
@@ -47,8 +47,7 @@ El proyecto se encuentra libre para ser descargado y utilizarlo localmente.
 </ul>
 
 ## Personas contribuyentes<a name="id6"></a>
-
-<img width=115 height="115" src="./images/My-octocat.png"></img><br>
+![My octocat](https://user-images.githubusercontent.com/74284944/181636318-ce74d8c5-73df-4302-8c02-32ef32782c07.png)
 Eduardo Ormeño 
 
 ## Conclusión<a name="id7"></a>
