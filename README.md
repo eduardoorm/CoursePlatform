@@ -47,7 +47,8 @@ El proyecto se encuentra libre para ser descargado y utilizarlo localmente.
 </ul>
 
 ## Personas contribuyentes<a name="id6"></a>
-![My octocat](https://user-images.githubusercontent.com/74284944/181636318-ce74d8c5-73df-4302-8c02-32ef32782c07.png)
+<img width=115 height="115" src="https://user-images.githubusercontent.com/74284944/181636318-ce74d8c5-73df-4302-8c02-32ef32782c07.png"></img><br>
+
 Eduardo Ormeño 
 
 ## Conclusión<a name="id7"></a>
